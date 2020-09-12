@@ -43,6 +43,8 @@
   </div>
   {% endif %}
   {% block js %}{% endblock %}
+  
+  {% if response %}
   <script>
     function unblur() {
       document.getElementById("content").style.filter = "blur(0px)";
@@ -54,5 +56,6 @@
       unblur()
     }
   </script>
+  {% endif %}
 </body>
 </html>
