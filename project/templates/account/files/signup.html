@@ -1,0 +1,30 @@
+{% extends 'account/base.html' %}
+
+
+{% block css %}
+    {% include css %}
+{% endblock css %}
+    
+
+{% block title %}
+  SIGN UP
+{% endblock %}
+
+
+{% block content %}
+<div id="container">
+    <div id="head">Sign UP</div>
+    <form id="signupForm" action="." method="post"> 
+        {% for field in form %}
+            <br>
+            <div class="innerForm"> 
+                {{ field.errors }}
+                {{ field.label_tag }} <br> {{ field }}
+            </div> 
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" id="inputSubmit" value="Submit">
+    </form>
+</div>
+{% endblock content %}
+    

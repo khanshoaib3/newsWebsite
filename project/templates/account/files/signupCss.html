@@ -1,0 +1,99 @@
+<style>
+    body{
+        width: 100vw;
+        height: auto;
+        background-color: #333945;
+    }
+    #profileL{
+        display: none;
+    }
+    #content{
+        width: 100%;
+        position: absolute;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #container{
+        width: fit-content;
+        height: fit-content;
+        padding: 15px 20px;
+        background-color: #2C3335;
+        text-align: center;
+        color: white;
+    }
+    #container:hover,#container:focus-within{
+        box-shadow: 1px 1px 15px 0px black;
+    }
+    #container::-moz-focus-inner{
+        box-shadow: 1px 1px 15px 0px black;
+    }
+    .innerForm{
+        text-align: left;
+        margin: 5px 0;
+    }
+    .innerForm label{
+        font-size: 20px;
+    }
+    .innerInput{
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid grey;
+        min-width: 150px;
+        padding: 2px 5px;
+        color: #ffffff;
+        margin-left: 15px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .innerInputChange{
+        border-bottom: 1px solid #ffffff;
+    }
+    .innerFormChange{
+        color: #ffffff;
+    }
+    #container #head{
+        color: #ffffff;
+        font-size: 30px;
+        margin-top: 10px;
+        text-transform: uppercase;
+    }
+    #inputSubmit{
+        background-color: #e64146;
+        padding: 5px 10px;
+        color:white;
+        font-size: 17px;
+        border:none;
+        border-radius: 4px;
+        margin: 10px auto;
+    }
+    #inputSubmit:hover{
+        background-color: #E71C23;
+        padding: 6px 11px;
+        margin: 9px auto;
+    }
+    
+</style>
+<script>
+    function inputHover(i) {
+        if ($(i).hasClass("innerInputChange") && i.value == "") {
+            i.classList.remove("innerInputChange")
+            i.parentElement.firstElementChild.classList.remove("innerFormChange")
+        } else {
+            i.classList.add("innerInputChange")
+            i.parentElement.firstElementChild.classList.add("innerFormChange")
+        }
+    }
+    function inputChange(i) {
+        console.log(i.value)
+        if (i.value != "") {
+            console.log(i.value)
+            i.classList.add("innerInputChange")
+            i.parentElement.firstElementChild.classList.add("innerFormChange")
+        }
+    }
+</script>
