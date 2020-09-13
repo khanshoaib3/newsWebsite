@@ -1,0 +1,22 @@
+<script>
+    var array = document.getElementsByClassName("innerInput")
+    for (let i = 0; i < array.length; i++) {
+        inputChange(array[i])
+    }
+    console.log(array[0].classList)
+    function inputHover(i) {
+        if ($(i).hasClass("innerInputChange") && i.value == "") {
+            i.classList.remove("innerInputChange")
+            i.parentElement.firstElementChild.classList.remove("innerFormChange")
+        } else {
+            i.classList.add("innerInputChange")
+            i.parentElement.firstElementChild.classList.add("innerFormChange")
+        }
+    }
+    function inputChange(i) {
+        if (i.value != "") {
+            i.classList.add("innerInputChange")
+            i.parentElement.firstElementChild.classList.add("innerFormChange")
+        }
+    }
+</script>

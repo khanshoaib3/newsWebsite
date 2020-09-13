@@ -14,22 +14,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   {% block css %}{% endblock %}
-  <style>
-    #alertBox{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-    }
-  </style>
+  {% include commonCss %}
 </head>
 <body>
   <div id="content" {% if response %} style="filter: blur(1px);"{% endif %}>
     {% include nav %}
-    {% block content %}{% endblock %}
+    <div id="container">
+      <div id="head">{% block formHead %}{% endblock formHead %}</div>
+      <form id="signupForm" action="." method="post"> 
+          {% for field in form %}
+              <br>
+              <div class="innerForm"> 
+                  {{ field.errors }}
+                  {{ field.label_tag }} <br> {{ field }}
+              </div> 
+          {% endfor %}
+          {% csrf_token %}
+          <input type="submit" id="inputSubmit" value="Submit">
+      </form>
+      <div id="foot">{% block formExtras %}{% endblock formExtras %}</div>
+    </div>
   </div>
   
   {% if response %}
@@ -43,7 +47,7 @@
   </div>
   {% endif %}
   {% block js %}{% endblock %}
-  
+  {% include commonJs %}
   {% if response %}
   <script>
     function unblur() {

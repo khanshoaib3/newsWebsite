@@ -1,5 +1,17 @@
 {% extends 'account/base.html' %}
 
+  
+
 {% block title %}
   LOG IN
 {% endblock %}
+
+
+
+{% block formHead %}
+    Log in
+{% endblock formHead %}
+    
+{% block formExtras %}
+    New user?<a href="/account/signup/">Sign up</a>
+{% endblock formExtras %}
