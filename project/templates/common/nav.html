@@ -168,7 +168,7 @@
     <a id="homeL" href="/"><span>home</span></a>
     <a id="newsL" href="news/"><span>news</span></a>
     {% if request.user.is_authenticated %}
-    <a id="profileL" href="profile/"><span>{{ request.user.first_name }}</span></a>
+    <a id="profileL" href="account/"><span>{{ request.user.first_name }}</span></a>
     {% else %}
     <a id="profileL" href="account/signup/"><span>sign up</span></a>
     {% endif %}

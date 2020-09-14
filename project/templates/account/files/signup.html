@@ -24,3 +24,13 @@ SIGN UP
   <div id="foot">Already a user?<a href="/account/signin/">Log in</a></div>
 </div>
 {% endblock content %}
+
+
+{% block js %}
+<script>
+  var array = document.getElementsByClassName("innerInput")
+  for (let i = 0; i < array.length; i++) {
+    inputChange(array[i])
+  }
+</script>
+{% endblock js %}

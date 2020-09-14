@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from account.forms import signupForm,signinForm
+from account.forms import signupForm,signinForm,reAuthenticate
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -104,4 +104,21 @@ def signout(request):
 
 # endregion
 
+# region Profile
 
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        form = reAuthenticate(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            if cd['password'] is not "" :
+                if authenticate(username = request.user.username,password=cd['password']) is not None :
+                    return redirect('/account/edit/')
+                else:
+                    return render(request,'account/files/profile.html',{'response':'Wrong password','form':form,'commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
+    else:
+        form = reAuthenticate()
+    return render(request,'account/files/profile.html',{'form':form,'commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
+
+# endregion

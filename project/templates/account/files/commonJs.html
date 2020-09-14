@@ -1,9 +1,4 @@
 <script>
-    var array = document.getElementsByClassName("innerInput")
-    for (let i = 0; i < array.length; i++) {
-        inputChange(array[i])
-    }
-    console.log(array[0].classList)
     function inputHover(i) {
         if ($(i).hasClass("innerInputChange") && i.value == "") {
             i.classList.remove("innerInputChange")

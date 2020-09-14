@@ -8,6 +8,8 @@
 
 
 
+  
+
 {% block content %}
 <div id="container">
   <div id="head">Log in</div>
@@ -25,3 +27,12 @@
   <div id="foot">New user?<a href="/account/signup/">Sign up</a></div>
 </div>
 {% endblock content %}
+
+{% block js %}
+<script>
+  var array = document.getElementsByClassName("innerInput")
+  for (let i = 0; i < array.length; i++) {
+    inputChange(array[i])
+  }
+</script>
+{% endblock js %}

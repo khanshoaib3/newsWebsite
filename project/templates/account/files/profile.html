@@ -1,34 +1,111 @@
 {% extends 'account/base.html' %}
 
-  
+
 
 {% block title %}
-  Profile
+Profile
 {% endblock %}
 
+
+{% block css %}
+<style>
+  #profile {
+    min-width: 100px;
+    width: fit-content;
+  }
+
+  .innerProfile {
+    text-align: left;
+    width: fit-content;
+    margin: 0 10px;
+    cursor: default;
+  }
+
+  .innerProfile .label {
+    text-transform: capitalize;
+    font-family: 'Spartan', sans-serif;
+    font-size: 20px;
+  }
+
+  .innerProfile .value {
+    font-family: 'Spartan', sans-serif;
+    font-size: 18px;
+  }
+  #extra{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+</style>
+{% endblock css %}
 
 
 {% block content %}
 <div id="container">
-  <div id="head">Log in</div>
+  <div id="head">profile</div>
   <div id="profile">
     <div class="innerProfile">
-        <span class="label">First Name :</span>
-        <span class="value">{{ request.user.first_name }}</span>
+      <span class="label">First Name :</span>
+      <span class="value">{{ request.user.first_name }}</span>
     </div>
     <div class="innerProfile">
-        <span class="label">Last Name :</span>
-        <span class="value">{{ request.user.last_name }}</span>
+      <span class="label">Last Name :</span>
+      <span class="value"> {% if request.user.last_name %}{{ request.user.last_name }}{% else %}nil{% endif %}</span>
     </div>
     <div class="innerProfile">
-        <span class="label">username :</span>
-        <span class="value">{{ request.user.username }}</span>
+      <span class="label">username :</span>
+      <span class="value">{{ request.user.username }}</span>
     </div>
     <div class="innerProfile">
-        <span class="label">Email :</span>
-        <span class="value">{{ request.user.email }}</span>
+      <span class="label">Email :</span>
+      <span class="value">{{ request.user.email }}</span>
+    </div>
+    <div class="innerProfile">
+      <span class="label">Email :</span>
+      <span class="value">{{ request.user.pasword }}</span>
     </div>
   </div>
-  <div id="foot"><a href="/account/logout/"><button>Log out</button></a></div>
+  <div id="foot">
+    <button class="buttonStyle1" onclick="editPortal()">Edit</button>
+    <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
+  </div>
 </div>
 {% endblock content %}
+
+
+
+{% block extras %}
+<div id="extra" onclick="closeEditPortal()">
+  <div id="extraContainer">
+    <form id="signupForm" action="." method="post">
+      {% for field in form %}
+      <br>
+      <div class="innerForm">
+        {{ field.errors }}
+        {{ field.label_tag }} <br> {{ field }}
+      </div>
+      {% endfor %}
+      {% csrf_token %}
+      <input type="submit" id="inputSubmit" value="Submit">
+    </form>
+  </div>
+</div>
+{% endblock extras %}
+
+
+
+{% block js %}
+<script>
+  function editPortal() {
+    document.getElementById("extra").style.display = "flex";
+    document.getElementById("content").style.filter = "blur(1px)"
+  }
+  function closeEditPortal() {
+    document.getElementById("extra").style.display = "none";
+    document.getElementById("content").style.filter = "blur(0px)"
+  }
+</script>
+{% endblock js %}
