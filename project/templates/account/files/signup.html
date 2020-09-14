@@ -1,19 +1,26 @@
 {% extends 'account/base.html' %}
 
-  
+
 
 {% block title %}
-  SIGN UP
+SIGN UP
 {% endblock %}
 
 
-
-{% block formHead %}
-    sign up
-{% endblock formHead %}
-    
-
-{% block formExtras %}
-    Already a user?<a href="/account/signin/">Log in</a>
-{% endblock formExtras %}
-    
+{% block content %}
+<div id="container">
+  <div id="head">sign up</div>
+  <form id="signupForm" action="." method="post">
+    {% for field in form %}
+    <br>
+    <div class="innerForm">
+      {{ field.errors }}
+      {{ field.label_tag }} <br> {{ field }}
+    </div>
+    {% endfor %}
+    {% csrf_token %}
+    <input type="submit" id="inputSubmit" value="Submit">
+  </form>
+  <div id="foot">Already a user?<a href="/account/signin/">Log in</a></div>
+</div>
+{% endblock content %}

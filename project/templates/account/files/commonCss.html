@@ -1,12 +1,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Spartan&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@700&display=swap" rel="stylesheet">
 <style>
-    body{
+    body {
         width: 100vw;
         height: auto;
         background-color: #333945;
     }
-    #alertBox{
+
+    #alertBox {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -15,10 +16,12 @@
         height: 100%;
         z-index: 100;
     }
-    #profileL{
+
+    #profileL {
         display: none;
     }
-    #content{
+
+    #content {
         width: 100%;
         position: absolute;
         height: 100vh;
@@ -28,75 +31,263 @@
         justify-content: center;
         align-items: center;
     }
-    #container{
+
+    #container {
         width: fit-content;
         height: fit-content;
         padding: 15px 20px;
-        background-color:#303536;
+        background-color: #303536;
         text-align: center;
         color: white;
         border-radius: 4px;
+        margin-top: 60px;
     }
-    #container:hover,#container:focus-within{
+
+    #container:hover,
+    #container:focus-within {
         box-shadow: 1px 1px 15px 0px black;
         background-color: #2C3335;
         transform: scale(1.01);
     }
-    #container::-moz-focus-inner{
+
+    #container::-moz-focus-inner {
         box-shadow: 1px 1px 15px 0px black;
         background-color: #2C3335;
         transform: scale(1.00001);
     }
-    .innerForm{
+
+    .innerForm {
         text-align: left;
     }
-    .innerForm label{
+
+    .innerForm label {
         font-size: 20px;
         margin-bottom: 0;
         font-family: 'Spartan', sans-serif;
     }
-    .innerInput{
+
+    .innerInput {
         outline: none;
         background-color: transparent;
         border: none;
         border-bottom: 1px solid grey;
-        min-width: 250px;
         padding: 2px 5px;
         color: #ffffff;
         margin-left: 15px;
         font-size: 18px;
         font-family: 'Spartan', sans-serif;
     }
-    .innerInputChange{
+
+    .innerInputChange {
         border-bottom: 1px solid #ffffff;
     }
-    .innerFormChange{
+
+    .innerFormChange {
         color: #ffffff;
     }
-    #container #head{
+
+    #container #head {
         color: #ffffff;
         font-size: 30px;
         margin-top: 10px;
         text-transform: uppercase;
         font-family: 'Kreon', serif;
     }
-    #inputSubmit{
+
+    #inputSubmit {
         background-color: #e64146;
         padding: 5px 10px;
-        color:white;
+        color: white;
         font-size: 17px;
-        border:none;
+        border: none;
         border-radius: 4px;
         margin: 10px auto;
     }
-    #inputSubmit:hover{
+
+    #inputSubmit:hover {
         background-color: #E71C23;
         padding: 6px 11px;
         margin: 9px auto;
     }
-    #foot{
+
+    #foot {
         font-family: 'Spartan', sans-serif;
         font-size: 15px;
     }
-    
+
+    @media (max-width: 319px) {
+
+        /*Very small devices ,*/
+        .innerForm label {
+            font-size: 16px;
+        }
+
+        #container #head {
+            font-size: 24px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 13px;
+        }
+
+        .innerInput {
+            width: 160px;
+        }
+
+        #foot {
+            font-size: 11px;
+        }
+
+    }
+
+    @media (min-width:320px) {
+
+        /* smartphones, iPhone, portrait 480x320 phones */
+        .innerForm label {
+            font-size: 17px;
+        }
+
+        #container #head {
+            font-size: 25px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 14px;
+        }
+
+        .innerInput {
+            width: 180px;
+        }
+
+        #foot {
+            font-size: 12px;
+        }
+    }
+
+    @media (min-width:481px) {
+
+        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        .innerForm label {
+            font-size: 18px;
+        }
+
+        #container #head {
+            font-size: 27px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 15px;
+        }
+
+        .innerInput {
+            width: 250px;
+        }
+
+        #foot {
+            font-size: 13px;
+        }
+    }
+
+    @media (min-width:641px) {
+
+        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+        .innerForm label {
+            font-size: 19px;
+        }
+
+        #container #head {
+            font-size: 29px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 16px;
+        }
+
+        .innerInput {
+            width: 250px;
+        }
+
+        #foot {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width:961px) {
+
+        /* tablet, landscape iPad, lo-res laptops ands desktops */
+        .innerForm label {
+            font-size: 20px;
+        }
+
+        #container #head {
+            font-size: 30px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 17px;
+        }
+
+        .innerInput {
+            width: 250px;
+        }
+
+        #foot {
+            font-size: 15px;
+        }
+    }
+
+    @media (min-width:1025px) {
+
+        /* big landscape tablets, laptops, and desktops */
+        .innerForm label {
+            font-size: 20px;
+        }
+
+        #container #head {
+            font-size: 30px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 17px;
+        }
+
+        .innerInput {
+            width: 250px;
+        }
+
+        #foot {
+            font-size: 15px;
+        }
+    }
+
+    @media (min-width:1281px) {
+
+        /* hi-res laptops and desktops */
+        .innerForm label {
+            font-size: 20px;
+        }
+
+        #container #head {
+            font-size: 30px;
+        }
+
+        #inputSubmit,
+        .innerInput {
+            font-size: 17px;
+        }
+
+        .innerInput {
+            width: 250px;
+        }
+
+        #foot {
+            font-size: 15px;
+        }
+    }
 </style>

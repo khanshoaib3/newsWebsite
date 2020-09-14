@@ -19,21 +19,9 @@
 <body>
   <div id="content" {% if response %} style="filter: blur(1px);"{% endif %}>
     {% include nav %}
-    <div id="container">
-      <div id="head">{% block formHead %}{% endblock formHead %}</div>
-      <form id="signupForm" action="." method="post"> 
-          {% for field in form %}
-              <br>
-              <div class="innerForm"> 
-                  {{ field.errors }}
-                  {{ field.label_tag }} <br> {{ field }}
-              </div> 
-          {% endfor %}
-          {% csrf_token %}
-          <input type="submit" id="inputSubmit" value="Submit">
-      </form>
-      <div id="foot">{% block formExtras %}{% endblock formExtras %}</div>
-    </div>
+    
+    {% block content %}{% endblock content %}
+    
   </div>
   
   {% if response %}

@@ -6,7 +6,7 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 # Create your models here.
-class profile(models.Model):
+class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete = models.CASCADE)
     emailVerified = models.BooleanField(default = False)
 
