@@ -13,4 +13,4 @@ class signupForm(forms.Form):
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'innerInput','onmouseover':'inputHover(this)','onmouseout':'inputHover(this)','onchange':'inputChange(this)'}))
 
 class reAuthenticate(forms.Form):
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'innerInput','onmouseover':'inputHover(this)','onmouseout':'inputHover(this)','onchange':'inputChange(this)'}),label="")
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'innerInput','onmouseover':'inputHover(this)','onmouseout':'inputHover(this)','onchange':'inputChange(this)'}),required=False,label="")

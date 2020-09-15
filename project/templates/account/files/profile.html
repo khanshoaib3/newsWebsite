@@ -31,13 +31,65 @@ Profile
     font-family: 'Spartan', sans-serif;
     font-size: 18px;
   }
-  #extra{
+
+  #extra {
     position: absolute;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
+    z-index: 50;
+    transform: scale(0);
+    transition: 0.2s;
+  }
+
+  #extraContainer {
+    padding: 10px 15px;
+    background-color: #e4e4e4;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  #extraContainer div {
+    text-align: left;
+  }
+
+  #extraContainer .innerForm input {
+    border-bottom: 1px solid black !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #extraContainer span {
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+  }
+
+  #extraContainer .innerForm {
+    height: min-content;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: initial;
+  }
+
+  #formSubmit {
+    background-color: #ff767b;
+  }
+
+  #formSubmit:hover {
+    background-color: #fc696e;
+  }
+
+  #portalButton {
+    background-color: rgb(177, 177, 177);
+  }
+
+  #portalButton {
+    background-color: rgb(177, 177, 177);
   }
 </style>
 {% endblock css %}
@@ -63,14 +115,10 @@ Profile
       <span class="label">Email :</span>
       <span class="value">{{ request.user.email }}</span>
     </div>
-    <div class="innerProfile">
-      <span class="label">Email :</span>
-      <span class="value">{{ request.user.pasword }}</span>
-    </div>
   </div>
   <div id="foot">
-    <button class="buttonStyle1" onclick="editPortal()">Edit</button>
     <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
+    <button class="buttonStyle1" onclick="editPortal()">Edit</button>
   </div>
 </div>
 {% endblock content %}
@@ -78,18 +126,19 @@ Profile
 
 
 {% block extras %}
-<div id="extra" onclick="closeEditPortal()">
+<div id="extra">
   <div id="extraContainer">
+    <span>Enter your password</span>
     <form id="signupForm" action="." method="post">
       {% for field in form %}
-      <br>
       <div class="innerForm">
         {{ field.errors }}
         {{ field.label_tag }} <br> {{ field }}
       </div>
       {% endfor %}
       {% csrf_token %}
-      <input type="submit" id="inputSubmit" value="Submit">
+      <button class="buttonStyle1" id="portalButton" onclick="editPortal()">Cancel</button>
+      <input type="submit" id="formSubmit" class="buttonStyle1" value="Ok">
     </form>
   </div>
 </div>
@@ -100,12 +149,15 @@ Profile
 {% block js %}
 <script>
   function editPortal() {
-    document.getElementById("extra").style.display = "flex";
-    document.getElementById("content").style.filter = "blur(1px)"
-  }
-  function closeEditPortal() {
-    document.getElementById("extra").style.display = "none";
-    document.getElementById("content").style.filter = "blur(0px)"
+    if ($("#extra").hasClass("extraEdit")) {
+      document.getElementById("extra").classList.remove("extraEdit")
+      document.getElementById("extra").style.transform = "scale(0)"
+      document.getElementById("content").style.filter = "blur(0px)"
+    } else {
+      document.getElementById("extra").classList.add("extraEdit")
+      document.getElementById("extra").style.transform = "scale(1)"
+      document.getElementById("content").style.filter = "blur(2px)"
+    }
   }
 </script>
 {% endblock js %}
