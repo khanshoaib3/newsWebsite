@@ -1,0 +1,161 @@
+{% extends 'account/base.html' %}
+
+
+
+{% block title %}
+Profile
+{% endblock %}
+
+
+{% block css %}
+<style>
+  #profile {
+    min-width: 100px;
+    width: fit-content;
+  }
+
+  .innerProfile {
+    text-align: left;
+    width: fit-content;
+    margin: 0 10px;
+    cursor: default;
+  }
+
+  .innerProfile .label {
+    text-transform: capitalize;
+    font-family: 'Spartan', sans-serif;
+    font-size: 20px;
+  }
+
+  .innerProfile .value {
+    font-family: 'Spartan', sans-serif;
+    font-size: 18px;
+  }
+
+  #extra {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 50;
+    transform: scale(0);
+    transition: 0.2s;
+  }
+
+  #extraContainer {
+    padding: 10px 15px;
+    background-color: #e4e4e4;
+    position: absolute;
+    z-index: 100;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  #extraContainer div {
+    text-align: left;
+  }
+
+  #extraContainer .innerForm input {
+    border-bottom: 1px solid black !important;
+    color: black !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #extraContainer span {
+    font-family: 'Spartan', sans-serif;
+    font-size: 15px;
+  }
+
+  #extraContainer .innerForm {
+    height: min-content;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: initial;
+  }
+
+  #formSubmit {
+    background-color: #ff767b;
+  }
+
+  #formSubmit:hover {
+    background-color: #fc696e;
+  }
+
+  #portalButton {
+    background-color: rgb(177, 177, 177);
+  }
+
+  #portalButton {
+    background-color: rgb(177, 177, 177);
+  }
+</style>
+{% endblock css %}
+
+
+{% block content %}
+<div id="container">
+  <div id="head">profile</div>
+  <div id="profile">
+    <div class="innerProfile">
+      <span class="label">First Name :</span>
+      <span class="value">{{ request.user.first_name }}</span>
+    </div>
+    <div class="innerProfile">
+      <span class="label">Last Name :</span>
+      <span class="value"> {% if request.user.last_name %}{{ request.user.last_name }}{% else %}nil{% endif %}</span>
+    </div>
+    <div class="innerProfile">
+      <span class="label">username :</span>
+      <span class="value">{{ request.user.username }}</span>
+    </div>
+    <div class="innerProfile">
+      <span class="label">Email :</span>
+      <span class="value">{{ request.user.email }}</span>
+    </div>
+  </div>
+  <div id="foot">
+    <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
+    <button class="buttonStyle1" onclick="editPortal()">Edit</button>
+  </div>
+</div>
+{% endblock content %}
+
+
+
+<!-- {% block extras %}
+<div id="extra">
+  <div id="extraContainer">
+    <span>Enter your password</span>
+    <div id="promptForm" action="." method="post">
+      <div class="innerForm">
+        <label for="promptInput"></label><br>
+        <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
+      </div>
+      <button class="buttonStyle1" id="portalButton" onclick="editPortal()">Cancel</button>
+      <button id="formSubmit" class="buttonStyle1" >Ok</button>
+    </div>
+  </div>
+</div>
+{% endblock extras %} -->
+
+
+
+{% block js %}
+<script>
+  function editPortal() {
+    if ($("#extra").hasClass("extraEdit")) {
+      document.getElementById("extra").classList.remove("extraEdit")
+      document.getElementById("extra").style.transform = "scale(0)"
+      document.getElementById("content").style.filter = "blur(0px)"
+    } else {
+      document.getElementById("extra").classList.add("extraEdit")
+      document.getElementById("extra").style.transform = "scale(1)"
+      document.getElementById("content").style.filter = "blur(2px)"
+      document.getElementById("promptInput").focus()
+    }
+  }
+</script>
+{% endblock js %}

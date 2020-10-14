@@ -13,25 +13,19 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  {% include commonCss %}
   {% block css %}{% endblock %}
-  <style>
-    #alertBox{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 100;
-    }
-  </style>
 </head>
 <body>
   <div id="content" {% if response %} style="filter: blur(1px);"{% endif %}>
     {% include nav %}
-    {% block content %}{% endblock %}
+    
+    {% block content %}{% endblock content %}
+    
   </div>
   
+  {% block extras %}{% endblock extras %}
+    
   {% if response %}
   <div id="alertBox" {% if response %} onclick="closeAlertBox()" {% endif %}>
     <div class="alert alert-danger alert-dismissible fade show" style="text-transform: capitalize;z-index: 100;" role="alert">
@@ -42,7 +36,9 @@
     </div>
   </div>
   {% endif %}
+  {% include commonJs %}
   {% block js %}{% endblock %}
+  {% if response %}
   <script>
     function unblur() {
       document.getElementById("content").style.filter = "blur(0px)";
@@ -54,5 +50,6 @@
       unblur()
     }
   </script>
+  {% endif %}
 </body>
 </html>
