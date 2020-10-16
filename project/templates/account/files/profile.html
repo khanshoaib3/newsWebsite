@@ -125,15 +125,15 @@ Profile
 
 
 
-#{% block extras %}
-#<div id="extra">
-#  <div id="extraContainer">
-#    <span>Enter your password</span>
-#    <div id="promptForm" action="." method="post">
-#      <div class="innerForm">
-#        <label for="promptInput"></label><br>
-#        <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
-#      </div>
+{% block extras %}
+<div id="extra">
+  <div id="extraContainer">
+    <span>Enter your password</span>
+    <div id="promptForm" action="." method="post">
+      <div class="innerForm">
+        <label for="promptInput"></label><br>
+        <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
+      </div>
       <button class="buttonStyle1" id="portalButton" onclick="editPortal()">Cancel</button>
       <button id="formSubmit" class="buttonStyle1" >Ok</button>
     </div>
@@ -144,6 +144,8 @@ Profile
 
 
 {% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
 <script>
   function editPortal() {
     if ($("#extra").hasClass("extraEdit")) {
@@ -157,5 +159,36 @@ Profile
       document.getElementById("promptInput").focus()
     }
   }
+</script>
+<script>
+   var csrftoken = Cookies.get('csrftoken');
+   function csrfSafeMethod(method) {
+     // these HTTP methods do not require CSRF protectio
+     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+   }
+   $.ajaxSetup({
+    beforeSend: function(xhr, settings){
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+   });
+   $(document).ready(function(){
+    $('button#formSubmit').click(function(){
+      var pass = $("input#promptInput").val();
+      $.post('{% url "account:reAuthenticate" %}',
+      {
+        pass: pass,
+      },
+      function(data){
+        if (data['status'] == 'ok') {
+          alert("ok");
+        }
+        else{
+          alert("no");
+        }
+      })
+    });
+  });
 </script>
 {% endblock js %}

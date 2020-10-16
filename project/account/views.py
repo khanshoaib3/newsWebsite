@@ -3,8 +3,10 @@ from account.forms import signupForm,signinForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 from rest_framework.authtoken.models import Token
 from .models import Profile
+from django.http import JsonResponse
 
 
 # region Log IN
@@ -111,3 +113,18 @@ def profile(request):
     return render(request,'account/files/profile.html',{'commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
 
 # endregion
+
+@login_required
+@require_POST
+def re_authenticate(request):
+    password = request.POST.get('pass')
+    if password!="":
+        user = authenticate(username=request.user.username,password=password)
+        if user is not None :
+            if user.is_active :
+                return JsonResponse({'status':'ok'})
+            else :
+                return JsonResponse({'status':'Account Disabled'})
+        else :
+            return JsonResponse({'status':'Wrong Password'})
+    return JsonResponse({'status':'Something Went Wrong'})
