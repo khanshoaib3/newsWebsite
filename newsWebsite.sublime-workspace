@@ -1,0 +1,328 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"el",
+				"elapsedTime"
+			],
+			[
+				"tr",
+				"transform.position"
+			],
+			[
+				"tra",
+				"Transform.right"
+			],
+			[
+				"q",
+				"Quaternion"
+			],
+			[
+				"sho",
+				"shootPoint.position"
+			],
+			[
+				"forwar",
+				"Vector3.forward"
+			],
+			[
+				"getbuut",
+				"Input.GetButtonDown(buttonName)"
+			],
+			[
+				"getbutt",
+				"Input.GetButtonDown(buttonName)"
+			],
+			[
+				"SmoothDa",
+				"Mathf.SmoothDampAngle(current, target, currentVelocity, smoothTime, maxSpeed, deltaTime)"
+			],
+			[
+				"Q",
+				"Quaternion.Euler(euler)"
+			],
+			[
+				"deltaT",
+				"Time.deltaTime"
+			],
+			[
+				"Ve",
+				"Vector3"
+			],
+			[
+				"ve",
+				"Vector3"
+			],
+			[
+				"Cha",
+				"CharacterController"
+			],
+			[
+				"Lerp",
+				"Vector3.Lerp(a, b, t)"
+			],
+			[
+				"pla",
+				"player.position"
+			],
+			[
+				"po",
+				"positionTo"
+			],
+			[
+				"lerp",
+				"Vector3.Lerp(a, b, t)"
+			],
+			[
+				"pos",
+				"positionOffset"
+			],
+			[
+				"translate",
+				"Transform.Translate(translation)"
+			],
+			[
+				"deltat",
+				"Time.deltaTime"
+			],
+			[
+				"ro",
+				"rotationSpeed"
+			],
+			[
+				"getaxi",
+				"Input.GetAxis(axisName)"
+			],
+			[
+				"getAx",
+				"Input.GetAxis(axisName)"
+			],
+			[
+				"In",
+				"Input"
+			],
+			[
+				"cam",
+				"cameraRotation"
+			],
+			[
+				"Com",
+				"Component"
+			],
+			[
+				"Pos",
+				"Position"
+			],
+			[
+				"position",
+				"Position"
+			],
+			[
+				"Fix",
+				"FixedUpdate"
+			],
+			[
+				"fixed",
+				"FixedUpdate"
+			],
+			[
+				"vec",
+				"Vector3"
+			],
+			[
+				"V",
+				"Vector3"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"lis",
+				"Package Control: List Packages"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/shoaib/Projects/newsWebsite"
+	],
+	"file_history":
+	[
+		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/Imported Assets/general-texture-pack/README.txt",
+		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/scripts/cameraScript.cs",
+		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/FirstGame.sublime-project",
+		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/scripts/playerScript.cs"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 41.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "newsWebsite.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 206.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
