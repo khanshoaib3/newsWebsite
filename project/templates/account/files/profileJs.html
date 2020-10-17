@@ -42,7 +42,7 @@
           $('div#foot').remove();
           $('div#head').text('Edit Profile');
 
-          $('div#container').append('<div id="profile"><div class="innerForm"><span class="label">First Name:</span><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><span class="label">Last Name:</span><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div></div>')
+          $('div#container').append('<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>')
 
           $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
         }
@@ -53,20 +53,30 @@
         }
       });
     });
-});
+  });
 
-    function confirmProfileEdit(){
-       firstName = $('#editFirstName').val();
-       lastName = $('#editLastName').val();
-       $.post('{% url "account:editProfile" %}',
-        {
-          firstName:firstName,
-          lastName:lastName
-        },
-        function(recievedData){
-          if (recievedData['status']=='ok') {
-            location.reload();
-          }
-        });
+  function confirmProfileEdit(){
+     firstName = $('#editFirstName').val();
+     lastName = $('#editLastName').val();
+     $.post('{% url "account:editProfile" %}',
+      {
+        firstName:firstName,
+        lastName:lastName
+      },
+      function(recievedData){
+        if (recievedData['status']=='ok') {
+          location.reload();
+        }
+      });
+  }
+
+  function checkBoxState(cb) {
+    if (cb.checked) {
+      document.getElementById("passwordEdit").style.height = "150px"
+      // document.getElementById("passwordEdit").style.transform = "scaleY(1)"
+    } else {
+      document.getElementById("passwordEdit").style.height = "0"
+      //document.getElementById("passwordEdit").style.transform = "scaleY(0)"
     }
+  }
 </script>
