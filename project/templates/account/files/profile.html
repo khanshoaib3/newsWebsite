@@ -126,6 +126,7 @@ Profile
 
 
 {% block extras %}
+<!-- prompt box or portal -->
 <div id="extra">
   <div id="extraContainer">
     <span>Enter your password</span>
@@ -146,7 +147,10 @@ Profile
 {% block js %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+
 <script>
+  // to open and close the prompt/portal box
   function editPortal() {
     if ($("#extra").hasClass("extraEdit")) {
       document.getElementById("extra").classList.remove("extraEdit")
@@ -160,6 +164,8 @@ Profile
     }
   }
 </script>
+
+
 <script>
    var csrftoken = Cookies.get('csrftoken');
    function csrfSafeMethod(method) {
@@ -182,10 +188,12 @@ Profile
       },
       function(data){
         if (data['status'] == 'ok') {
-          alert("ok");
+          openAlertBox("ok");
         }
-        else{
-          alert("no");
+        else if(data['status'] == 'empty'){}
+        else {
+          editPortal()
+          openAlertBox(data['status']);
         }
       })
     });

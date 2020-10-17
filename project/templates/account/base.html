@@ -25,31 +25,27 @@
   </div>
   
   {% block extras %}{% endblock extras %}
-    
-  {% if response %}
-  <div id="alertBox" {% if response %} onclick="closeAlertBox()" {% endif %}>
+
+  <div id="alertBox" onclick="closeAlertBox()" style=' {% if response %} display: flex; {% else %} display: none; {% endif %}'>
     <div class="alert alert-danger alert-dismissible fade show" style="text-transform: capitalize;z-index: 100;" role="alert">
-      <strong>Error!</strong> {{ response }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="unblur()">
+      <strong>Error!</strong> <span id="alertBoxMessage">{{ response }} </span>
+      <button type="button" class="close" aria-label="Close" onclick="closeAlertBox()">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
   </div>
-  {% endif %}
   {% include commonJs %}
   {% block js %}{% endblock %}
-  {% if response %}
   <script>
-    function unblur() {
+    function closeAlertBox() {
       document.getElementById("content").style.filter = "blur(0px)";
       document.getElementById("alertBox").style.display = "none";
     }
-    function closeAlertBox() {
-      $(".alert").alert('close')
-      $(".alert").alert('dispose')
-      unblur()
+    function openAlertBox(value) {
+      $('span#alertBoxMessage').text(value);
+      document.getElementById("content").style.filter = "blur(1px)";
+      document.getElementById("alertBox").style.display = "flex";
     }
   </script>
-  {% endif %}
 </body>
 </html>

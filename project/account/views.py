@@ -127,4 +127,6 @@ def re_authenticate(request):
                 return JsonResponse({'status':'Account Disabled'})
         else :
             return JsonResponse({'status':'Wrong Password'})
+    else :
+        return JsonResponse({'status':'empty'})
     return JsonResponse({'status':'Something Went Wrong'})
