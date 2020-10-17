@@ -1,0 +1,72 @@
+<script type="text/javascript">
+  // to open and close the prompt/portal box
+  function editPortal() {
+    if ($("#extra").hasClass("extraEdit")) {
+      document.getElementById("extra").classList.remove("extraEdit")
+      document.getElementById("extra").style.transform = "scale(0)"
+      document.getElementById("content").style.filter = "blur(0px)"
+    } else {
+      document.getElementById("extra").classList.add("extraEdit")
+      document.getElementById("extra").style.transform = "scale(1)"
+      document.getElementById("content").style.filter = "blur(2px)"
+      document.getElementById("promptInput").focus()
+    }
+  }
+
+   var csrftoken = Cookies.get('csrftoken');
+   function csrfSafeMethod(method) {
+     // these HTTP methods do not require CSRF protectio
+     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+   }
+   $.ajaxSetup({
+    beforeSend: function(xhr, settings){
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+   });
+
+// snifflysalt@#123498999
+   $(document).ready(function(){
+
+    $('button#formSubmit').click(function(){
+      var pass = $("input#promptInput").val();
+      $.post('{% url "account:reAuthenticate" %}',
+      {
+        pass: pass,
+      },
+      function(data){
+        if (data['status'] == 'ok') {
+          editPortal()
+          $('div#profile').remove();
+          $('div#foot').remove();
+          $('div#head').text('Edit Profile');
+
+          $('div#container').append('<div id="profile"><div class="innerForm"><span class="label">First Name:</span><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><span class="label">Last Name:</span><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div></div>')
+
+          $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
+        }
+        else if(data['status'] == 'empty'){}
+        else {
+          editPortal()
+          openAlertBox(data['status']);
+        }
+      });
+    });
+});
+
+    function confirmProfileEdit(){
+       firstName = $('#editFirstName').val();
+       lastName = $('#editLastName').val();
+       $.post('{% url "account:editProfile" %}',
+        {
+          firstName:firstName,
+          lastName:lastName
+        },
+        function(recievedData){
+          if (recievedData['status']=='ok') {
+            location.reload();
+          }
+        });
+    }
+</script>

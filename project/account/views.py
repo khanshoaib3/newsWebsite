@@ -7,7 +7,7 @@ from django.views.decorators.http import require_POST
 from rest_framework.authtoken.models import Token
 from .models import Profile
 from django.http import JsonResponse
-
+import json
 
 # region Log IN
 
@@ -110,9 +110,11 @@ def signout(request):
 
 @login_required
 def profile(request):
-    return render(request,'account/files/profile.html',{'commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
+    return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
 
 # endregion
+
+
 
 @login_required
 @require_POST
@@ -130,3 +132,18 @@ def re_authenticate(request):
     else :
         return JsonResponse({'status':'empty'})
     return JsonResponse({'status':'Something Went Wrong'})
+
+
+
+@login_required
+@require_POST
+def editProfile(request):
+    firstName = request.POST.get('firstName').strip()
+    lastName = request.POST.get('lastName').strip()
+    user = User.objects.get(username = request.user.username)
+    if firstName != request.user.first_name and firstName != '' :
+        user.first_name = firstName
+    if lastName != request.user.last_name and lastName != '' :
+        user.last_name = lastName
+    user.save()
+    return JsonResponse({'status':'ok'})

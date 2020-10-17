@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"la",
+				"last_name"
+			],
+			[
+				"fir",
+				"first_name"
+			],
+			[
+				"fun",
+				"fun\tFunction"
+			],
+			[
+				"va",
+				"value"
+			],
+			[
+				"a",
+				"append"
+			],
+			[
 				"i",
 				"ife\tif … else"
 			],
@@ -14,10 +34,6 @@
 			[
 				"pas",
 				"password"
-			],
-			[
-				"fun",
-				"function"
 			],
 			[
 				"fu",
@@ -172,47 +188,30 @@
 	"buffers":
 	[
 		{
+			"file": "project/templates/account/files/profileJs.html",
+			"settings":
+			{
+				"buffer_size": 2644,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "project/templates/account/files/profile.html",
 			"settings":
 			{
-				"buffer_size": 4776,
+				"buffer_size": 2039,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "project/templates/account/base.html",
+			"file": "project/templates/account/files/profileCss.html",
 			"settings":
 			{
-				"buffer_size": 2542,
+				"buffer_size": 1470,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "project/templates/account/files/commonCss.html",
-			"settings":
-			{
-				"buffer_size": 5718,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "project/account/views.py",
-			"settings":
-			{
-				"buffer_size": 6445,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "project/account/urls.py",
-			"settings":
-			{
-				"buffer_size": 318,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -228,8 +227,16 @@
 		"selected_items":
 		[
 			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
 				"ins",
 				"Package Control: Install Package"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
 			],
 			[
 				"in",
@@ -277,6 +284,17 @@
 	],
 	"file_history":
 	[
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/profileJs.html",
+		"/E/shoaib/Sublime Text/Data/Packages/User/Base File.sublime-settings",
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/profile.html",
+		"/E/shoaib/Sublime Text/Data/Packages/Alignment/Base File.sublime-settings",
+		"/E/shoaib/Sublime Text/Data/Packages/User/HTML (Django).sublime-settings",
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/profileCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/account/views.py",
+		"/E/shoaib/Sublime Text/Data/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/base.html",
+		"/E/shoaib/Projects/newsWebsite/project/account/urls.py",
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/commonCss.html",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/Imported Assets/general-texture-pack/README.txt",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/scripts/cameraScript.cs",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/FirstGame.sublime-project",
@@ -284,7 +302,7 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -316,160 +334,97 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "project/templates/account/files/profile.html",
+					"file": "project/templates/account/files/profileJs.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4776,
+						"buffer_size": 2644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4776,
-								4776
+								2629,
+								2623
 							]
 						],
 						"settings":
 						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3377.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "project/templates/account/base.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2542,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1506,
-								1514
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 684.0,
+						"translation.y": 439.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "project/templates/account/files/commonCss.html",
-					"semi_transient": true,
+					"buffer": 1,
+					"file": "project/templates/account/files/profile.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5718,
+						"buffer_size": 2039,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								565,
+								537
 							]
 						],
 						"settings":
 						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 168.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "project/account/views.py",
+					"buffer": 2,
+					"file": "project/templates/account/files/profileCss.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6445,
+						"buffer_size": 1470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6089,
-								6089
+								184,
+								184
 							]
 						],
 						"settings":
 						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1981.0,
+						"translation.y": 84.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "project/account/urls.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 318,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								268,
-								291
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 71.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -477,7 +432,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -518,7 +473,7 @@
 	"project": "newsWebsite.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -1,12 +1,13 @@
 from django.urls import path
-from account.views import signin,signup,signout,profile,re_authenticate
+from account.views import signin,signup,signout,profile,re_authenticate,editProfile
 
 app_name = 'account'
 
 urlpatterns = [
-    path('signin/',signin),
-    path('signup/',signup),
-    path('logout/',signout),
+    path('signin/', signin, name='signin'),
+    path('signup/', signup, name='signup'),
+    path('logout/', signout, name='signout'),
     path('reAuthenticate/', re_authenticate, name='reAuthenticate'),
-    path('',profile),
+    path('editProfile/', editProfile, name='editProfile'),
+    path('', profile, name='profile'),
 ]
