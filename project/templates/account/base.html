@@ -17,7 +17,7 @@
   {% block css %}{% endblock %}
 </head>
 <body>
-  <div id="content" {% if response %} style="filter: blur(1px);"{% endif %}>
+  <div id="content" {% if response %} style="filter: blur(2px);"{% endif %}>
     {% include nav %}
     
     {% block content %}{% endblock content %}
@@ -26,7 +26,7 @@
   
   {% block extras %}{% endblock extras %}
 
-  <div id="alertBox" onclick="closeAlertBox()" style=' {% if response %} display: flex; {% else %} display: none; {% endif %}'>
+  <div id="alertBox" onclick="closeAlertBox()" style=' {% if response %} transform: scale(1); {% else %} transform: scale(0); {% endif %}'>
     <div class="alert alert-danger alert-dismissible fade show" style="text-transform: capitalize;z-index: 100;" role="alert">
       <strong>Error!</strong> <span id="alertBoxMessage">{{ response }} </span>
       <button type="button" class="close" aria-label="Close" onclick="closeAlertBox()">
@@ -39,12 +39,12 @@
   <script>
     function closeAlertBox() {
       document.getElementById("content").style.filter = "blur(0px)";
-      document.getElementById("alertBox").style.display = "none";
+      document.getElementById("alertBox").style.transform = "scale(0)";
     }
     function openAlertBox(value) {
       $('span#alertBoxMessage').text(value);
-      document.getElementById("content").style.filter = "blur(1px)";
-      document.getElementById("alertBox").style.display = "flex";
+      document.getElementById("content").style.filter = "blur(2px)";
+      document.getElementById("alertBox").style.transform = "scale(1)";
     }
   </script>
 </body>
