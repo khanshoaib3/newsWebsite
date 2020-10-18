@@ -1,0 +1,68 @@
+{% extends 'account/base.html' %}
+
+
+
+{% block title %}
+  Profile
+{% endblock %}
+
+
+{% block css %}
+  {% include css %}
+{% endblock css %}
+
+
+{% block content %}
+  <div id="container">
+    <div id="head">profile</div>
+    <div id="profile">
+      <div class="innerProfile">
+        <span class="label">First Name :</span>
+        <span class="value">{{ request.user.first_name }}</span>
+      </div>
+      <div class="innerProfile">
+        <span class="label">Last Name :</span>
+        <span class="value"> {% if request.user.last_name %}{{ request.user.last_name }}{% else %}nil{% endif %}</span>
+      </div>
+      <div class="innerProfile">
+        <span class="label">username :</span>
+        <span class="value">{{ request.user.username }}</span>
+      </div>
+      <div class="innerProfile">
+        <span class="label">Email :</span>
+        <span class="value">{{ request.user.email }}</span>
+      </div>
+    </div>
+    <div id="foot">
+      <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
+      <button class="buttonStyle1" onclick="editPortal()">Edit</button>
+    </div>
+  </div>  
+{% endblock content %}
+
+
+
+{% block extras %}
+  <!-- prompt box or portal -->
+  <div id="extra">
+    <div id="extraContainer">
+      <span>Enter your password</span>
+      <div id="promptForm">
+        <div class="innerForm">
+          <label for="promptInput"></label><br>
+          <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
+        </div>
+        <button class="buttonStyle1 cancelButton" onclick="editPortal()">Cancel</button>
+        <button id="formSubmit" class="buttonStyle1" >Ok</button>
+      </div>
+    </div>
+  </div>
+{% endblock extras %}
+
+
+
+{% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+  {% include js %}
+{% endblock js %}
