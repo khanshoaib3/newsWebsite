@@ -28,15 +28,14 @@
 
 // snifflysalt@#123498999
    $(document).ready(function(){
-
     $('button#formSubmit').click(function(){
       var pass = $("input#promptInput").val();
       $.post('{% url "account:reAuthenticate" %}',
       {
         pass: pass,
       },
-      function(data){
-        if (data['status'] == 'ok') {
+      function(recievedData){
+        if (recievedData['status'] == 'ok') {
           editPortal()
           $('div#profile').remove();
           $('div#foot').remove();
@@ -46,10 +45,10 @@
 
           $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
         }
-        else if(data['status'] == 'empty'){}
+        else if(recievedData['status'] == 'empty'){}
         else {
           editPortal()
-          openAlertBox(data['status']);
+          openAlertBox(recievedData['status']);
         }
       });
     });
@@ -58,14 +57,21 @@
   function confirmProfileEdit(){
      firstName = $('#editFirstName').val();
      lastName = $('#editLastName').val();
+     newPassword = $('#newPassword').val();
+     confirmNewPassword = $('#confirmNewPassword').val();
+
      $.post('{% url "account:editProfile" %}',
       {
         firstName:firstName,
-        lastName:lastName
+        lastName:lastName,
+        newPassword:newPassword,
+        confirmNewPassword:confirmNewPassword
       },
       function(recievedData){
         if (recievedData['status']=='ok') {
-          location.reload();
+          document.location.href="/";
+        } else {
+          openAlertBox(recievedData['status'])
         }
       });
   }

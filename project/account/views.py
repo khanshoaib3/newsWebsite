@@ -121,12 +121,8 @@ def profile(request):
 def re_authenticate(request):
     password = request.POST.get('pass')
     if password!="":
-        user = authenticate(username=request.user.username,password=password)
-        if user is not None :
-            if user.is_active :
-                return JsonResponse({'status':'ok'})
-            else :
-                return JsonResponse({'status':'Account Disabled'})
+        if request.user.check_password(password) :
+            return JsonResponse({'status':'ok'})
         else :
             return JsonResponse({'status':'Wrong Password'})
     else :
@@ -140,10 +136,36 @@ def re_authenticate(request):
 def editProfile(request):
     firstName = request.POST.get('firstName').strip()
     lastName = request.POST.get('lastName').strip()
+    newPassword = request.POST.get('newPassword').strip()
+    confirmNewPassword = request.POST.get('confirmNewPassword').strip()
     user = User.objects.get(username = request.user.username)
     if firstName != request.user.first_name and firstName != '' :
         user.first_name = firstName
     if lastName != request.user.last_name and lastName != '' :
         user.last_name = lastName
+    if newPassword!='' or confirmNewPassword!='':
+        if newPassword==confirmNewPassword:
+            if len(newPassword) >= 8:
+                specialCharachter = 0
+                number = 0
+                word = 0
+                for x in newPassword:
+                    if x=='!' or x=='@' or x=='#' or x=='^' or x=='&' or x=='*' or x=='#' or x=='(' or x==')' or x=='-' or x=='_' or x=='=' or x=='+' or x=='{' or x=='}' or x=='[' or x==']' or x=='|' or x=='\\' or x==';' or x==':' or x=='\'' or x=='"' or x=='<' or x=='>' or x==',' or x=='.' or x=='/' or x=='?' :
+                        specialCharachter = specialCharachter + 1
+                    if x>='0' and x<='9' :
+                        number = number + 1
+                    if (x>='a' and x<='z') or (x>='A' and x<='Z'):
+                        word = word + 1
+                if specialCharachter > 0 and word > 0 and number > 0 :
+                    if user.check_password(newPassword):
+                        return JsonResponse({'status':'Cannot reuse previous password'})
+                    else :
+                        user.set_password(newPassword)
+                else:
+                    return JsonResponse({'status':'Password must contain a special charachter (@,!,#....), a number and an alphabet'})
+            else:
+                return JsonResponse({'status':'Password too short, must be atleast 8 charachters long'})
+        else :
+            return JsonResponse({'status':'Passwords don\'t match' })
     user.save()
     return JsonResponse({'status':'ok'})
