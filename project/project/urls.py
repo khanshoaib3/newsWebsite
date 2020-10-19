@@ -21,4 +21,5 @@ urlpatterns = [
     path('',views.homeView),
     path('admin/', admin.site.urls),
     path('account/',include('account.urls','account')),
+    path('news/',include('newsBlog.urls','news')),
 ]

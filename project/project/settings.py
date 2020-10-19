@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'rest_framework',
     'rest_framework.authtoken',
+    'newsBlog.apps.NewsblogConfig',
 ]
 
 REST_FRAMEWORK = {
