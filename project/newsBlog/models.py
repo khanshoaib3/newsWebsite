@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+import uuid
 
 
 #Custom model manager to filter posts according to published status
@@ -12,6 +13,7 @@ class PublishedManager(models.Manager):
 
 # Create your models here.
 class Post(models.Model):
+	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 	STATUS_CHOICES = (
 		('draft', 'Draft'),
 		('published', 'Published'),
