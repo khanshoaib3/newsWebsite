@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"li",
+				"listBlog"
+			],
+			[
+				"comm",
+				"commonCss"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
 				"publ",
 				"published"
 			],
@@ -98,10 +110,6 @@
 			[
 				"inn",
 				"innerForm"
-			],
-			[
-				"re",
-				"reload"
 			],
 			[
 				"lo",
@@ -296,19 +304,46 @@
 	"buffers":
 	[
 		{
-			"file": "project/newsBlog/models.py",
+			"file": "project/newsBlog/views.py",
 			"settings":
 			{
-				"buffer_size": 1265,
+				"buffer_size": 300,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "project/newsBlog/admin.py",
+			"file": "project/templates/newsblog/files/commonCss.html",
 			"settings":
 			{
-				"buffer_size": 424,
+				"buffer_size": 195,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/base.html",
+			"settings":
+			{
+				"buffer_size": 463,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/files/listBlog.html",
+			"settings":
+			{
+				"buffer_size": 494,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/files/listBlogCss.html",
+			"settings":
+			{
+				"buffer_size": 0,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -377,19 +412,22 @@
 		"/E/shoaib/Projects/newsWebsite",
 		"/E/shoaib/Projects/newsWebsite/project",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog",
-		"/E/shoaib/Projects/newsWebsite/project/project",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
-		"/E/shoaib/Projects/newsWebsite/project/templates/account",
-		"/E/shoaib/Projects/newsWebsite/project/templates/account/files",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common"
+		"/E/shoaib/Projects/newsWebsite/project/templates/common",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files"
 	],
 	"file_history":
 	[
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog/urls.py",
-		"/E/shoaib/Projects/newsWebsite/project/project/urls.py",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog/models.py",
-		"/E/shoaib/Projects/newsWebsite/project/project/settings.py",
+		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog/urls.py",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/detailBlog.html",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog/admin.py",
+		"/E/shoaib/Projects/newsWebsite/project/project/urls.py",
+		"/E/shoaib/Projects/newsWebsite/project/project/settings.py",
 		"/E/shoaib/Projects/newsWebsite/project/account/admin.py",
 		"/E/shoaib/Projects/newsWebsite/project/news/models.py",
 		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/profileJs.html",
@@ -448,30 +486,115 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "project/newsBlog/models.py",
+					"file": "project/newsBlog/views.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1265,
+						"buffer_size": 300,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								480,
-								480
+								297,
+								297
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 875.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "project/templates/newsblog/files/commonCss.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "project/templates/newsblog/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 463,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "project/templates/newsblog/files/listBlog.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 494,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -481,31 +604,31 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "project/newsBlog/admin.py",
+					"buffer": 4,
+					"file": "project/templates/newsblog/files/listBlogCss.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 424,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								289,
-								289
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]

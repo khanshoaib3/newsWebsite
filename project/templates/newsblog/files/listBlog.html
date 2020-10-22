@@ -1,3 +1,24 @@
 {% extends "newsBlog/base.html" %}
 
-{% block 'title' %}News{% endblock 'title' %}
+{% block css %}
+	{% include css %}
+{% endblock css %}
+
+{% block title %}News{% endblock title %}
+{% block content %}  
+<div id="postList">
+	<span id="heading">Latest</span>
+</div>
+<div id="postFilter">
+	<div id="innerContainer"></div>
+</div>
+
+	<!--<h1>My Blog</h1>  
+	{% for post in posts %}    
+		<h2>      
+			<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>  
+		</h2>
+		<p class="date">Published {{ post.publish }} by {{ post.author }}</p>    
+		{{ post.body|truncatewords:30|linebreaks }}  
+	{% endfor %} -->
+{% endblock %}
