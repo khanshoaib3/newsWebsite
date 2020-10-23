@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"h",
+				"hidden\toverflow-x"
+			],
+			[
+				"ove",
+				"overflow-x\tproperty"
+			],
+			[
+				"fi",
+				"fixed\tposition"
+			],
+			[
+				"tr",
+				"transition\tproperty"
+			],
+			[
+				"posi",
+				"postFilter"
+			],
+			[
+				"marg",
+				"margin-top\tproperty"
+			],
+			[
+				"min",
+				"min-height\tproperty"
+			],
+			[
 				"li",
 				"listBlog"
 			],
@@ -64,10 +92,6 @@
 				"openAlertBox"
 			],
 			[
-				"tr",
-				"trim"
-			],
-			[
 				"if",
 				"if\tif"
 			],
@@ -82,10 +106,6 @@
 			[
 				"tra",
 				"transform\tproperty"
-			],
-			[
-				"h",
-				"hidden\toverflow"
 			],
 			[
 				"sc",
@@ -313,15 +333,6 @@
 			}
 		},
 		{
-			"file": "project/templates/newsblog/files/commonCss.html",
-			"settings":
-			{
-				"buffer_size": 195,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "project/templates/newsblog/base.html",
 			"settings":
 			{
@@ -331,10 +342,19 @@
 			}
 		},
 		{
+			"file": "project/templates/newsblog/files/commonCss.html",
+			"settings":
+			{
+				"buffer_size": 259,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "project/templates/newsblog/files/listBlog.html",
 			"settings":
 			{
-				"buffer_size": 494,
+				"buffer_size": 573,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -343,7 +363,16 @@
 			"file": "project/templates/newsblog/files/listBlogCss.html",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 2021,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/common/nav.html",
+			"settings":
+			{
+				"buffer_size": 3619,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -411,7 +440,6 @@
 	[
 		"/E/shoaib/Projects/newsWebsite",
 		"/E/shoaib/Projects/newsWebsite/project",
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
 		"/E/shoaib/Projects/newsWebsite/project/templates/common",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
@@ -419,6 +447,8 @@
 	],
 	"file_history":
 	[
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/commonCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog/models.py",
 		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog/urls.py",
@@ -449,7 +479,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -463,6 +493,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"postFilter",
+			";\n",
+			"container",
 			"data",
 			"span",
 			"first",
@@ -514,39 +547,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "project/templates/newsblog/files/commonCss.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 195,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								138
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "project/templates/newsblog/base.html",
 					"semi_transient": false,
 					"settings":
@@ -572,6 +577,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "project/templates/newsblog/files/commonCss.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								122,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 1,
 					"type": "text"
 				},
@@ -581,15 +616,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 494,
+						"buffer_size": 573,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								53,
-								53
+								277,
+								277
 							]
 						],
 						"settings":
@@ -609,26 +644,58 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2021,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								782,
+								782
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "project/templates/common/nav.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -636,7 +703,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -677,7 +744,7 @@
 	"project": "newsWebsite.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
