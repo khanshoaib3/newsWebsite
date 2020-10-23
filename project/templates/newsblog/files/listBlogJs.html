@@ -1,0 +1,24 @@
+<script>
+	var filterIsOpened = false;
+	function filterTrigger(command) {
+		if (command=='open') {
+			$('div#postFilter').css('width','200px');
+			$('div#innerContainer').css('transform','rotateY(0deg)');
+			$('div#filterTrigger').css('display','none');
+			filterIsOpened = true;	
+		} else if(command=='close'){
+			$('div#postFilter').css('width','0px');
+			$('div#innerContainer').css('transform','rotateY(-90deg)');
+			$('div#filterTrigger').css('display','flex');
+			filterIsOpened = false;	
+		}
+		
+	}
+	$('div#content').click(function(){
+		if (filterIsOpened) {
+			filterTrigger('close')
+		}
+	});
+
+	if (st!=last) {}
+</script>
