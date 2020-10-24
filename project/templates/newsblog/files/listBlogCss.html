@@ -1,5 +1,18 @@
 <style>
-	#postList {
+
+    #newsL{
+        display: none;
+    }
+
+    #container{
+        height: auto;
+        margin-top: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+
+	#postList, #postTrending {
         height: auto;
         min-height: 10vh;
         padding: 15px 20px;
@@ -7,11 +20,10 @@
         text-align: center;
         color: white;
         border-radius: 4px;
-        margin-top: 60px;
+        margin: 5px;
     }
 
-    #postList:hover,
-    #postList:focus-within {
+    #postList:hover, #postList:focus-within, #postTrending:hover, #postTrending:focus-within  {
         box-shadow: 1px 1px 15px 0px black;
         background-color: #2C3335;
         transform: scale(1.01);
@@ -75,56 +87,56 @@
     @media (max-width: 319px) {
 
         /*Very small devices ,*/
-        #postList{
-        	width: 85%;
+        #postList, #postTrending {
+            width: 85%;
         }
     }
 
     @media (min-width:320px) {
 
         /* smartphones, iPhone, portrait 480x320 phones */
-        #postList{
-        	width: 85%;
+        #postList, #postTrending {
+            width: 85%;
         }
     }
 
     @media (min-width:481px) {
 
         /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-        #postList{
-        	width: 85%;
+        #postList, #postTrending {
+            width: 85%;
         }
     }
 
     @media (min-width:641px) {
 
         /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-        #postList{
-        	width: 85%;
+        #postList, #postTrending {
+            width: 90%;
         }
     }
 
     @media (min-width:961px) {
 
         /* tablet, landscape iPad, lo-res laptops ands desktops */
-        #postList{
-        	width: 65%;
+        #postList, #postTrending {
+            width: 40%;
         }
     }
 
     @media (min-width:1025px) {
 
         /* big landscape tablets, laptops, and desktops */
-        #postList{
-        	width: 65%;
+        #postList, #postTrending {
+            width: 42%;
         }
     }
 
     @media (min-width:1281px) {
 
         /* hi-res laptops and desktops */
-        #postList{
-        	width: 65%;
+        #postList, #postTrending {
+            width: 45%;
         }
     }
 </style>
