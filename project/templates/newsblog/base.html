@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock title %}</title>
-    {% include commonCss %}
+    <style>
+      body {
+            width: 100vw;
+            height: auto;
+            background-color: #333945;
+            overflow-x: hidden;
+        }
+        #content{
+          margin-top: 100px;
+          height: auto;
+          min-height: 50vh;
+            text-align: -webkit-center;
+        }
+    </style>
 
     {% block css %} {% endblock css %}
 

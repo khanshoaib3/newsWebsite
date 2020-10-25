@@ -9,7 +9,8 @@
         margin-top: 60px;
         display: flex;
         flex-wrap: wrap;
-        width: 90%;
+        width: 95%;
+        justify-content: center;
     }
 
 	#postList, #postTrending {
@@ -21,7 +22,7 @@
         box-shadow: 1px 1px 8px 0px black;
         color: white;
         border-radius: 4px;
-        margin: 5px;
+        margin: 5px 15px;
     }
 
     .heading{
@@ -29,6 +30,21 @@
         color: white;
         cursor: default;
         font-family: 'Spartan', sans-serif;
+    }
+
+    #postContainer{
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        height: auto;
+        min-height: 200px;
+        justify-content: center;
+    }
+
+    #postContainer .post{
+        width: 45%;
+        background-color: #2C3335;
+        margin:5px;
     }
 
 
@@ -139,7 +155,7 @@
 
         /* tablet, landscape iPad, lo-res laptops ands desktops */
         #postList, #postTrending {
-            width: 40%;
+            width: 85%;
         }
 
         .heading{
@@ -150,20 +166,24 @@
     @media (min-width:1025px) {
 
         /* big landscape tablets, laptops, and desktops */
-        #postList, #postTrending {
-            width: 42%;
+        #postList{
+            width: 50%;
         }
 
-        .heading{
-            font-size: 22px;
+        #postTrending {
+            width: 30%;
         }
     }
 
     @media (min-width:1281px) {
 
         /* hi-res laptops and desktops */
-        #postList, #postTrending {
-            width: 45%;
+        #postList{
+            width: 55%;
+        }
+
+        #postTrending {
+            width: 30%;
         }
 
         .heading{

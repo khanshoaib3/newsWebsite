@@ -9,6 +9,15 @@
 <div id="container">
 	<div id="postList">
 		<span class="heading">Latest</span>
+		<div id="postContainer">
+			{% for post in posts %}
+				<div class="post">
+					<span class="postTitle">{{ post.title }}</span>
+					<div class="postThumbnail"></div>
+					<span class="postBody">{{ post.body|truncatewords:30|linebreaks }}</span>
+				</div>
+			{% endfor %}
+		</div>
 	</div>
 	<div id="postTrending">
 		<span class="heading">Trending</span>
