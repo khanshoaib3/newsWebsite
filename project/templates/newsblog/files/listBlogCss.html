@@ -16,18 +16,21 @@
         height: auto;
         min-height: 10vh;
         padding: 15px 20px;
-        background-color: #303536;
+        background-color: #31393b;
         text-align: center;
+        box-shadow: 1px 1px 8px 0px black;
         color: white;
         border-radius: 4px;
         margin: 5px;
     }
 
-    #postList:hover, #postList:focus-within, #postTrending:hover, #postTrending:focus-within  {
-        box-shadow: 1px 1px 15px 0px black;
-        background-color: #2C3335;
-        transform: scale(1.01);
+    .heading{
+        text-transform: capitalize;
+        color: white;
+        cursor: default;
+        font-family: 'Spartan', sans-serif;
     }
+
 
     #postFilter{
         position: fixed;
@@ -90,6 +93,10 @@
         #postList, #postTrending {
             width: 85%;
         }
+
+        .heading{
+            font-size: 12px;
+        }
     }
 
     @media (min-width:320px) {
@@ -97,6 +104,10 @@
         /* smartphones, iPhone, portrait 480x320 phones */
         #postList, #postTrending {
             width: 85%;
+        }
+
+        .heading{
+            font-size: 15px;
         }
     }
 
@@ -106,6 +117,10 @@
         #postList, #postTrending {
             width: 85%;
         }
+
+        .heading{
+            font-size: 17px;
+        }
     }
 
     @media (min-width:641px) {
@@ -113,6 +128,10 @@
         /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
         #postList, #postTrending {
             width: 90%;
+        }
+
+        .heading{
+            font-size: 20px;
         }
     }
 
@@ -122,6 +141,10 @@
         #postList, #postTrending {
             width: 40%;
         }
+
+        .heading{
+            font-size: 22px;
+        }
     }
 
     @media (min-width:1025px) {
@@ -130,6 +153,10 @@
         #postList, #postTrending {
             width: 42%;
         }
+
+        .heading{
+            font-size: 22px;
+        }
     }
 
     @media (min-width:1281px) {
@@ -137,6 +164,10 @@
         /* hi-res laptops and desktops */
         #postList, #postTrending {
             width: 45%;
+        }
+
+        .heading{
+            font-size: 22px;
         }
     }
 </style>
