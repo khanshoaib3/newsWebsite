@@ -375,24 +375,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "project/templates/newsblog/files/listBlog.html",
-			"settings":
-			{
-				"buffer_size": 1402,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "project/templates/newsblog/files/listBlogCss.html",
-			"settings":
-			{
-				"buffer_size": 3719,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -463,8 +445,8 @@
 	"file_history":
 	[
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogJs.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/commonCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
@@ -539,68 +521,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "project/templates/newsblog/files/listBlog.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1402,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								140
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "project/templates/newsblog/files/listBlogCss.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3719,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								215,
-								215
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -667,7 +589,7 @@
 		[
 			[
 				"",
-				"E:\\yusuf\\pd\\yusuf\\project1\\project1.sublime-workspace"
+				"E:\\yusuf\\pd\\yusuf\\project1\\project1.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -689,7 +611,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 50.0,
+	"side_bar_width": 252.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -182,11 +182,11 @@
     var st = window.pageYOffset || document.documentElement.scrollTop;
     var navBar = document.getElementById("nav");
     if (st > lastScrollTop) {
-
       navBar.style.top = "-60px";
     } else {
       navBar.style.top = "0px";
     }
+    lastScrollTop = st;
     if (st!=lastScrollTop && filterIsOpened) {
       filterTrigger('close');
     }
