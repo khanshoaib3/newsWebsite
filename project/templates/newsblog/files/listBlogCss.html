@@ -18,7 +18,6 @@
         min-height: 10vh;
         padding: 15px 20px;
         background-color: #31393b;
-        text-align: center;
         box-shadow: 1px 1px 8px 0px black;
         color: white;
         border-radius: 4px;
@@ -39,14 +38,51 @@
         height: auto;
         min-height: 200px;
         justify-content: center;
+        margin: 20px 0;
     }
 
     #postContainer .post{
         width: 45%;
-        background-color: #2C3335;
+        background-color: rgba(255, 0, 0, 0.7);
+        height: auto;
+        min-height: 150px;
+        max-height: 200px;
         margin:5px;
+        border-radius: 3px;
+        position: relative;
+        overflow: hidden;
     }
 
+    #postContainer .post .postTitle{
+        margin: 10px auto;
+        text-transform: capitalize;
+        cursor: default;
+        font-family: system-ui;
+        text-align: left;
+        padding: 0 15px 0 10px;
+        z-index: 10;
+        color: black;
+        position: relative;
+    }
+
+    #postContainer .post .postBody{
+        margin: 5px;
+        text-transform: capitalize;
+        cursor: default;
+        font-family: system-ui;
+        position: relative;
+        z-index: 10;
+        color: black;
+    }
+
+    #postContainer .post .postThumbnail{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: lightblue;
+        z-index: 5;
+        top: 0;
+    }
 
     #postFilter{
         position: fixed;
@@ -55,6 +91,7 @@
         left: 0;
         top: 0;
         perspective: 600px;
+        z-index: 20;
     }
 
     #postFilter #navHeading{
@@ -111,7 +148,15 @@
         }
 
         .heading{
+            font-size: 15px;
+        }
+
+        .postTitle{
             font-size: 12px;
+        }
+
+        .postBody{
+            font-size: 11px;
         }
     }
 
@@ -123,7 +168,15 @@
         }
 
         .heading{
+            font-size: 17px;
+        }
+
+        .postTitle{
             font-size: 15px;
+        }
+
+        .postBody{
+            font-size: 11px;
         }
     }
 
@@ -135,7 +188,15 @@
         }
 
         .heading{
+            font-size: 20px;
+        }
+
+        .postTitle{
             font-size: 17px;
+        }
+
+        .postBody{
+            font-size: 13px;
         }
     }
 
@@ -147,7 +208,15 @@
         }
 
         .heading{
+            font-size: 22px;
+        }
+
+        .postTitle{
             font-size: 20px;
+        }
+
+        .postBody{
+            font-size: 15px;
         }
     }
 
@@ -159,7 +228,15 @@
         }
 
         .heading{
+            font-size: 25px;
+        }
+
+        .postTitle{
             font-size: 22px;
+        }
+
+        .postBody{
+            font-size: 17px;
         }
     }
 
@@ -172,6 +249,18 @@
 
         #postTrending {
             width: 30%;
+        }
+
+        .heading{
+            font-size: 25px;
+        }
+
+        .postTitle{
+            font-size: 22px;
+        }
+
+        .postBody{
+            font-size: 17px;
         }
     }
 
@@ -187,7 +276,15 @@
         }
 
         .heading{
+            font-size: 25px;
+        }
+
+        .postTitle{
             font-size: 22px;
+        }
+
+        .postBody{
+            font-size: 17px;
         }
     }
 </style>

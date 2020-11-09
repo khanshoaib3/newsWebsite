@@ -4,16 +4,32 @@
 		"selected_items":
 		[
 			[
+				"h",
+				"hidden\toverflow"
+			],
+			[
+				"ove",
+				"overflow\tproperty"
+			],
+			[
+				"ur",
+				"url()\tbackground"
+			],
+			[
+				"a",
+				"absolute\tposition"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
 				"ba",
 				"background-color\tproperty"
 			],
 			[
 				"fon",
 				"font-size\tproperty"
-			],
-			[
-				"a",
-				"auto\theight"
 			],
 			[
 				"au",
@@ -70,14 +86,6 @@
 			[
 				"re",
 				"relative\tposition"
-			],
-			[
-				"h",
-				"hidden\toverflow-x"
-			],
-			[
-				"ove",
-				"overflow-x\tproperty"
 			],
 			[
 				"fi",
@@ -375,6 +383,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "project/templates/common/nav.html",
+			"settings":
+			{
+				"buffer_size": 3837,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/files/listBlogCss.html",
+			"settings":
+			{
+				"buffer_size": 5510,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/files/listBlog.html",
+			"settings":
+			{
+				"buffer_size": 1415,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -439,11 +474,12 @@
 		"/E/shoaib/Projects/newsWebsite",
 		"/E/shoaib/Projects/newsWebsite/project",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files"
+		"/E/shoaib/Projects/newsWebsite/project/templates/common"
 	],
 	"file_history":
 	[
+		"/E/yusuf/pd/yusuf/school/school.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/home/files/homeCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
@@ -478,7 +514,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -492,6 +528,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"text-align",
+			"8",
+			"post",
 			"5px",
 			"postList",
 			"css",
@@ -521,8 +560,98 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "project/templates/common/nav.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3837,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								664,
+								631
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "project/templates/newsblog/files/listBlogCss.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1993,
+								1993
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "project/templates/newsblog/files/listBlog.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								370,
+								370
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -589,7 +718,7 @@
 		[
 			[
 				"",
-				"E:\\yusuf\\pd\\yusuf\\project1\\project1.sublime-project"
+				"E:\\shoaib\\Projects\\newsWebsite\\newsWebsite.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -611,7 +740,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 252.0,
+	"side_bar_width": 50.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
