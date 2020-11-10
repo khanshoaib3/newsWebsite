@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 <script>
 	var filterIsOpened = false;
 	function filterTrigger(command) {
@@ -19,4 +21,24 @@
 			filterTrigger('close')
 		}
 	});
+
+	
+	$('div.post').hover(function(){
+		var bodyText = $(this).children(".postBody");
+		var titleText = $(this).children(".postTitle");
+		titleText.css('transform', 'translateY(-100%)');
+		
+		setTimeout(function(){
+			bodyText.css('transform', 'translateY(0%)');
+		},250)
+	},function(){
+		var bodyText = $(this).children(".postBody");
+		var titleText = $(this).children(".postTitle");
+		bodyText.css('transform', 'translateY(100%)');
+		setTimeout(function(){
+			titleText.css('transform', 'translateY(0%)');
+		},250)
+		
+	})
+	
 </script>

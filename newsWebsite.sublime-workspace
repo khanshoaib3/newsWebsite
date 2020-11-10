@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"tr",
+				"transition\tproperty"
+			],
+			[
+				"tra",
+				"transform"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"pos",
+				"postBody"
+			],
+			[
+				"bl",
+				"blur()\tfilter"
+			],
+			[
+				"filter",
+				"filter\tproperty"
+			],
+			[
+				"ma",
+				"margin\tproperty"
+			],
+			[
+				"min-",
+				"min-height\tproperty"
+			],
+			[
+				"min",
+				"min-width\tproperty"
+			],
+			[
+				"aut",
+				"auto\twidth"
+			],
+			[
 				"h",
 				"hidden\toverflow"
 			],
@@ -72,10 +112,6 @@
 				"display\tproperty"
 			],
 			[
-				"filter",
-				"filterTrigger"
-			],
-			[
 				"wid",
 				"width\tproperty"
 			],
@@ -92,20 +128,12 @@
 				"fixed\tposition"
 			],
 			[
-				"tr",
-				"transition\tproperty"
-			],
-			[
 				"posi",
 				"postFilter"
 			],
 			[
 				"marg",
 				"margin-top\tproperty"
-			],
-			[
-				"min",
-				"min-height\tproperty"
 			],
 			[
 				"li",
@@ -132,16 +160,8 @@
 				"STATUS_CHOICES"
 			],
 			[
-				"aut",
-				"auto_now_add"
-			],
-			[
 				"un",
 				"unique_for_date"
-			],
-			[
-				"ma",
-				"max_length"
 			],
 			[
 				"p",
@@ -168,16 +188,8 @@
 				"confirmNewPassword"
 			],
 			[
-				"tra",
-				"transform\tproperty"
-			],
-			[
 				"sc",
 				"scaleY()\ttransform"
-			],
-			[
-				"fun",
-				"fun\tFunction"
 			],
 			[
 				"onc",
@@ -320,10 +332,6 @@
 				"Vector3.Lerp(a, b, t)"
 			],
 			[
-				"pos",
-				"positionOffset"
-			],
-			[
 				"translate",
 				"Transform.Translate(translation)"
 			],
@@ -384,19 +392,10 @@
 	"buffers":
 	[
 		{
-			"file": "project/templates/common/nav.html",
-			"settings":
-			{
-				"buffer_size": 3837,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "project/templates/newsblog/files/listBlogCss.html",
 			"settings":
 			{
-				"buffer_size": 5510,
+				"buffer_size": 5848,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -405,7 +404,16 @@
 			"file": "project/templates/newsblog/files/listBlog.html",
 			"settings":
 			{
-				"buffer_size": 1415,
+				"buffer_size": 1173,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "project/templates/newsblog/files/listBlogJs.html",
+			"settings":
+			{
+				"buffer_size": 1219,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -474,15 +482,16 @@
 		"/E/shoaib/Projects/newsWebsite",
 		"/E/shoaib/Projects/newsWebsite/project",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common"
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files"
 	],
 	"file_history":
 	[
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
 		"/E/yusuf/pd/yusuf/school/school.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/home/files/homeCss.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogJs.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/commonCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
@@ -528,6 +537,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bodyText = $(this).children(\".postBody\");",
+			"\");\n",
 			"text-align",
 			"8",
 			"post",
@@ -560,54 +571,28 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "project/templates/common/nav.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3837,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								664,
-								631
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 162.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "project/templates/newsblog/files/listBlogCss.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5510,
+						"buffer_size": 5848,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1993,
-								1993
+								1479,
+								1479
+							],
+							[
+								1824,
+								1824
 							]
 						],
 						"settings":
@@ -617,27 +602,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 675.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "project/templates/newsblog/files/listBlog.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1415,
+						"buffer_size": 1173,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								370,
-								370
+								648,
+								648
 							]
 						],
 						"settings":
@@ -646,10 +631,43 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 54.0,
+						"translation.y": 390.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "project/templates/newsblog/files/listBlogJs.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1219,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								951,
+								951
+							],
+							[
+								1196,
+								1196
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 201.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -657,7 +675,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"input":
 	{
@@ -698,7 +716,7 @@
 	"project": "newsWebsite.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
