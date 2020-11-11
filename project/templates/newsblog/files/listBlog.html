@@ -13,7 +13,7 @@
 			{% for post in posts %}
 				<div class="post">
 					<div class="postTitle">{{ post.title|truncatewords:15 }}</div>
-					<img class="postThumbnail" src="https://source.unsplash.com/WLUHO9A_xik">
+					<img class="postThumbnail" src="https://source.unsplash.com/{{ post.thumbnail }}">
 				</div>
 			{% endfor %}
 		</div>

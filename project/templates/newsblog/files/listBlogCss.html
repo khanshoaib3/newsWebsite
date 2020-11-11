@@ -6,11 +6,12 @@
 
     #container{
         height: auto;
-        margin-left: -35px;
+        margin-left: 15px;
         display: flex;
         flex-wrap: wrap;
         width: 95%;
         justify-content: center;
+        perspective: 1500px;
     }
 
 	#postList, #postTrending {
@@ -22,6 +23,9 @@
         color: white;
         border-radius: 4px;
         margin: 5px 15px;
+        transform-style: preserve-3d;
+        -webkit-font-smoothing: antialiased;
+        backface-visibility: hidden;
     }
 
     .heading{
@@ -50,6 +54,8 @@
         border-radius: 5px;
         position: relative;
         overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        backface-visibility: hidden;
         /*box-shadow: 1px 1px 8px 0px black;*/
     }
 
@@ -72,14 +78,10 @@
         box-shadow: 1px 1px 5px 0px black;
     }
 
-    #postList:hover{
-        box-shadow: 1px 1px 12px 0px black;
-        transform: scale(1.01);
-    }
-
     .post:hover{
         box-shadow: 1px 1px 10px 0px black;
-        transform: scale(1.05);
+        transform: translateZ(50px);
+        filter: brightness(1.1);
     }
 
 
