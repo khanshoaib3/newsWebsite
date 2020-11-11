@@ -12,9 +12,8 @@
 		<div id="postContainer">
 			{% for post in posts %}
 				<div class="post">
-					<div class="postTitle">{{ post.title|truncatewords:20 }}</div>
+					<div class="postTitle">{{ post.title|truncatewords:15 }}</div>
 					<img class="postThumbnail" src="https://source.unsplash.com/WLUHO9A_xik">
-					<div class="postBody">{{ post.body|truncatewords:20|linebreaks }}</div>
 				</div>
 			{% endfor %}
 		</div>
