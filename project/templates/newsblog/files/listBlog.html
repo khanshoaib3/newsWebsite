@@ -7,6 +7,8 @@
 {% block title %}News{% endblock title %}
 {% block content %}  
 <div id="container">
+
+	<!--===============POST LIST==============-->
 	<div id="postList">
 		<span class="heading">Latest</span>
 		<div id="postContainer">
@@ -18,13 +20,20 @@
 			{% endfor %}
 		</div>
 	</div>
+	<!--=============END POST LIST==============-->
+
+
+	<!--=============POST TRENDING==============-->
 	<div id="postTrending">
 		<span class="heading">Trending</span>
 	</div>
+	<!--===========END POST TRENDING==============-->
 </div>
 {% endblock %}
 
 {% block extras %}
+
+	<!--=============FILTER COLUMN==============-->
 	<div id="postFilter">
 		<div id="innerContainer">
 			<div id="navHeading">
@@ -32,6 +41,10 @@
 			</div>
 		</div>
 	</div>
+	<!--===========END FILTER COLUMN==============-->
+
+
+	<!--=============FILTER BUTTON==============-->
 	<div id="filterTrigger">
 		<div id="filterTriggerButton" onclick="filterTrigger('open')">
 			<span>F</span><br>
@@ -42,6 +55,7 @@
 			<span>R</span><br>
 		</div>
 	</div>
+	<!--===========END FILTER BUTTON==============-->
 {% endblock extras %}	
 
 {% block js %}
