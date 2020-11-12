@@ -4,20 +4,40 @@
 		"selected_items":
 		[
 			[
+				"def",
+				"default"
+			],
+			[
 				"tr",
-				"transition\tproperty"
+				"transform-style\tproperty"
 			],
 			[
 				"tra",
-				"transform"
+				"translateZ()\ttransform"
+			],
+			[
+				"pos",
+				"postList"
+			],
+			[
+				"c",
+				"center\tobject-position"
+			],
+			[
+				"obj",
+				"object-position\tproperty"
+			],
+			[
+				"co",
+				"cover\tobject-fit"
+			],
+			[
+				"sca",
+				"scale()\ttransform"
 			],
 			[
 				"fun",
 				"function"
-			],
-			[
-				"pos",
-				"postBody"
 			],
 			[
 				"bl",
@@ -82,10 +102,6 @@
 			[
 				"if",
 				"if\tif"
-			],
-			[
-				"c",
-				"center\ttext-align"
 			],
 			[
 				"texal",
@@ -392,10 +408,10 @@
 	"buffers":
 	[
 		{
-			"file": "project/templates/newsblog/files/listBlogCss.html",
+			"file": "project/newsBlog/models.py",
 			"settings":
 			{
-				"buffer_size": 5848,
+				"buffer_size": 1379,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -404,16 +420,7 @@
 			"file": "project/templates/newsblog/files/listBlog.html",
 			"settings":
 			{
-				"buffer_size": 1173,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "project/templates/newsblog/files/listBlogJs.html",
-			"settings":
-			{
-				"buffer_size": 1219,
+				"buffer_size": 1507,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -481,18 +488,20 @@
 	[
 		"/E/shoaib/Projects/newsWebsite",
 		"/E/shoaib/Projects/newsWebsite/project",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files"
 	],
 	"file_history":
 	[
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogJs.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/commonCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/yusuf/pd/yusuf/school/school.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/home/files/homeCss.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogJs.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/commonCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog/views.py",
@@ -515,7 +524,6 @@
 		"/E/shoaib/Sublime Text/Data/Packages/User/HTML (Django).sublime-settings",
 		"/E/shoaib/Sublime Text/Data/Packages/Djaneiro/Settings/HTML (Django).sublime-settings",
 		"/E/shoaib/Projects/newsWebsite/project/templates/account/base.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/commonCss.html",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/Imported Assets/general-texture-pack/README.txt",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/Assets/scripts/cameraScript.cs",
 		"/E/shoaib/Unity/Projects/FirstGame/FirstGame/FirstGame.sublime-project",
@@ -523,7 +531,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 22.0
 	},
 	"find_in_files":
 	{
@@ -537,6 +545,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"END",
+			"scale",
+			"12px",
+			"2px",
+			"postBody",
 			"bodyText = $(this).children(\".postBody\");",
 			"\");\n",
 			"text-align",
@@ -571,41 +584,36 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "project/templates/newsblog/files/listBlogCss.html",
+					"file": "project/newsBlog/models.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5848,
+						"buffer_size": 1379,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1479,
-								1479
-							],
-							[
-								1824,
-								1824
+								838,
+								838
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 675.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -614,15 +622,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1173,
+						"buffer_size": 1507,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								648,
-								648
+								610,
+								610
 							]
 						],
 						"settings":
@@ -631,43 +639,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 390.0,
+						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "project/templates/newsblog/files/listBlogJs.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1219,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								951,
-								951
-							],
-							[
-								1196,
-								1196
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 201.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -675,7 +650,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 22.0
 	},
 	"input":
 	{
@@ -716,7 +691,7 @@
 	"project": "newsWebsite.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 40.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -736,7 +711,7 @@
 		[
 			[
 				"",
-				"E:\\shoaib\\Projects\\newsWebsite\\newsWebsite.sublime-project"
+				"E:\\yusuf\\pd\\yusuf\\school\\school.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -758,7 +733,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 50.0,
+	"side_bar_width": 129.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
