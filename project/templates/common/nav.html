@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     transition: 0.4s;
+    z-index: 100;
   }
 
   #navCompany {
@@ -158,10 +159,10 @@
 
 <div id="nav">
   <div id="navCompany">
-    <span id="first">
+    <span id="first" onclick="document.location.href = '/'">
       Comp
     </span>
-    <span id="second">
+    <span id="second" onclick="document.location.href = '/'">
       any
     </span>
   </div>
@@ -186,10 +187,10 @@
     } else {
       navBar.style.top = "0px";
     }
-    lastScrollTop = st;
     if (st!=lastScrollTop && filterIsOpened) {
       filterTrigger('close');
     }
-    lastScrollTop = st <= 0 ? 0 : st;
+    lastScrollTop = st;
+    // lastScrollTop = st <= 0 ? 0 : st;
   }, false);
 </script>
