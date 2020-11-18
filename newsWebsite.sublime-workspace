@@ -4,8 +4,28 @@
 		"selected_items":
 		[
 			[
+				"P",
+				"Post"
+			],
+			[
+				"deta",
+				"detail"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
 				"def",
-				"default"
+				"def\tFunction"
+			],
+			[
+				"onc",
+				"onclick\tAttr"
+			],
+			[
+				"mar",
+				"margin-left\tproperty"
 			],
 			[
 				"tr",
@@ -136,10 +156,6 @@
 				"align-items\tproperty"
 			],
 			[
-				"re",
-				"relative\tposition"
-			],
-			[
 				"fi",
 				"fixed\tposition"
 			],
@@ -206,10 +222,6 @@
 			[
 				"sc",
 				"scaleY()\ttransform"
-			],
-			[
-				"onc",
-				"onclick"
 			],
 			[
 				"in",
@@ -407,24 +419,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "project/newsBlog/models.py",
-			"settings":
-			{
-				"buffer_size": 1379,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "project/templates/newsblog/files/listBlog.html",
-			"settings":
-			{
-				"buffer_size": 1507,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -490,25 +484,26 @@
 		"/E/shoaib/Projects/newsWebsite/project",
 		"/E/shoaib/Projects/newsWebsite/project/newsBlog",
 		"/E/shoaib/Projects/newsWebsite/project/templates",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files"
+		"/E/shoaib/Projects/newsWebsite/project/templates/common",
+		"/E/shoaib/Projects/newsWebsite/project/templates/home",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsBlog"
 	],
 	"file_history":
 	[
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog/models.py",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog/urls.py",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog/admin.py",
+		"/E/shoaib/Projects/newsWebsite/project/newsBlog/views.py",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/detailBlog.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlog.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogCss.html",
+		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/listBlogJs.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/account/files/commonCss.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/common/nav.html",
 		"/E/yusuf/pd/yusuf/school/school.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/home/files/homeCss.html",
 		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/commonCss.html",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/base.html",
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog/views.py",
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog/models.py",
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog/urls.py",
-		"/E/shoaib/Projects/newsWebsite/project/templates/newsblog/files/detailBlog.html",
-		"/E/shoaib/Projects/newsWebsite/project/newsBlog/admin.py",
 		"/E/shoaib/Projects/newsWebsite/project/project/urls.py",
 		"/E/shoaib/Projects/newsWebsite/project/project/settings.py",
 		"/E/shoaib/Projects/newsWebsite/project/account/admin.py",
@@ -584,67 +579,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "project/newsBlog/models.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1379,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								838,
-								838
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "project/templates/newsblog/files/listBlog.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1507,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								610,
-								610
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 54.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -733,7 +669,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 129.0,
+	"side_bar_width": 280.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

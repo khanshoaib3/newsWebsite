@@ -1,5 +1,34 @@
 {% extends "newsBlog/base.html" %}
 
+<!--=====================TITLE==================-->
 {% block title %}
 	{{ post.title }}
 {% endblock title %}
+<!--===================END TITLE=================-->
+
+
+
+
+<!--======================CSS====================-->
+{% block css %}
+	{% include css %}
+{% endblock css %}
+<!--====================END CSS===================-->
+
+
+
+
+<!--======================CONTENT====================-->
+{% block content %}
+	<div id="container">
+		<div id="postThumbnail">
+			<img src="https://source.unsplash.com/{{post.thumbnail}}" alt="">
+			<div id="after"></div>
+		</div>
+		<div id="innerContainer">
+			<div id="postTitle">{{post.title}}</div>
+			<div id="postBody">{{post.body|linebreaks}}</div>
+		</div>
+	</div>
+{% endblock content %}
+<!--====================END CONTENT===================-->

@@ -9,7 +9,9 @@ from .models import Profile
 from django.http import JsonResponse
 import json
 
-# region Log IN
+
+
+#==========================SIGN IN===============================
 
 def signin(request):
     if request.method == 'POST':
@@ -37,9 +39,12 @@ def signin(request):
         form = signinForm()
     return render(request,'account/files/signin.html',{'nav':'common/nav.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','form':form})
 
-# endregion
+#========================END SIGN IN=============================
 
-# region Sign UP
+
+
+
+#==========================SIGN UP===============================
 
 def signup(request):
     if request.method == 'POST':
@@ -95,27 +100,34 @@ def signup(request):
         form = signupForm()
     return render(request,'account/files/signup.html',{'nav':'common/nav.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','form':form})
 
-# endregion
+#========================END SIGN UP=============================
 
-# region Log OUT
+
+
+
+#==========================LOG OUT==============================
 
 @login_required
 def signout(request):
     logout(request)
     return redirect('/')
+#========================END LOG OUT============================
 
-# endregion
 
-# region Profile
+
+
+#==========================PROFILE===============================
 
 @login_required
 def profile(request):
     return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
 
-# endregion
+#========================END PROFILE=============================
 
 
 
+
+#======================RE-AUTHENTICATE============================
 @login_required
 @require_POST
 def re_authenticate(request):
@@ -128,9 +140,12 @@ def re_authenticate(request):
     else :
         return JsonResponse({'status':'empty'})
     return JsonResponse({'status':'Something Went Wrong'})
+#====================END RE-AUTHENTICATE==========================
 
 
 
+
+#========================EDIT PROFILE=============================
 @login_required
 @require_POST
 def editProfile(request):
@@ -169,3 +184,5 @@ def editProfile(request):
             return JsonResponse({'status':'Passwords don\'t match' })
     user.save()
     return JsonResponse({'status':'ok'})
+    #======================END EDIT PROFILE===========================
+    
