@@ -187,10 +187,9 @@
     } else {
       navBar.style.top = "0px";
     }
-    if (st!=lastScrollTop && filterIsOpened) {
+    if (st!=lastScrollTop && (typeof filterIsOpened !== 'undefined')) {
       filterTrigger('close');
     }
     lastScrollTop = st;
-    // lastScrollTop = st <= 0 ? 0 : st;
   }, false);
 </script>
