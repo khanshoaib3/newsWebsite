@@ -30,5 +30,17 @@
 			<div id="postBody">{{post.body|linebreaks}}</div>
 		</div>
 	</div>
+	<div id="comments">
+		<div id="postComment">
+			
+		</div>
+		<div id="allComments">
+			{% for comment in comments %}
+				<br>{{ comment.body }}<br>
+			{% empty %}
+				No Comments
+			{% endfor %}
+		</div>
+	</div>
 {% endblock content %}
 <!--====================END CONTENT===================-->
