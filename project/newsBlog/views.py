@@ -36,4 +36,4 @@ def comment(request):
 	newCommentModel.username = request.user.username
 	newCommentModel.body = newComment
 	newCommentModel.save()
-	return JsonResponse({'status':newComment})
+	return JsonResponse({'status':'ok'})

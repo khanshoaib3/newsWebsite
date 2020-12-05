@@ -26,7 +26,11 @@
 			slug : slug,
 		},
 		function(recievedData){
-			alert(recievedData['status'])
+			if(recievedData['status']=='ok')
+			{
+				$( "#allComments" ).load(window.location.href + " #allComments" );
+				var newComment = $("input#newCommentInput").val("");
+			}
 		});
 	}
 </script>
