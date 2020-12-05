@@ -23,4 +23,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/',include('account.urls','account')),
     path('news/',include('newsBlog.urls','news')),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
