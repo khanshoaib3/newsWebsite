@@ -18,6 +18,17 @@
 
 
 
+<!--======================JS====================-->
+{% block js %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+	{% include js %}
+{% endblock js %}
+<!--====================END JS===================-->
+
+
+
+
 <!--======================CONTENT====================-->
 {% block content %}
 	<div id="container">
@@ -29,17 +40,24 @@
 			<div id="postTitle">{{post.title}}</div>
 			<div id="postBody">{{post.body|linebreaks}}</div>
 		</div>
-	</div>
-	<div id="comments">
-		<div id="postComment">
-			
-		</div>
-		<div id="allComments">
-			{% for comment in comments %}
-				<br>{{ comment.body }}<br>
-			{% empty %}
-				No Comments
-			{% endfor %}
+		<div id="comments">
+			<div id="postComment">
+				{% if request.user.is_authenticated %}
+					<ul>
+						<li><input type="text" id="newCommentInput" placeholder="Enter your comment"></li>
+						<li><div id="newCommentSubmit" onclick="newCommentSend()">Submit</div></li>
+					</ul>
+				{% else %}
+					Please sign in to post comments!
+				{% endif %}
+			</div>
+			<div id="allComments">
+				{% for comment in comments %}
+					<br>{{ comment.body }}<br>
+				{% empty %}
+					No Comments
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 {% endblock content %}

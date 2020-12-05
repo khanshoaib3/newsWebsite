@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
-from .forms import CommentForm
+from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 
 #======================LIST VIEW========================
 def list(request):
@@ -15,16 +17,23 @@ def detail(request,year,month,day,post):
 	post = get_object_or_404(Post, slug=post, status='published', publish__year=year,publish__month=month, publish__day=day,)
 
 	comments = post.comments.filter(active=True)
-	newComment = None
+	
 
-	if request.method == 'POST':
-		commentForm = CommentForm(data=request.POST)
-		if commentForm.is_valid():
-			newComment = commentForm.save(commit=False)
-			newComment.post = post
-			newComment.save()
-	else:
-		commentForm = CommentForm()
-
-	return render(request,'newsBlog/files/detailBlog.html',{'nav':'common/nav.html','css':'newsBlog/files/detailBlogCss.html','post':post,'commentForm':commentForm,'comments':comments})
+	return render(request,'newsBlog/files/detailBlog.html',{'nav':'common/nav.html','css':'newsBlog/files/detailBlogCss.html','post':post,'comments':comments,'js':'newsBlog/files/detailBlogJs.html',})
 #====================END DETAIL VIEW=======================
+
+
+
+
+@login_required
+@require_POST
+def comment(request):
+	post = get_object_or_404(Post, slug=request.POST.get('slug'), status='published', publish__year=request.POST.get('year'),publish__month=request.POST.get('month'), publish__day=request.POST.get('day'))
+	newComment = request.POST.get('newComment')
+	newCommentModel = Comment()
+	newCommentModel.post = post
+	newCommentModel.name = request.user.first_name
+	newCommentModel.username = request.user.username
+	newCommentModel.body = newComment
+	newCommentModel.save()
+	return JsonResponse({'status':newComment})
