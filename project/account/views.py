@@ -1,11 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from account.forms import signupForm,signinForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from rest_framework.authtoken.models import Token
-from .models import Profile
+from .models import Profile, Photos
 from django.http import JsonResponse
 import json
 
@@ -120,7 +120,8 @@ def signout(request):
 
 @login_required
 def profile(request):
-    return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html'})   
+    photos = Photos.objects.filter(user=request.user)
+    return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html','photos':photos})   
 
 #========================END PROFILE=============================
 

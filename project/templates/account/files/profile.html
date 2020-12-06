@@ -13,6 +13,13 @@
 
 
 {% block content %}
+  <div id="uploadedPhotos">
+    {% for photo in photos %}
+      <img src="{{ photo.photo.url }}" alt="">
+    {% empty %}
+      no photos
+    {% endfor %}
+  </div>
   <div id="container">
     <div id="head">profile</div>
     <div id="profile">
