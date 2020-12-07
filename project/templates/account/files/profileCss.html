@@ -189,4 +189,21 @@
     visibility: hidden;
     pointer-events: none;
   }
+  #afterSelect{
+    transition: 0.2s;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.25);
+  }
+  #afterSelect:hover{
+    background-color: rgba(0,0,0,0.65);
+  }
 </style>

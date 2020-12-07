@@ -60,6 +60,7 @@
         reader.onload = function(e) {
           $('#imagePreview').attr('src', e.target.result);
           $('#imageSelectorID').css('display', 'none');
+          $('#afterSelect').css('width','100%')
         }
         
         reader.readAsDataURL(this.files[0]); // convert to base64 string
@@ -67,6 +68,15 @@
       }
     });
 
+    $('#uploadImage').click(function(){
+      var image = this.files[0];
+      $.post('{% url "account:reAuthenticate" %}',
+      {
+        image: image,
+      },
+      function(recievedData){
+      });
+    });
 
   });
 

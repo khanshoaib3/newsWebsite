@@ -20,6 +20,10 @@
         <img class="preview" id="imagePreview">
         <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
         <input type="file" class="imageInput" id="imageInputID">
+        <div id="afterSelect">
+          <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;" id="uploadImage"></div>
+          <div style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;"></div>
+        </div>
       </div>
       {% for photo in photos %}
       <div class="photo">
