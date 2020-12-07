@@ -70,21 +70,24 @@
 
     $('#uploadImage').click(function(){
       $.noConflict();
-      var photo = document.getElementById("imageInputID").files[0];
-      image = new FormData();
-      image.append("image",photo)
-      $.post('{% url "account:imageUpload" %}',
-      {
-        image: image,
-      },
-      function(recievedData){
-        if(recievedData['status']=='ok')
-        {
-          //$( "#uploadedPhotos" ).load(window.location.href + " #uploadedPhotos" );
-        }
-      });
-    });
-
+      var photo = document.getElementById("imageInputID");
+      jQuery.noConflict();  
+      formdata = new FormData();
+      var file = photo.files[0];
+      if (formdata) {
+        formdata.append("image", file);
+        jQuery.ajax({
+          url: "{% url 'account:imageUpload' %}",
+          type: "POST",
+          data: formdata,
+          processData: false,
+          contentType: false,
+          success:function(recievedData){
+            document.getElementById("uploads").reload();
+          }
+        });
+      } 
+});
   });
 
   function confirmProfileEdit(){

@@ -195,4 +195,5 @@ def imageUpload(request):
     newImage = Photos()
     newImage.user = request.user
     newImage.photo = image
-    return JsonResponse({'status':'ok'})
+    newImage.save()
+    return JsonResponse({'status':'oesrdtk'})
