@@ -187,3 +187,12 @@ def editProfile(request):
     return JsonResponse({'status':'ok'})
     #======================END EDIT PROFILE===========================
     
+
+@login_required
+@require_POST
+def imageUpload(request):
+    image = request.FILES.get('image')
+    newImage = Photos()
+    newImage.user = request.user
+    newImage.photo = image
+    return JsonResponse({'status':'ok'})

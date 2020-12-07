@@ -69,12 +69,19 @@
     });
 
     $('#uploadImage').click(function(){
-      var image = this.files[0];
-      $.post('{% url "account:reAuthenticate" %}',
+      $.noConflict();
+      var photo = document.getElementById("imageInputID").files[0];
+      image = new FormData();
+      image.append("image",photo)
+      $.post('{% url "account:imageUpload" %}',
       {
         image: image,
       },
       function(recievedData){
+        if(recievedData['status']=='ok')
+        {
+          //$( "#uploadedPhotos" ).load(window.location.href + " #uploadedPhotos" );
+        }
       });
     });
 

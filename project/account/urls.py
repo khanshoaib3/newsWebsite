@@ -1,5 +1,5 @@
 from django.urls import path
-from account.views import signin,signup,signout,profile,re_authenticate,editProfile
+from account.views import signin,signup,signout,profile,re_authenticate,editProfile,imageUpload
 
 app_name = 'account'
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout/', signout, name='signout'),
     path('reAuthenticate/', re_authenticate, name='reAuthenticate'),
     path('editProfile/', editProfile, name='editProfile'),
+    path('imageUpload/', imageUpload, name='imageUpload'),
     path('', profile, name='profile'),
 ]
