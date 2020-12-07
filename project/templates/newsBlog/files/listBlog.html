@@ -7,10 +7,9 @@
 {% block title %}News{% endblock title %}
 {% block content %}  
 <div id="container">
-
 	<!--===============POST LIST==============-->
 	<div id="postList">
-		<span class="heading">Latest</span>
+		<span class="heading">All Posts</span>
 		<div id="postContainer">
 			{% for post in posts %}
 				<div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
@@ -21,13 +20,6 @@
 		</div>
 	</div>
 	<!--=============END POST LIST==============-->
-
-
-	<!--=============POST TRENDING==============-->
-	<div id="postTrending">
-		<span class="heading">Trending</span>
-	</div>
-	<!--===========END POST TRENDING==============-->
 </div>
 {% endblock %}
 

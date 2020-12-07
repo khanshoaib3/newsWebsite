@@ -12,25 +12,28 @@
 	}
 	});
 	function newCommentSend() {
-	   var newComment = $("input#newCommentInput").val();
-	   var year = '{{post.publish.year}}'
-	   var month = '{{post.publish.month}}'
-	   var day = '{{post.publish.day}}'
-	   var slug = '{{post.slug}}'
-	   $.post('{% url "newsBlog:comment" %}',
-		{
-			newComment: newComment,
-			year : year,
-			month : month,
-			day : day,
-			slug : slug,
-		},
-		function(recievedData){
-			if(recievedData['status']=='ok')
+	   var newComment = $("input#newCommentInput").val().trim();
+	   if(newComment!="")
+	   {
+		   var year = '{{post.publish.year}}'
+		   var month = '{{post.publish.month}}'
+		   var day = '{{post.publish.day}}'
+		   var slug = '{{post.slug}}'
+		   $.post('{% url "newsBlog:comment" %}',
 			{
-				$( "#allComments" ).load(window.location.href + " #allComments" );
-				var newComment = $("input#newCommentInput").val("");
-			}
-		});
+				newComment: newComment,
+				year : year,
+				month : month,
+				day : day,
+				slug : slug,
+			},
+			function(recievedData){
+				if(recievedData['status']=='ok')
+				{
+					$( "#allComments" ).load(window.location.href + " #allComments" );
+					var newComment = $("input#newCommentInput").val("");
+				}
+			});
+	   }
 	}
 </script>
