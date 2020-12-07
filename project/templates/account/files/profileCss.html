@@ -34,12 +34,10 @@
   .label {
     text-transform: capitalize;
     font-family: 'Spartan', sans-serif;
-    font-size: 20px;
   }
 
   .innerProfile .value {
     font-family: 'Spartan', sans-serif;
-    font-size: 18px;
   }
 
   #extra {
@@ -103,7 +101,6 @@
   }
 
   #uploads{
-    width: 55%;
     height: fit-content;
     position: relative;
     display: flex;
@@ -210,41 +207,100 @@
   #afterSelect:hover{
     background-color: rgba(0,0,0,0.65);
   }
-@media (min-width:481px) {
+
+
+@media (max-width: 319px) {
+
+  /*Very small devices ,*/
+  #container,#uploads{
+    width: 85%;
+  }
+  .label{
+    font-size: 15px;
+  }
+  .innerProfile .value{
+    font-size: 12px;
+  }
+}
+
+@media (min-width:320px) {
   /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
   #container,#uploads{
     width: 85%;
   }
+  .label{
+    font-size: 15px;
+  }
+  .innerProfile .value{
+    font-size: 13px;
+  }
 }
 
-@media (min-width:641px) {
+@media (min-width:481px) {
   /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
   #container,#uploads{
     width: 85%;
   }
+  .label{
+    font-size: 19px;
+  }
+  .innerProfile .value{
+    font-size: 16px;
+  }
 }
 
-@media (min-width:961px) {
+@media (min-width:641px) {
 
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   #container,#uploads{
     width: 45%;
   }
+  .label{
+    font-size: 21px;
+  }
+  .innerProfile .value{
+    font-size: 18px;
+  }
 }
 
-@media (min-width:1025px) {
+@media (min-width:961px) {
 
   /* big landscape tablets, laptops, and desktops */
   #container,#uploads{
     width: 45%;
   }
+  .label{
+    font-size: 21px;
+  }
+  .innerProfile .value{
+    font-size: 18px;
+  }
 }
 
+@media (min-width:1025px) {
+
+  /* hi-res laptops and desktops */
+  #container,#uploads{
+    width: 45%;
+  }
+  .label{
+    font-size: 21px;
+  }
+  .innerProfile .value{
+    font-size: 18px;
+  }
+}
 @media (min-width:1281px) {
 
   /* hi-res laptops and desktops */
   #container,#uploads{
     width: 45%;
+  }
+  .label{
+    font-size: 21px;
+  }
+  .innerProfile .value{
+    font-size: 18px;
   }
 }
 </style>
