@@ -97,8 +97,18 @@
   .cancelButton:hover {
     background-color: rgb(162, 162, 162);
   }
-  #uploadedPhotos{
+
+  #uploads{
     width: 55%;
+    height: fit-content;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  #uploadedPhotos{
+    width: 100%;
     height: fit-content;
     max-width: 80%;
     padding: 20px;
@@ -113,7 +123,11 @@
   #uploadedPhotos:hover{
     box-shadow: 1px 1px 12px 0px black;
     background-color: #2C3335;
-    transform: translateZ(10px);
+    transform: scale(1.01);
+  }
+
+  #uploadedPhotos:hover .photo{
+    box-shadow: 1px 1px 6px 0px black;
   }
 
   #uploadedPhotos .photo{
@@ -121,6 +135,7 @@
     height: 150px;
     overflow: hidden;
     position: relative;
+    margin-bottom: 10px;
   }
   .photo img{
     min-height: 100%;
@@ -149,5 +164,29 @@
   #uploadedPhotos .overlay:hover{
     color: white;
     background: rgba(0, 0, 0, 0.65);
+  }
+
+  #uploadedPhotos #head{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .photo .preview,.photo .imageSelector{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo .preview{
+    z-index: 5;
+  }
+
+  .photo .imageInput{
+    width: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 </style>

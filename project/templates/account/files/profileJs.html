@@ -51,6 +51,23 @@
         }
       });
     });
+
+
+    $('input#imageInputID').change(function(){
+      if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+          $('#imagePreview').attr('src', e.target.result);
+          $('#imageSelectorID').css('display', 'none');
+        }
+        
+        reader.readAsDataURL(this.files[0]); // convert to base64 string
+
+      }
+    });
+
+
   });
 
   function confirmProfileEdit(){
@@ -74,6 +91,7 @@
         }
       });
   }
+
 
   function checkBoxState(cb) {
     if (cb.checked) {
