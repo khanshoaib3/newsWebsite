@@ -15,7 +15,7 @@
 			{% for post in posts %}
 				<div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
 					<div class="postTitle">{{ post.title|truncatewords:15 }}</div>
-					<img class="postThumbnail" src="https://source.unsplash.com/{{ post.thumbnail }}">
+					<img class="postThumbnail" src="/media/{{ post.thumbnail }}">
 				</div>
 			{% endfor %}
 		</div>
