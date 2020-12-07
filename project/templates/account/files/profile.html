@@ -30,8 +30,6 @@
         <img src="{{ photo.photo.url }}" alt="">
         <div class="overlay" onclick="copyToClipboard('{{ photo.photo}}',this)">Copy url to Clipboard</div>
       </div>
-      {% empty %}
-        no photos
       {% endfor %}
     </div>
   </div>

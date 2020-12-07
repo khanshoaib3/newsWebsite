@@ -1,5 +1,9 @@
 <style>
 
+  #content{
+    margin-top: 10vh;
+  }
+
   #container{
     margin: 0;
   }
@@ -206,4 +210,41 @@
   #afterSelect:hover{
     background-color: rgba(0,0,0,0.65);
   }
+@media (min-width:481px) {
+  /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+  #container,#uploads{
+    width: 85%;
+  }
+}
+
+@media (min-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+  #container,#uploads{
+    width: 85%;
+  }
+}
+
+@media (min-width:961px) {
+
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+  #container,#uploads{
+    width: 45%;
+  }
+}
+
+@media (min-width:1025px) {
+
+  /* big landscape tablets, laptops, and desktops */
+  #container,#uploads{
+    width: 45%;
+  }
+}
+
+@media (min-width:1281px) {
+
+  /* hi-res laptops and desktops */
+  #container,#uploads{
+    width: 45%;
+  }
+}
 </style>

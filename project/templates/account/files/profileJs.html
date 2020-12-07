@@ -69,7 +69,6 @@
     });
 
     $('#uploadImage').click(function(){
-      $.noConflict();
       var photo = document.getElementById("imageInputID");
       jQuery.noConflict();  
       formdata = new FormData();
@@ -77,13 +76,14 @@
       if (formdata) {
         formdata.append("image", file);
         jQuery.ajax({
+          headers: { "X-CSRFToken": csrftoken },
           url: "{% url 'account:imageUpload' %}",
           type: "POST",
           data: formdata,
           processData: false,
           contentType: false,
           success:function(recievedData){
-            document.getElementById("uploads").reload();
+            location.reload();
           }
         });
       } 
