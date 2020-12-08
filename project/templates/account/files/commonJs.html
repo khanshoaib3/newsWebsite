@@ -18,10 +18,6 @@
         if (window.clipboardData && window.clipboardData.setData) {
             // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
             clipboardData.setData("Text", text);
-            div.innerHTML = "Copied!!";
-            setTimeout(function(){ 
-                div.innerHTML = "Copy url to Clipboard!";
-            }, 3000);
             return true
 
         }
@@ -33,10 +29,6 @@
             textarea.select();
             try {
                 document.execCommand("copy");  // Security exception may be thrown by some browsers.
-                div.innerHTML = "Copied!!";
-                setTimeout(function(){ 
-                    div.innerHTML = "Copy url to Clipboard!";
-                }, 3000);
                 return true
             }
             catch (ex) {

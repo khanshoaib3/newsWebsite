@@ -14,14 +14,17 @@ Profile
             <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
             <input type="file" class="imageInput" id="imageInputID">
             <div id="afterSelect">
-                <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;" id="uploadImage"></div>
-                <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;" for="imageInputID"></label>
+                <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="uploadImage"></div>
+                <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;cursor:pointer;" for="imageInputID"></label>
             </div>
         </div>
         {% for photo in photos %}
         <div class="photo">
             <img src="{{ photo.photo.url }}" alt="">
-            <div class="overlay" onclick="copyToClipboard('{{ photo.photo}}',this)">Copy url to Clipboard</div>
+            <div class="overlay" >
+              <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
+              <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" ></div>
+            </div>
         </div>
         {% endfor %}
     </div>
