@@ -1,134 +1,132 @@
 <script type="text/javascript">
-  // to open and close the prompt/portal box
-  const loadAnim = document.querySelector("#loadAnim");
-  function editPortal() {
+// to open and close the prompt/portal box
+const loadAnim = document.querySelector("#loadAnim");
+
+function editPortal() {
     if ($("#extra").hasClass("extraEdit")) {
-      document.getElementById("extra").classList.remove("extraEdit")
-      document.getElementById("extra").style.transform = "scale(0)"
-      document.getElementById("content").style.filter = "blur(0px)"
+        document.getElementById("extra").classList.remove("extraEdit")
+        document.getElementById("extra").style.transform = "scale(0)"
+        document.getElementById("content").style.filter = "blur(0px)"
     } else {
-      document.getElementById("extra").classList.add("extraEdit")
-      document.getElementById("extra").style.transform = "scale(1)"
-      document.getElementById("content").style.filter = "blur(2px)"
-      document.getElementById("promptInput").focus()
+        document.getElementById("extra").classList.add("extraEdit")
+        document.getElementById("extra").style.transform = "scale(1)"
+        document.getElementById("content").style.filter = "blur(2px)"
+        document.getElementById("promptInput").focus()
     }
-  }
+}
 
-   var csrftoken = Cookies.get('csrftoken');
-   function csrfSafeMethod(method) {
-     // these HTTP methods do not require CSRF protectio
-     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-   }
-   $.ajaxSetup({
-    beforeSend: function(xhr, settings){
-      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-        xhr.setRequestHeader("X-CSRFToken", csrftoken);
-      }
+var csrftoken = Cookies.get('csrftoken');
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protectio
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
     }
-   });
-
-   $(document).ready(function(){
-    $('button#formSubmit').click(function(){
-      var pass = $("input#promptInput").val();
-      $.post('{% url "account:reAuthenticate" %}',
-      {
-        pass: pass,
-      },
-      function(recievedData){
-        if (recievedData['status'] == 'ok') {
-          editPortal()
-          $('div#profile').remove();
-          $('div#foot').remove();
-          $('div#head').text('Edit Profile');
-
-          $('div#container').append('<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>')
-
-          $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
-        }
-        else if(recievedData['status'] == 'empty'){}
-        else {
-          editPortal()
-          openAlertBox(recievedData['status']);
-        }
-      });
-    });
-
-
-    $('input#imageInputID').change(function(){
-      if (this.files && this.files[0]) {
-        var reader = new FileReader();
-        
-        reader.onload = function(e) {
-          $('#imagePreview').attr('src', e.target.result);
-          $('#imageSelectorID').css('display', 'none');
-          $('#afterSelect').css('width','100%')
-        }
-        
-        reader.readAsDataURL(this.files[0]); // convert to base64 string
-
-      }
-    });
-
-    $('#uploadImage').click(function(){
-      var photo = document.getElementById("imageInputID");
-      jQuery.noConflict();  
-      formdata = new FormData();
-      var file = photo.files[0];
-      if (formdata) {
-        formdata.append("image", file);
-        $('#loadingAnim').css('opacity','1')
-        $('#loadingAnim').css('pointer-events','all')
-        loadAnim.play()
-        jQuery.ajax({
-          headers: { "X-CSRFToken": csrftoken },
-          url: "{% url 'account:imageUpload' %}",
-          type: "POST",
-          data: formdata,
-          processData: false,
-          contentType: false,
-          success:function(recievedData){
-            if (recievedData["status"]) {
-              location.reload();
-            } else {
-              $('#loadingAnim').css('opacity','0')
-        $('#loadingAnim').css('pointer-events','none')
-            }
-          }
-        });
-      } 
 });
-  });
 
-  function confirmProfileEdit(){
-     firstName = $('#editFirstName').val();
-     lastName = $('#editLastName').val();
-     newPassword = $('#newPassword').val();
-     confirmNewPassword = $('#confirmNewPassword').val();
+$(document).ready(function() {
+    $('button#formSubmit').click(function() {
+        var pass = $("input#promptInput").val();
+        $.post('{% url "account:reAuthenticate" %}', {
+                pass: pass,
+            },
+            function(recievedData) {
+                if (recievedData['status'] == 'ok') {
+                    editPortal()
+                    $('div#profile').remove();
+                    $('div#foot').remove();
+                    $('div#head').text('Edit Profile');
 
-     $.post('{% url "account:editProfile" %}',
-      {
-        firstName:firstName,
-        lastName:lastName,
-        newPassword:newPassword,
-        confirmNewPassword:confirmNewPassword
-      },
-      function(recievedData){
-        if (recievedData['status']=='ok') {
-          document.location.href="/";
-        } else {
-          openAlertBox(recievedData['status'])
+                    $('div#container').append('<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>')
+
+                    $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
+                } else if (recievedData['status'] == 'empty') {} else {
+                    editPortal()
+                    openAlertBox(recievedData['status']);
+                }
+            });
+    });
+
+
+    $('input#imageInputID').change(function() {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#imagePreview').attr('src', e.target.result);
+                $('#imageSelectorID').css('display', 'none');
+                $('#afterSelect').css('width', '100%')
+            }
+
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+
         }
-      });
-  }
+    });
+
+    $('#uploadImage').click(function() {
+        var photo = document.getElementById("imageInputID");
+        jQuery.noConflict();
+        formdata = new FormData();
+        var file = photo.files[0];
+        if (formdata) {
+            formdata.append("image", file);
+            $('#loadingAnim').css('opacity', '1')
+            $('#loadingAnim').css('pointer-events', 'all')
+            loadAnim.play()
+            jQuery.ajax({
+                headers: { "X-CSRFToken": csrftoken },
+                url: "{% url 'account:imageUpload' %}",
+                type: "POST",
+                data: formdata,
+                processData: false,
+                contentType: false,
+                success: function(recievedData) {
+                    if (recievedData["status"]) {
+                        location.reload();
+                    } else {
+                        $('#loadingAnim').css('opacity', '0')
+                        $('#loadingAnim').css('pointer-events', 'none')
+                    }
+                }
+            });
+        }
+    });
+});
+
+function confirmProfileEdit() {
+    firstName = $('#editFirstName').val();
+    lastName = $('#editLastName').val();
+    newPassword = $('#newPassword').val();
+    confirmNewPassword = $('#confirmNewPassword').val();
+
+    $.post('{% url "account:editProfile" %}', {
+            firstName: firstName,
+            lastName: lastName,
+            newPassword: newPassword,
+            confirmNewPassword: confirmNewPassword
+        },
+        function(recievedData) {
+            if (recievedData['status'] == 'ok') {
+                document.location.href = "/";
+            } else {
+                openAlertBox(recievedData['status'])
+            }
+        });
+}
 
 
-  function checkBoxState(cb) {
+function checkBoxState(cb) {
     if (cb.checked) {
-      document.getElementById("passwordEdit").style.height = "150px"
-      // document.getElementById("passwordEdit").style.transform = "scaleY(1)"
+        document.getElementById("passwordEdit").style.height = "150px"
+        // document.getElementById("passwordEdit").style.transform = "scaleY(1)"
     } else {
-      document.getElementById("passwordEdit").style.height = "0"
-      //document.getElementById("passwordEdit").style.transform = "scaleY(0)"
+        document.getElementById("passwordEdit").style.height = "0"
+        //document.getElementById("passwordEdit").style.transform = "scaleY(0)"
     }
-  }
+}
 </script>

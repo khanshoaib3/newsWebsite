@@ -1,92 +1,78 @@
 {% extends 'account/base.html' %}
-
-
-
 {% block title %}
-  Profile
+Profile
 {% endblock %}
-
-
 {% block css %}
-  {% include css %}
+{% include css %}
 {% endblock css %}
-
-
 {% block content %}
-  <div id="uploads">
+<div id="uploads">
     <div id="uploadedPhotos">
-      <div id="head">Uploaded Photos</div>
-      <div class="photo">
-        <img class="preview" id="imagePreview">
-        <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
-        <input type="file" class="imageInput" id="imageInputID">
-        <div id="afterSelect">
-          <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;" id="uploadImage"></div>
-          <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;" for="imageInputID"></label>
+        <div id="head">Uploaded Photos</div>
+        <div class="photo">
+            <img class="preview" id="imagePreview">
+            <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
+            <input type="file" class="imageInput" id="imageInputID">
+            <div id="afterSelect">
+                <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;" id="uploadImage"></div>
+                <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;" for="imageInputID"></label>
+            </div>
         </div>
-      </div>
-      {% for photo in photos %}
-      <div class="photo">
-        <img src="{{ photo.photo.url }}" alt="">
-        <div class="overlay" onclick="copyToClipboard('{{ photo.photo}}',this)">Copy url to Clipboard</div>
-      </div>
-      {% endfor %}
+        {% for photo in photos %}
+        <div class="photo">
+            <img src="{{ photo.photo.url }}" alt="">
+            <div class="overlay" onclick="copyToClipboard('{{ photo.photo}}',this)">Copy url to Clipboard</div>
+        </div>
+        {% endfor %}
     </div>
-  </div>
-  <div id="container">
+</div>
+<div id="container">
     <div id="head">profile</div>
     <div id="profile">
-      <div class="innerProfile">
-        <span class="label">First Name :</span>
-        <span class="value">{{ request.user.first_name }}</span>
-      </div>
-      <div class="innerProfile">
-        <span class="label">Last Name :</span>
-        <span class="value"> {% if request.user.last_name %}{{ request.user.last_name }}{% else %}nil{% endif %}</span>
-      </div>
-      <div class="innerProfile">
-        <span class="label">username :</span>
-        <span class="value">{{ request.user.username }}</span>
-      </div>
-      <div class="innerProfile">
-        <span class="label">Email :</span>
-        <span class="value">{{ request.user.email }}</span>
-      </div>
+        <div class="innerProfile">
+            <span class="label">First Name :</span>
+            <span class="value">{{ request.user.first_name }}</span>
+        </div>
+        <div class="innerProfile">
+            <span class="label">Last Name :</span>
+            <span class="value"> {% if request.user.last_name %}{{ request.user.last_name }}{% else %}nil{% endif %}</span>
+        </div>
+        <div class="innerProfile">
+            <span class="label">username :</span>
+            <span class="value">{{ request.user.username }}</span>
+        </div>
+        <div class="innerProfile">
+            <span class="label">Email :</span>
+            <span class="value">{{ request.user.email }}</span>
+        </div>
     </div>
     <div id="foot">
-      <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
-      <button class="buttonStyle1" onclick="editPortal()">Edit</button>
+        <a href="/account/logout/"><button class="buttonStyle1">Log out</button></a>
+        <button class="buttonStyle1" onclick="editPortal()">Edit</button>
     </div>
-  </div>  
+</div>
 {% endblock content %}
-
-
-
 {% block extras %}
-  <!-- prompt box or portal -->
-  <div id="extra">
+<!-- prompt box or portal -->
+<div id="extra">
     <div id="extraContainer">
-      <span>Enter your password</span>
-      <div id="promptForm">
-        <div class="innerForm">
-          <label for="promptInput"></label><br>
-          <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
+        <span>Enter your password</span>
+        <div id="promptForm">
+            <div class="innerForm">
+                <label for="promptInput"></label><br>
+                <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
+            </div>
+            <button class="buttonStyle1 cancelButton" onclick="editPortal()">Cancel</button>
+            <button id="formSubmit" class="buttonStyle1">Ok</button>
         </div>
-        <button class="buttonStyle1 cancelButton" onclick="editPortal()">Cancel</button>
-        <button id="formSubmit" class="buttonStyle1" >Ok</button>
-      </div>
     </div>
-  </div>
-
-  <div id="loadingAnim">
-    <lottie-player loop mode="normal" id='loadAnim' src="https://assets8.lottiefiles.com/packages/lf20_a845zwiu.json"s style="width: 320px;height:auto;"></lottie-player>
-  </div>
+</div>
+<div id="loadingAnim">
+    <lottie-player loop mode="normal" id='loadAnim' src="https://assets8.lottiefiles.com/packages/lf20_a845zwiu.json" s style="width: 320px;height:auto;"></lottie-player>
+</div>
 {% endblock extras %}
-
-
-
 {% block js %}
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
-  {% include js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+{% include js %}
 {% endblock js %}
