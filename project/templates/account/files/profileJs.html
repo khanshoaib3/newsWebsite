@@ -86,7 +86,7 @@ $(document).ready(function() {
                 processData: false,
                 contentType: false,
                 success: function(recievedData) {
-                    if (recievedData["status"]) {
+                    if (recievedData["status"]=='ok') {
                         location.reload();
                     } else {
                         $('#loadingAnim').css('opacity', '0')
@@ -96,7 +96,21 @@ $(document).ready(function() {
             });
         }
     });
+
 });
+
+function deleteImage(id) {
+    $.post('{% url "account:deleteImage" %}', {
+            id: id,
+        },
+        function(recievedData) {
+            if (recievedData["status"]=='ok') {
+                location.reload();
+            } else {
+                openAlertBox("Some Error Occured")
+            }
+        });
+}
 
 function confirmProfileEdit() {
     firstName = $('#editFirstName').val();

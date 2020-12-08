@@ -23,7 +23,7 @@ Profile
             <img src="{{ photo.photo.url }}" alt="">
             <div class="overlay" >
               <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
-              <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" ></div>
+              <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="deleteImage('{{ photo.id }}')"></div>
             </div>
         </div>
         {% endfor %}

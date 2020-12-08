@@ -196,4 +196,11 @@ def imageUpload(request):
     newImage.user = request.user
     newImage.photo = image
     newImage.save()
-    return JsonResponse({'status':'oesrdtk'})
+    return JsonResponse({'status':'ok'})
+
+@login_required
+@require_POST
+def deleteImage(request):
+    photo = Photos.objects.filter(user=request.user,id=request.POST.get("id"))
+    photo.delete()
+    return JsonResponse({'status':'ok'})
