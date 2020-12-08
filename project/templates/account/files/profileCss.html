@@ -111,7 +111,6 @@
   #uploadedPhotos{
     width: 100%;
     height: fit-content;
-    max-width: 80%;
     padding: 20px;
     position: relative;
     display: flex;
@@ -206,6 +205,22 @@
   }
   #afterSelect:hover{
     background-color: rgba(0,0,0,0.65);
+  }
+
+  #loadingAnim{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(44,51,53,0.85);
+    height: 100vh;
+    z-index: 100;
+    transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
   }
 
 
