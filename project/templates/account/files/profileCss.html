@@ -134,6 +134,7 @@
     overflow: hidden;
     position: relative;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 .photo img,.post img {
@@ -143,10 +144,10 @@
     object-fit: cover;
     object-position: center;
     z-index: 5;
-    filter: brightness(0.85);
+    filter: brightness(0.7);
 }
 
-#uploadedPhotos .overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -163,9 +164,13 @@
     opacity: 0;
 }
 
-#uploadedPhotos .overlay:hover {
+.overlay:hover {
     color: white;
     opacity: 1;
+}
+
+.overlay:hover .postTitle{
+    display: none;
 }
 
 #uploadedPhotos #head,#uploadedPosts #head {
@@ -195,6 +200,7 @@
 }
 
 .post .postTitle{
+    color: white;
     margin: 25px auto;
     text-transform: capitalize;
     cursor: default;
@@ -261,6 +267,10 @@
     .innerProfile .value {
         font-size: 12px;
     }
+
+    .postTitle {
+        font-size: 15px;
+    }
 }
 
 @media (min-width:320px) {
@@ -297,6 +307,10 @@
     .innerProfile .value {
         font-size: 16px;
     }
+
+    .postTitle {
+        font-size: 17px;
+    }
 }
 
 @media (min-width:641px) {
@@ -318,11 +332,15 @@
     .innerProfile .value {
         font-size: 18px;
     }
+
+    .postTitle {
+        font-size: 20px;
+    }
 }
 
 @media (min-width:961px) {
 
-    /* big landscape tablets, laptops, and desktops */
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
     #container,
     #uploadedPhotos, #uploadedPosts,
     #uploadedPhotos .photo, #uploadedPosts .post {
@@ -335,6 +353,10 @@
 
     .innerProfile .value {
         font-size: 18px;
+    }
+
+    .postTitle {
+        font-size: 22px;
     }
 }
 
@@ -354,6 +376,10 @@
     .innerProfile .value {
         font-size: 18px;
     }
+
+    .postTitle {
+        font-size: 22px;
+    }
 }
 
 @media (min-width:1281px) {
@@ -371,6 +397,10 @@
 
     .innerProfile .value {
         font-size: 18px;
+    }
+
+    .postTitle {
+        font-size: 22px;
     }
 }
 </style>

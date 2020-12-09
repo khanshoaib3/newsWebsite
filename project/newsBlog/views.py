@@ -37,3 +37,11 @@ def comment(request):
 	newCommentModel.body = newComment
 	newCommentModel.save()
 	return JsonResponse({'status':'ok'})
+
+
+@login_required
+@require_POST
+def deletePost(request):
+    post = Post.objects.filter(author=request.user,id=request.POST.get("id"))
+    post.delete()
+    return JsonResponse({'status':'ok'})

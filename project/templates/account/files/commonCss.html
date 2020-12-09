@@ -6,6 +6,9 @@ body {
     height: auto;
     background-color: #333945;
 }
+*{
+    cursor: default;
+}
 
 #alertBox {
     display: flex;
@@ -124,6 +127,64 @@ body {
     font-size: 15px;
 }
 
+#deleteBox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+    transform: scale(0);
+}
+
+
+
+#deleteBox #innerContainer{
+    position: relative;
+    width: fit-content;
+    min-width: 250px;
+    height: fit-content;
+    min-height: 50px;
+    background-color: #F8D7DA;
+    color: #7C2932;
+    padding: 10px;
+    border-radius: 5px;
+}
+#deleteBox #innerContainer #head{
+    width: 100%;
+    text-align: center;
+    color: Black;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+#deleteBox #innerContainer #deleteBoxBody{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+
+#deleteBox #innerContainer #buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#deleteBox #innerContainer #buttons buttons{
+    color: white;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+#deleteBox #innerContainer #buttons #cancel{
+    background-color: #8c8c8c;
+}
+#deleteBox #innerContainer #buttons #cancel:hover{
+    background-color: grey;
+}
 @media (max-width: 319px) {
 
     /*Very small devices ,*/

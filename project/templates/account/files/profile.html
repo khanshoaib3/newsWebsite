@@ -23,7 +23,7 @@ Profile
         <div class="overlay">
             <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
             <div style="background:url('/media/assets/copied2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;display:none;" id="copied2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
-            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="deleteImage('{{ photo.id }}')"></div>
+            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox('just open',1,'{{ photo.id }}')"></div>
         </div>
     </div>
     {% endfor %}
@@ -31,9 +31,13 @@ Profile
 <div id="uploadedPosts">
     <div id="head">Uploaded Posts</div>
     {% for post in posts %}
-    <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+    <div class="post">
         <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
         <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+        <div class="overlay">
+            <div style="background:url('/media/assets/edit.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="edit"></div>
+            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox('just open',2,'{{ post.id }}')" ></div>
+        </div>
     </div>
     {% endfor %}
 </div>

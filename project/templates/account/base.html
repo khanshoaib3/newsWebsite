@@ -47,6 +47,16 @@
             </button>
         </div>
     </div>
+    <div id="deleteBox">
+        <div id="innerContainer">
+            <div id="head">delete account</div>
+            <div id="deleteBoxBody">Are you sure you want to delete it?</div>
+            <div id="buttons">
+                <buttons class="buttonStyle1" id="cancel" onclick="closeDeleteBox()">cancel</buttons>
+                <buttons class="buttonStyle1" id="deleteBoxConfirm" onclick="deleteImage(id)">confirm</buttons>
+            </div>
+        </div>
+    </div>
     {% include commonJs %}
     {% block js %}{% endblock %}
     <script>
@@ -59,6 +69,21 @@
         $('span#alertBoxMessage').text(value);
         document.getElementById("content").style.filter = "blur(2px)";
         document.getElementById("alertBox").style.transform = "scale(1)";
+    }
+
+    function closeDeleteBox() {
+        document.getElementById("deleteBox").style.transform = "scale(0)";
+    }
+
+    function openDeleteBox(value,type,id) {
+        $('#deleteBoxBody').text(value);
+        document.getElementById("deleteBox").style.transform = "scale(1)";
+        if (type==1) {
+            $('#deleteBoxConfirm').attr("onclick","deleteImage("+id+")")
+        } 
+        if(type==2) {
+            $('#deleteBoxConfirm').attr("onclick","deletePost('"+id+"')")
+        }
     }
     </script>
     <!-- <script type="text/javascript">

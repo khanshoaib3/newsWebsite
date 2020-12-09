@@ -112,6 +112,19 @@ function deleteImage(id) {
         });
 }
 
+function deletePost(id) {
+    $.post('{% url "newsBlog:deletePost" %}', {
+            id: id,
+        },
+        function(recievedData) {
+            if (recievedData["status"] == 'ok') {
+                location.reload();
+            } else {
+                openAlertBox("Some Error Occured")
+            }
+        });
+}
+
 function confirmProfileEdit() {
     firstName = $('#editFirstName').val();
     lastName = $('#editLastName').val();
