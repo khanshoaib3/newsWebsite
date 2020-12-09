@@ -1,44 +1,55 @@
 <script>
-    function inputHover(i) {
-        if ($(i).hasClass("innerInputChange") && i.value == "") {
-            i.classList.remove("innerInputChange")
-            i.parentElement.firstElementChild.classList.remove("innerFormChange")
-        } else {
-            i.classList.add("innerInputChange")
-            i.parentElement.firstElementChild.classList.add("innerFormChange")
-        }
+function inputHover(i) {
+    if ($(i).hasClass("innerInputChange") && i.value == "") {
+        i.classList.remove("innerInputChange")
+        i.parentElement.firstElementChild.classList.remove("innerFormChange")
+    } else {
+        i.classList.add("innerInputChange")
+        i.parentElement.firstElementChild.classList.add("innerFormChange")
     }
-    function inputChange(i) {
-        if (i.value != "") {
-            i.classList.add("innerInputChange")
-            i.parentElement.firstElementChild.classList.add("innerFormChange")
-        }
+}
+
+function inputChange(i) {
+    if (i.value != "") {
+        i.classList.add("innerInputChange")
+        i.parentElement.firstElementChild.classList.add("innerFormChange")
     }
-    function copyToClipboard(text,div) {
-        if (window.clipboardData && window.clipboardData.setData) {
-            // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
-            clipboardData.setData("Text", text);
+}
+
+function copyToClipboard(text, div) {
+    if (window.clipboardData && window.clipboardData.setData) {
+        // Internet Explorer-specific code path to prevent textarea being shown while dialog is visible.
+        clipboardData.setData("Text", text);
+        $(div).css("display", "none")
+        $(div).parent().children("#copied2clip").css("display", "block")
+        setTimeout(function() {
+            $(div).css("display", "block")
+            $(div).parent().children("#copied2clip").css("display", "none")
+        }, 3000);
+        return true
+
+    } else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
+        var textarea = document.createElement("textarea");
+        textarea.textContent = text;
+        textarea.style.position = "fixed"; // Prevent scrolling to bottom of page in Microsoft Edge.
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand("copy"); // Security exception may be thrown by some browsers.
+            $(div).css("display", "none")
+            $(div).parent().children("#copied2clip").css("display", "block")
+            setTimeout(function() {
+                $(div).css("display", "block")
+                $(div).parent().children("#copied2clip").css("display", "none")
+            }, 3000);
             return true
-
+        } catch (ex) {
+            console.warn("Copy to clipboard failed.", ex);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
         }
-        else if (document.queryCommandSupported && document.queryCommandSupported("copy")) {
-            var textarea = document.createElement("textarea");
-            textarea.textContent = text;
-            textarea.style.position = "fixed";  // Prevent scrolling to bottom of page in Microsoft Edge.
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand("copy");  // Security exception may be thrown by some browsers.
-                return true
-            }
-            catch (ex) {
-                console.warn("Copy to clipboard failed.", ex);
-                return false;
-            }
-            finally {
-                document.body.removeChild(textarea);
-            }
-        }
-
     }
+
+}
 </script>
