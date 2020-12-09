@@ -6,29 +6,36 @@ Profile
 {% include css %}
 {% endblock css %}
 {% block content %}
-<div id="uploads">
-    <div id="uploadedPhotos">
-        <div id="head">Uploaded Photos</div>
-        <div class="photo">
-            <img class="preview" id="imagePreview">
-            <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
-            <input type="file" class="imageInput" id="imageInputID">
-            <div id="afterSelect">
-                <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="uploadImage"></div>
-                <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;cursor:pointer;" for="imageInputID"></label>
-            </div>
+<div id="uploadedPhotos">
+    <div id="head">Uploaded Photos</div>
+    <div class="photo">
+        <img class="preview" id="imagePreview">
+        <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
+        <input type="file" class="imageInput" id="imageInputID">
+        <div id="afterSelect">
+            <div style="background:url('/media/assets/upload.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="uploadImage"></div>
+            <label style="background:url('/media/assets/add-image.svg');background-size: 40px;background-position: center;width:40px;height:40px;margin-top:10px;cursor:pointer;" for="imageInputID"></label>
         </div>
-        {% for photo in photos %}
-        <div class="photo">
-            <img src="{{ photo.photo.url }}" alt="">
-            <div class="overlay" >
-              <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
-              <div style="background:url('/media/assets/copied2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;display:none;" id="copied2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
-              <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="deleteImage('{{ photo.id }}')"></div>
-            </div>
-        </div>
-        {% endfor %}
     </div>
+    {% for photo in photos %}
+    <div class="photo">
+        <img src="{{ photo.photo.url }}" alt="">
+        <div class="overlay">
+            <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
+            <div style="background:url('/media/assets/copied2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;display:none;" id="copied2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
+            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="deleteImage('{{ photo.id }}')"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div id="uploadedPosts">
+    <div id="head">Uploaded Posts</div>
+    {% for post in posts %}
+    <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+        <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+        <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+    </div>
+    {% endfor %}
 </div>
 <div id="container">
     <div id="head">profile</div>

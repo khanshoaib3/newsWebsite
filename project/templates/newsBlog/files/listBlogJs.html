@@ -1,38 +1,38 @@
 <script>
-	var filterIsOpened = false;
-	function filterTrigger(command) {
-		if (command=='open') {
-			$('div#postFilter').css('width','200px');
-			$('div#innerContainer').css('transform','rotateY(0deg)');
-			$('div#filterTrigger').css('display','none');
-			filterIsOpened = true;	
-		} else if(command=='close'){
-			$('div#postFilter').css('width','0px');
-			$('div#innerContainer').css('transform','rotateY(-90deg)');
-			$('div#filterTrigger').css('display','flex');
-			filterIsOpened = false;	
-		}
-		
-	}
-	$('div#content').click(function(){
-		if (filterIsOpened) {
-			filterTrigger('close')
-		}
-	});
-	$('div#postList').mousemove(function(e){
-		let xAxis = ( window.innerWidth / 2 - e.pageX ) / 65;
-		let yAxis = ( window.innerWidth / 2 - e.pageY ) / 65;
+var filterIsOpened = false;
 
-		$(this).css('transform','rotateY('+xAxis+'deg) rotateX('+yAxis+'deg)');
-	});
+function filterTrigger(command) {
+    if (command == 'open') {
+        $('div#postFilter').css('width', '200px');
+        $('div#innerContainer').css('transform', 'rotateY(0deg)');
+        $('div#filterTrigger').css('display', 'none');
+        filterIsOpened = true;
+    } else if (command == 'close') {
+        $('div#postFilter').css('width', '0px');
+        $('div#innerContainer').css('transform', 'rotateY(-90deg)');
+        $('div#filterTrigger').css('display', 'flex');
+        filterIsOpened = false;
+    }
 
-	$('div#postList').mouseenter(function(){
-		$(this).css('transition','none')
-	})
+}
+$('div#content').click(function() {
+    if (filterIsOpened) {
+        filterTrigger('close')
+    }
+});
+$('div#postList').mousemove(function(e) {
+    let xAxis = (window.innerWidth / 2 - e.pageX) / 65;
+    let yAxis = (window.innerWidth / 2 - e.pageY) / 65;
 
-	$('div#postList').mouseleave(function(){
-		$(this).css('transition','all 0.5s ease')
-		$(this).css('transform','rotateY(0deg) rotateX(0deg)');
-	})
-	
+    $(this).css('transform', 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)');
+});
+
+$('div#postList').mouseenter(function() {
+    $(this).css('transition', 'none')
+})
+
+$('div#postList').mouseleave(function() {
+    $(this).css('transition', 'all 0.5s ease')
+    $(this).css('transform', 'rotateY(0deg) rotateX(0deg)');
+})
 </script>

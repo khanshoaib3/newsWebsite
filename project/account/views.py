@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from rest_framework.authtoken.models import Token
 from .models import Profile, Photos
+from newsBlog.models import Post
 from django.http import JsonResponse
 import json
 
@@ -121,7 +122,8 @@ def signout(request):
 @login_required
 def profile(request):
     photos = Photos.objects.filter(user=request.user)
-    return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html','photos':photos})   
+    posts = Post.objects.filter(author=request.user)
+    return render(request,'account/files/profile.html',{'css':'account/files/profileCss.html','js':'account/files/profileJs.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html','nav':'common/nav.html','photos':photos,'posts':posts})   
 
 #========================END PROFILE=============================
 

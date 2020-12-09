@@ -1,183 +1,206 @@
 <style>
-    #content{
-        margin: 0;
-    }
-    #homeL{
-        display: none;
-    }
-    #container{
-        position: relative;
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-        margin-bottom: 10vh;
-    }
+#content {
+    margin: 0;
+}
+
+#homeL {
+    display: none;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 10vh;
+}
 
 
 
-    /*=======================THUMBNAIL======================*/
-    #postThumbnail{
-        position: relative;
-        width: 120%;
-        overflow: hidden;
-        margin: -10px auto 0 -20px;
-        z-index: -10;
-    }
-    #postThumbnail #after{
-        background: linear-gradient(0deg, rgba(51,57,69,1) 0%, rgba(255,255,255,0) 100%);
-        width: 100%;
-        height: 70%;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-    #postThumbnail img{
-        width: inherit;
-        height: inherit;
-        object-fit: cover;
-        object-position: center;
-        filter: brightness(0.5);
-    }
-    /*=====================END THUMBNAIL=====================*/
+/*=======================THUMBNAIL======================*/
+#postThumbnail {
+    position: relative;
+    width: 120%;
+    overflow: hidden;
+    margin: -10px auto 0 -20px;
+    z-index: -10;
+}
+
+#postThumbnail #after {
+    background: linear-gradient(0deg, rgba(51, 57, 69, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#postThumbnail img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.5);
+}
+
+/*=====================END THUMBNAIL=====================*/
 
 
 
 
-    /*=======================POST CONTENT======================*/
-    #innerContainer{
-        width: 75%;
-        height: auto;
-        background-color: #31393B;
-        color: white;
-        margin: -150px 0 20px 0;
-        border-radius: 10px;
-        padding: 15px;
+/*=======================POST CONTENT======================*/
+#innerContainer {
+    width: 75%;
+    height: auto;
+    background-color: #31393B;
+    color: white;
+    margin: -150px 0 20px 0;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#postTitle {
+    font-family: 'Spartan', sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#postBody {
+    font-size: 17px;
+    text-align: justify;
+    padding: 5px;
+    font-family: 'Spartan', sans-serif;
+}
+
+/*=====================END POST CONTENT====================*/
+
+
+
+
+/*=======================COMMENT======================*/
+#comments {
+    width: 75%;
+    height: auto;
+    min-height: 10vh;
+    background-color: #31393B;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+/*=====================END COMMENT====================*/
+
+
+@media (max-width: 319px) {
+
+    /*Very small devices ,*/
+    #postThumbnail {
+        height: 55vh;
     }
-    #postTitle{
-        font-family: 'Spartan', sans-serif;
-        font-weight: bold;
-        text-transform: capitalize;
+
+    #postTitle {
+        font-size: 15px;
     }
-    #postBody{
+
+    #postBody {
+        font-size: 13px;
+    }
+}
+
+@media (min-width:320px) {
+
+    /* smartphones, iPhone, portrait 480x320 phones */
+    #postThumbnail {
+        height: 55vh;
+    }
+
+    #postTitle {
+        font-size: 20px;
+    }
+
+    #postBody {
+        font-size: 13px;
+    }
+}
+
+@media (min-width:481px) {
+
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    #postThumbnail {
+        height: 55vh;
+    }
+
+    #postTitle {
+        font-size: 25px;
+    }
+
+    #postBody {
+        font-size: 15px;
+    }
+}
+
+@media (min-width:641px) {
+
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    #postThumbnail {
+        height: 55vh;
+    }
+
+    #postTitle {
+        font-size: 30px;
+    }
+
+    #postBody {
+        font-size: 15px;
+    }
+}
+
+@media (min-width:961px) {
+
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    #postThumbnail {
+        height: 65vh;
+    }
+
+    #postTitle {
+        font-size: 35px;
+    }
+
+    #postBody {
         font-size: 17px;
-        text-align: justify;
-        padding: 5px;
-        font-family: 'Spartan', sans-serif;
     }
-    /*=====================END POST CONTENT====================*/
+}
 
+@media (min-width:1025px) {
 
-
-
-    /*=======================COMMENT======================*/    
-    #comments{
-        width: 75%;
-        height: auto;
-        min-height: 10vh;
-        background-color: #31393B;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-        text-align: left;
-    }
-    /*=====================END COMMENT====================*/    
-
-
-    @media (max-width: 319px) {
-
-        /*Very small devices ,*/
-        #postThumbnail{
-            height: 55vh;
-        }
-        #postTitle{
-            font-size: 15px;
-        }
-        #postBody{
-            font-size: 13px;
-        }
+    /* big landscape tablets, laptops, and desktops */
+    #postThumbnail {
+        height: 65vh;
     }
 
-    @media (min-width:320px) {
-
-        /* smartphones, iPhone, portrait 480x320 phones */
-        #postThumbnail{
-            height: 55vh;
-        }
-        #postTitle{
-            font-size: 20px;
-        }
-        #postBody{
-            font-size: 13px;
-        }
+    #postTitle {
+        font-size: 35px;
     }
 
-    @media (min-width:481px) {
+    #postBody {
+        font-size: 17px;
+    }
+}
 
-        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-        #postThumbnail{
-            height: 55vh;
-        }
-        #postTitle{
-            font-size: 25px;
-        }
-        #postBody{
-            font-size: 15px;
-        }
+@media (min-width:1281px) {
+
+    /* hi-res laptops and desktops */
+    #postThumbnail {
+        height: 65vh;
     }
 
-    @media (min-width:641px) {
-
-        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-        #postThumbnail{
-            height: 55vh;
-        }
-        #postTitle{
-            font-size: 30px;
-        }
-        #postBody{
-            font-size: 15px;
-        }
+    #postTitle {
+        font-size: 35px;
     }
 
-    @media (min-width:961px) {
-
-        /* tablet, landscape iPad, lo-res laptops ands desktops */
-        #postThumbnail{
-            height: 65vh;
-        }
-        #postTitle{
-            font-size: 35px;
-        }
-        #postBody{
-            font-size: 17px;
-        }
+    #postBody {
+        font-size: 17px;
     }
-
-    @media (min-width:1025px) {
-
-        /* big landscape tablets, laptops, and desktops */
-        #postThumbnail{
-            height: 65vh;
-        }
-        #postTitle{
-            font-size: 35px;
-        }
-        #postBody{
-            font-size: 17px;
-        }
-    }
-
-    @media (min-width:1281px) {
-
-        /* hi-res laptops and desktops */
-        #postThumbnail{
-            height: 65vh;
-        }
-        #postTitle{
-            font-size: 35px;
-        }
-        #postBody{
-            font-size: 17px;
-        }
-    }
+}
 </style>

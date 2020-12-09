@@ -1,36 +1,29 @@
 {% extends 'account/base.html' %}
-
-
-
 {% block title %}
 SIGN UP
 {% endblock %}
-
-
 {% block content %}
 <div id="container">
-  <div id="head">sign up</div>
-  <form id="signupForm" action="." method="post">
-    {% for field in form %}
-    <br>
-    <div class="innerForm">
-      {{ field.errors }}
-      {{ field.label_tag }} <br> {{ field }}
-    </div>
-    {% endfor %}
-    {% csrf_token %}
-    <input type="submit" id="inputSubmit" value="Submit">
-  </form>
-  <div id="foot">Already a user?<a href="/account/signin/">Log in</a></div>
+    <div id="head">sign up</div>
+    <form id="signupForm" action="." method="post">
+        {% for field in form %}
+        <br>
+        <div class="innerForm">
+            {{ field.errors }}
+            {{ field.label_tag }} <br> {{ field }}
+        </div>
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" id="inputSubmit" value="Submit">
+    </form>
+    <div id="foot">Already a user?<a href="/account/signin/">Log in</a></div>
 </div>
 {% endblock content %}
-
-
 {% block js %}
 <script>
-  var array  = document.getElementsByClassName("innerInput")
-  for (let i = 0; i < array.length; i++) {
+var array = document.getElementsByClassName("innerInput")
+for (let i = 0; i < array.length; i++) {
     inputChange(array[i])
-  }
+}
 </script>
 {% endblock js %}

@@ -86,7 +86,7 @@ $(document).ready(function() {
                 processData: false,
                 contentType: false,
                 success: function(recievedData) {
-                    if (recievedData["status"]=='ok') {
+                    if (recievedData["status"] == 'ok') {
                         location.reload();
                     } else {
                         $('#loadingAnim').css('opacity', '0')
@@ -104,7 +104,7 @@ function deleteImage(id) {
             id: id,
         },
         function(recievedData) {
-            if (recievedData["status"]=='ok') {
+            if (recievedData["status"] == 'ok') {
                 location.reload();
             } else {
                 openAlertBox("Some Error Occured")
