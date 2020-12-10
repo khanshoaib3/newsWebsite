@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'newsBlog.apps.NewsblogConfig',
     'django_cleanup.apps.CleanupConfig',
+    'taggit',
 ]
 
 REST_FRAMEWORK = {

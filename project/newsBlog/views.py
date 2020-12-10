@@ -6,7 +6,7 @@ from django.http import JsonResponse
 
 #======================LIST VIEW========================
 def list(request):
-	return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':Post.published.all(),'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html'})
+	return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':Post.published.filter(tag__name__in=["tech","technology"]).distinct(),'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html'})
 #====================END LIST VIEW=======================
 
 
