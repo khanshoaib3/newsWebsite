@@ -13,7 +13,7 @@ def hello_world(request):
     if request.method == 'POST':
         return JsonResponse({"message": "Got some data!", "data": request.data})
     return JsonResponse({"message": "Hello, world!"})
-
+//comment
 @api_view(['POST'])
 @authentication_classes([])
 @permission_classes([])
