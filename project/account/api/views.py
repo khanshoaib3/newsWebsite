@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from account.api.serializers import CreateUserSerializer
+from account.api.serializers import CreateUserSerializer, LoginUserSerializer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
@@ -26,4 +26,22 @@ def createUserView(request):
             user = User.objects.get(username=serializer.data['username'])
             token = Token.objects.get(user=user).key
             return JsonResponse({'Token':token})
+        return JsonResponse(serializer.errors, status=400)
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def loginUserView(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = LoginUserSerializer(data=data)
+        if serializer.is_valid():
+            data = serializer.create(data)
+            if data == 'account disabled':
+                return JsonResponse({'Error':data})
+            else:
+                if data == 'account disabled':
+                    return JsonResponse({'Error':data})
+                else:
+                    return JsonResponse({'Token':data})
         return JsonResponse(serializer.errors, status=400)

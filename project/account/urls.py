@@ -1,6 +1,6 @@
 from django.urls import path
 from account.views import signin,signup,signout,profile,re_authenticate,editProfile,imageUpload, deleteImage
-from account.api.views import hello_world,createUserView
+from account.api.views import hello_world,createUserView,loginUserView
 
 app_name = 'account'
 
@@ -15,4 +15,5 @@ urlpatterns = [
     path('', profile, name='profile'),
     path('api/hw', hello_world, name='hello_world'),
     path('api/signup/', createUserView, name='signupAPI'),
+    path('api/signin/', loginUserView, name='signinAPI'),
 ]
