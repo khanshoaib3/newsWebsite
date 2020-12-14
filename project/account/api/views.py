@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from account.api.serializers import CreateUserSerializer, LoginUserSerializer
+from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
@@ -40,8 +40,20 @@ def loginUserView(request):
             if data == 'account disabled':
                 return JsonResponse({'Error':data})
             else:
-                if data == 'account disabled':
+                if data == 'wrong credentials':
                     return JsonResponse({'Error':data})
                 else:
                     return JsonResponse({'Token':data})
+        return JsonResponse(serializer.errors, status=400)
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def editUserPassView(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = EditUserPassSerializer(data=data)
+        if serializer.is_valid():
+            data = serializer.create(data)
+            return JsonResponse({'status':data})
         return JsonResponse(serializer.errors, status=400)
