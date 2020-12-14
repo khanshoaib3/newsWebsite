@@ -17,5 +17,5 @@ urlpatterns = [
     path('api/signup/', apiViews.createUserView, name='signupAPI'),
     path('api/signin/', apiViews.loginUserView, name='signinAPI'),
     path('api/editProfile/', apiViews.editUserProfileView, name='editProfileAPI'),
-    path('api/editPass/', apiViews.editUserPassView, name='editPassAPI'),
+    path('api/delete/', apiViews.deleteUserView, name='deleteAPI'),
 ]

@@ -95,3 +95,19 @@ class EditUserProfileSerializer(serializers.Serializer):
             return 'success'
         except:
             return 'wrong token'
+
+
+class DeleteUserSerializer(serializers.Serializer):
+    token = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    oldpassword = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
+    
+    def create(self, validated_data):
+        try:
+            user = Token.objects.get(key=validated_data['token']).user
+            if user.check_password(validated_data['oldpassword']):
+                user.delete()
+                return 'success'
+            else:
+                 return 'Wrong Password'
+        except:
+            return 'wrong token'
