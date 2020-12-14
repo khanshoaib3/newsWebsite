@@ -79,4 +79,19 @@ class EditUserPassSerializer(serializers.Serializer):
                  return 'Wrong Password'
         except:
             return 'wrong token'
-        
+
+
+class EditUserProfileSerializer(serializers.Serializer):
+    token = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    firstName = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    lastName = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    
+    def create(self, validated_data):
+        try:
+            user = Token.objects.get(key=validated_data['token']).user
+            user.first_name = validated_data['firstName']
+            user.last_name = validated_data['lastName']
+            user.save()
+            return 'success'
+        except:
+            return 'wrong token'
