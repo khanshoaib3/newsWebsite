@@ -1,10 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 from django.http import JsonResponse
-from newsBlog.api.serializers import GetPostSerializer
+from newsBlog.api.serializers import GetPostSerializer, CreatePostSerializer
 from rest_framework.decorators import authentication_classes, permission_classes
-import json
-
 
 
 @api_view(['POST'])
@@ -17,4 +15,16 @@ def getPostView(request):
         if serializer.is_valid():
             data = serializer.create(data)
             return JsonResponse({"data":list(data)})
+        return JsonResponse(serializer.errors, status=400)
+
+
+
+@api_view(['POST'])
+def editPostView(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = CreatePostSerializer(data=data)
+        if serializer.is_valid():
+            data = serializer.create(data)
+            return JsonResponse(data)
         return JsonResponse(serializer.errors, status=400)

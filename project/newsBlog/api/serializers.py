@@ -1,9 +1,6 @@
 from rest_framework import serializers
-from django.core import serializers as djangoSerializers
 from newsBlog.models import Post
 from rest_framework.authtoken.models import Token
-import json
-from django.core.serializers.json import DjangoJSONEncoder
 
 
 
@@ -47,5 +44,7 @@ class CreatePostSerializer(serializers.Serializer):
         try:
             user = Token.objects.get(key=validated_data['authorToken']).user
             post.author = user
+            post.save()
+            return {'Status':'ok'}
         except:
             return {'Error':'Wrong Token!!'}
