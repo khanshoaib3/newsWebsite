@@ -42,7 +42,7 @@ class Post(models.Model):
 	status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
 	objects = models.Manager() #Django's default model manager/filterer
 	published = PublishedManager() #Our custom model manager/filterer
-	tag = TaggableManager(through=UUIDTaggedItem)
+	tags = TaggableManager(through=UUIDTaggedItem)
 	class Meta:
 		ordering = ('-publish',)
 	def __str__(self):

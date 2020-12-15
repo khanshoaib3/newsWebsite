@@ -40,11 +40,35 @@ class CreatePostSerializer(serializers.Serializer):
         post.body = validated_data['body']
         post.thumbnail = validated_data['thumbnail']
         post.status = validated_data['status']
-        post.tag = validated_data['tag']
+        tags = validated_data['tag']
         try:
             user = Token.objects.get(key=validated_data['authorToken']).user
             post.author = user
             post.save()
+            post.tags.add(tags)
             return {'Status':'ok'}
         except:
             return {'Error':'Wrong Token!!'}
+
+
+class EditPostSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    title = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    slug = serializers.SlugField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    body = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    thumbnail = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    status = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    tag = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    def create(self,validated_data):
+        post = Post.objects.filter(pk=validated_data['pk'])
+        title = validated_data['title']
+        slug = validated_data['slug']
+        body = validated_data['body']
+        thumbnail = validated_data['thumbnail']
+        status = validated_data['status']
+        tags = validated_data['tag']
+        post.update(title=title, slug=slug, body=body, thumbnail=thumbnail, status=status)
+        post2 = Post.objects.filter(pk=validated_data['pk'])[0]
+        for t in tags.split(','):
+            post2.tags.add(t)
+        return {'Status':'ok'}

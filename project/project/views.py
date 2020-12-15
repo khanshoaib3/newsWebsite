@@ -7,7 +7,7 @@ def homeView(request):
                 'home/files/homeContent.html',
                 {'css':'home/files/homeCss.html',
                 'nav':'common/nav.html',
-                'globals':Post.published.filter(tag__name__in=["global","globals"]).distinct(),
-                'techs':Post.published.filter(tag__name__in=["tech","technical","technology"]).distinct(),
-                'gamings':Post.published.filter(tag__name__in=["game","gaming","games"]).distinct(),
-                'entertainments':Post.published.filter(tag__name__in=["entertainment"]).distinct()})
+                'globals':Post.published.filter(tags__name__in=["global","globals"]).distinct(),
+                'techs':Post.published.filter(tags__name__in=["tech","technical","technology"]).distinct(),
+                'gamings':Post.published.filter(tags__name__in=["game","gaming","games"]).distinct(),
+                'entertainments':Post.published.filter(tags__name__in=["entertainment"]).distinct()})
