@@ -2,27 +2,52 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
+from django.http import JsonResponse
+from ..models import Profile
 
-class CreateUserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['email', 'username', 'password','first_name',]
-        extra_kwargs = {
-            'password': {'write_only': True},
-            'first_name': {'required':True}
-        }
+
+#=================================CreateUserSerializer=================================
+class CreateUserSerializer(serializers.Serializer):
+    email = serializers.EmailField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    username = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    password = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
+    confirmPassword = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
+    firstName = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
 
     def create(self, validated_data):
-        user = User(
-            email=validated_data['email'],
-            username=validated_data['username']
-        )
-        user.set_password(validated_data['password'])
-        user.first_name = validated_data['first_name']
-        user.save()
-        return user
+        if User.objects.filter(username = validated_data['username']).exists():
+                return {'Error':'Username already exists!!'}
+        else:
+            if User.objects.filter(email = validated_data['email']).exists():
+                return {'Error':'Email already exists!!'}
+            else:
+                if validated_data['password']==validated_data['confirmPassword']:
+                    if len(validated_data['password']) >= 8:
+                        specialCharachter = 0
+                        number = 0
+                        word = 0
+                        for x in validated_data['password']:
+                            if x=='!' or x=='@' or x=='#' or x=='^' or x=='&' or x=='*' or x=='#' or x=='(' or x==')' or x=='-' or x=='_' or x=='=' or x=='+' or x=='{' or x=='}' or x=='[' or x==']' or x=='|' or x=='\\' or x==';' or x==':' or x=='\'' or x=='"' or x=='<' or x=='>' or x==',' or x=='.' or x=='/' or x=='?' :
+                                specialCharachter = specialCharachter + 1
+                            if x>='0' and x<='9' :
+                                number = number + 1
+                            if (x>='a' and x<='z') or (x>='A' and x<='Z'):
+                                word = word + 1
+                        if specialCharachter > 0 and word > 0 and number > 0 :
+                            u = User.objects.create_user(first_name=validated_data['firstName'],email=validated_data['email'],password=validated_data['password'],username=validated_data['username'])
+                            Profile.objects.create(user=u)
+                            token = Token.objects.get(user=u).key
+                            return {'Token':token}
+                        else:
+                            return {'Error':'Password must contain a special charachter (@,!,#....), a number and an alphabet'}
+                    else:
+                        return {'Error':'Password too short, must be atleast 8 charachters long'}
+                else:
+                    return {'Error':'Password don\'t match'}
+#======================================================================================
 
 
+#=================================LoginUserSerializer==================================
 class LoginUserSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     password = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
@@ -32,12 +57,15 @@ class LoginUserSerializer(serializers.Serializer):
         if user is not None :
             if user.is_active:
                 token = Token.objects.get(user=user).key
-                return token
+                return {'Token':token}
             else :
-                return 'account disabled'
+                return {'Error':'account disabled'}
         else :
-            return 'wrong credentials'
+            return {'Error':'wrong credentials'}
+#======================================================================================
 
+
+#=================================EditUserPassSerializer===============================
 class EditUserPassSerializer(serializers.Serializer):
     token = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     oldpassword = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
@@ -64,23 +92,25 @@ class EditUserPassSerializer(serializers.Serializer):
                                 word = word + 1
                         if specialCharachter > 0 and word > 0 and number > 0 :
                             if user.check_password(newPassword):
-                                return 'Cannot reuse previous password'
+                                return {'Error':'Cannot reuse previous password'}
                             else :
                                 user.set_password(newPassword)
                                 user.save()
-                                return 'success' 
+                                return {'Status':'success' }
                         else:
-                            return 'Password must contain a special charachter (@,!,#....), a number and an alphabet'
+                            return {'Error':'Password must contain a special charachter (@,!,#....), a number and an alphabet'}
                     else:
-                        return 'Password too short, must be atleast 8 charachters long'
+                        return {'Error':'Password too short, must be atleast 8 charachters long'}
                 else :
-                    return 'Passwords don\'t match'
+                    return {'Error':'Passwords don\'t match'}
             else:
-                 return 'Wrong Password'
+                 return {'Error':'Wrong Password'}
         except:
-            return 'wrong token'
+            return {'Error':'wrong token'}
+#======================================================================================
 
 
+#=================================EditUserProfileSerializer============================
 class EditUserProfileSerializer(serializers.Serializer):
     token = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     firstName = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
@@ -92,11 +122,13 @@ class EditUserProfileSerializer(serializers.Serializer):
             user.first_name = validated_data['firstName']
             user.last_name = validated_data['lastName']
             user.save()
-            return 'success'
+            return {'Error':'success'}
         except:
-            return 'wrong token'
+            return {'Error':'wrong token'}
+#======================================================================================
 
 
+#=================================DeleteUserSerializer=================================
 class DeleteUserSerializer(serializers.Serializer):
     token = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     oldpassword = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True, write_only=True)
@@ -106,8 +138,10 @@ class DeleteUserSerializer(serializers.Serializer):
             user = Token.objects.get(key=validated_data['token']).user
             if user.check_password(validated_data['oldpassword']):
                 user.delete()
-                return 'success'
+                return {'Status':'success'}
             else:
-                 return 'Wrong Password'
+                 return {'Error':'Wrong Password'}
         except:
-            return 'wrong token'
+            return {'Error':'wrong token'}
+#======================================================================================
+
