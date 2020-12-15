@@ -13,6 +13,16 @@ class GetPostSerializer(serializers.Serializer):
         if validated_data['typeOf']=='all':
             posts = Post.objects.all().values()
             return posts
+        elif validated_data['typeOf'].find('Token')!=-1:
+            spaceInWord = validated_data['typeOf'].find(' ')
+            token = validated_data['typeOf'][spaceInWord+1:]
+            try:
+                user = Token.objects.get(key=token).user
+                posts = Post.objects.filter(author=user).values()
+                return posts
+            except:
+                return {'Error':'wrong token'}
+
         else:
             post = Post.objects.filter(pk=validated_data['typeOf']).values()
             return post
