@@ -1,5 +1,4 @@
 from rest_framework.decorators import api_view
-from django.http import JsonResponse
 from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer, EditUserProfileSerializer, DeleteUserSerializer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
@@ -29,7 +28,6 @@ def createUserView(request):
         data = JSONParser().parse(request)
         serializer = CreateUserSerializer(data=data)
         if serializer.is_valid():
-            serializer.save()
             data = serializer.create(data)
             return JsonResponse(data)
         return JsonResponse(serializer.errors, status=400)

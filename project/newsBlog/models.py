@@ -34,7 +34,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=250,blank=False)
 	slug = models.SlugField(max_length=250,unique_for_date='publish',blank=False)
 	body = models.TextField(blank=False)
-	thumbnail = models.CharField(max_length=50,blank=True,default='WLUHO9A_xik',help_text='ONLY UNSPLASH IMAGE_IDS')
+	thumbnail = models.CharField(max_length=50,blank=True,default='WLUHO9A_xik',help_text='ONLY PHOTOS UPLOADED TO SERVER!!')
 	author = models.ForeignKey(User, on_delete=models.CASCADE,related_name='newsBlog_post')
 	publish = models.DateTimeField(default=timezone.now)
 	created = models.DateTimeField(auto_now_add=True)
