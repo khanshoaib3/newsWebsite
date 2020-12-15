@@ -72,3 +72,10 @@ class EditPostSerializer(serializers.Serializer):
         for t in tags.split(','):
             post2.tags.add(t)
         return {'Status':'ok'}
+
+class DeletePostSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    def create(self,validated_data):
+        post = Post.objects.filter(pk=validated_data['pk'])
+        post.delete()
+        return {'status':'ok'}
