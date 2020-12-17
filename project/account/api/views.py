@@ -1,11 +1,13 @@
 from rest_framework.decorators import api_view
-from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer, EditUserProfileSerializer, DeleteUserSerializer
+from rest_framework.generics import ListAPIView
+from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer, EditUserProfileSerializer, DeleteUserSerializer, PhotoUploadSerializer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
+from account.models import Photos
 
 
 
@@ -98,3 +100,23 @@ def deleteUserView(request):
 #======================================================================================
 
 
+
+
+#================================deleteUserView========================================
+class photoUploadView(ListAPIView):
+    def get(self, request):
+        queryset = Photos.objects.filter(user=request.user)
+        serializer_class = PhotoUploadSerializer(queryset, many=True)
+        return JsonResponse(serializer_class.data, safe=False)
+
+    def post(self, request):
+        file1 = request.data['file']
+        image = Photos.objects.create(photo=file1,user=request.user)
+        serializer_class = PhotoUploadSerializer(image)
+        return JsonResponse(serializer_class.data, safe=False)
+    
+    def delete(self, request):
+        photo = Photos.objects.filter(pk=request.data['pk'])
+        photo.delete()
+        return JsonResponse({'status':'success'})
+#======================================================================================

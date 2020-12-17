@@ -7,5 +7,5 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display=['user','emailVerified']
 
 @admin.register(Photos)
-class ProfileAdmin(admin.ModelAdmin):
-    list_display=['user','photo']
+class PhotosAdmin(admin.ModelAdmin):
+    list_display=['user','photo','pk']

@@ -18,4 +18,5 @@ urlpatterns = [
     path('api/signin/', apiViews.loginUserView, name='signinAPI'),
     path('api/editProfile/', apiViews.editUserProfileView, name='editProfileAPI'),
     path('api/delete/', apiViews.deleteUserView, name='deleteAPI'),
+    path('api/photoUpload/', apiViews.photoUploadView.as_view(), name='photoUpload'),
 ]

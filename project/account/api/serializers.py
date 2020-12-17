@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from django.http import JsonResponse
-from ..models import Profile
+from ..models import Profile, Photos
 
 
 #=================================CreateUserSerializer=================================
@@ -145,3 +145,11 @@ class DeleteUserSerializer(serializers.Serializer):
             return {'Error':'wrong token'}
 #======================================================================================
 
+
+
+#=================================DeleteUserSerializer=================================
+class PhotoUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Photos
+        fields = ('user', 'photo')
+#======================================================================================
