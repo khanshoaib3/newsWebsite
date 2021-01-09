@@ -28,6 +28,9 @@
         <div id="postBody">{{post.body|linebreaks}}</div>
     </div>
     <div id="comments">
+        <div id="head">
+            Comments
+        </div>
         <div id="postComment">
             {% if request.user.is_authenticated %}
             <ul>
@@ -37,7 +40,9 @@
                 </li>
             </ul>
             {% else %}
-            Please sign in to post comments!
+            <div id="signinPrompt">
+                Please <a href="/account/signin/" target="_blank">sign in</a> to post comments!
+            </div>
             {% endif %}
         </div>
         <div id="allComments">

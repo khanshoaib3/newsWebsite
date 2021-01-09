@@ -147,9 +147,9 @@ class DeleteUserSerializer(serializers.Serializer):
 
 
 
-#=================================DeleteUserSerializer=================================
+#=================================PhotoUploadSerializer=================================
 class PhotoUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photos
-        fields = ('user', 'photo')
+        fields = ('user', 'photo','pk')
 #======================================================================================
