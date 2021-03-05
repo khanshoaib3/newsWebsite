@@ -23,7 +23,7 @@ Profile
         <div class="overlay">
             <div style="background:url('/media/assets/copy2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="copy2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
             <div style="background:url('/media/assets/copied2clip.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;display:none;" id="copied2clip" onclick="copyToClipboard('{{ photo.photo }}',this)"></div>
-            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox('just open',1,'{{ photo.id }}')"></div>
+            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox(1,'{{ photo.id }}')"></div>
         </div>
     </div>
     {% endfor %}
@@ -36,7 +36,7 @@ Profile
         <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
         <div class="overlay">
             <div style="background:url('/media/assets/edit.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="edit"></div>
-            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox('just open',2,'{{ post.id }}')" ></div>
+            <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox(2,'{{ post.id }}')" ></div>
         </div>
     </div>
     {% endfor %}
@@ -77,8 +77,10 @@ Profile
                 <label for="promptInput"></label><br>
                 <input name="password" class="innerInput" id="promptInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" type="password">
             </div>
-            <button class="buttonStyle1 cancelButton" onclick="editPortal()">Cancel</button>
-            <button id="formSubmit" class="buttonStyle1">Ok</button>
+            <div id="buttons">
+                <button class="buttonStyle1 cancelButton" onclick="editPortal()">Cancel</button>
+                <button id="formSubmit" class="buttonStyle1">Submit</button>
+            </div>
         </div>
     </div>
 </div>
