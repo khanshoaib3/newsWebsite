@@ -6,13 +6,13 @@ function editPortal() {
     if ($("#extra").hasClass("extraEdit")) {
         document.getElementById("extra").classList.remove("extraEdit")
         document.getElementById("extra").style.transform = "scale(0)"
-        document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0)"
+        document.getElementById("extraOverlay").style.display = "none"
         document.getElementById("extraOverlay").style.pointerEvents = "none"
         enableScroll();
     } else {
         document.getElementById("extra").classList.add("extraEdit")
         document.getElementById("extra").style.transform = "scale(1)"
-        document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0.25)"
+        document.getElementById("extraOverlay").style.display = "block"
         document.getElementById("extraOverlay").style.pointerEvents = "all"
         document.getElementById("promptInput").focus()
         disableScroll();
@@ -44,7 +44,7 @@ function passSubmit(){
             $('div#profile').remove();
             $('div#foot').remove();
             $('div#head').text('Edit Profile');
-
+            alert($('div#container').css("width"));
             $('div#container').append('<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>')
 
             $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')

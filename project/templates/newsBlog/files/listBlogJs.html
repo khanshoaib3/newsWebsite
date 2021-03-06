@@ -20,19 +20,19 @@ $('div#content').click(function() {
         filterTrigger('close')
     }
 });
-$('div#postList').mousemove(function(e) {
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 65;
-    let yAxis = (window.innerWidth / 2 - e.pageY) / 65;
+// $('div#postList').mousemove(function(e) {
+//     let xAxis = (window.innerWidth / 2 - e.pageX) / 65;
+//     let yAxis = (window.innerWidth / 2 - e.pageY) / 65;
 
-    $(this).css('transform', 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)');
-});
+//     $(this).css('transform', 'rotateY(' + xAxis + 'deg) rotateX(' + yAxis + 'deg)');
+// });
 
-$('div#postList').mouseenter(function() {
-    $(this).css('transition', 'none')
-})
+// $('div#postList').mouseenter(function() {
+//     $(this).css('transition', 'none')
+// })
 
-$('div#postList').mouseleave(function() {
-    $(this).css('transition', 'all 0.5s ease')
-    $(this).css('transform', 'rotateY(0deg) rotateX(0deg)');
-});
+// $('div#postList').mouseleave(function() {
+//     $(this).css('transition', 'all 0.5s ease')
+//     $(this).css('transform', 'rotateY(0deg) rotateX(0deg)');
+// });
 </script>

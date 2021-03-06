@@ -1,293 +1,294 @@
 <style>
-body {
-    width: 100vw;
-    height: 50vh;
-}
+    body {
+        width: 100vw;
+        height: 50vh;
+    }
 
-#homeL {
-    display: none;
-}
+    #homeL {
+        display: none;
+    }
 
-#content {
-    top: 0%;
-    left: 0;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-
-#container {
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    perspective: 600px;
-}
-.postList,
-.postTrending {
-    height: -webkit-fit-content;
-    width: 100%;
-    min-height: 10vh;
-    padding: 15px 20px;
-    background-color: rgba(49, 57, 59, 0.5);
-    backdrop-filter: blur(10px);
-    box-shadow: 1px 1px 8px 0px black;
-    color: white;
-    border-radius: 4px;
-    margin: 5px 15px;
-    transition: 0.01s;
-    perspective: 10000px;
-}
-
-.postTrending{
-    height: max-content;
-}
-
-.postTrending .postContainer .post {
-    width: 85%;
-}
-
-.heading {
-    text-transform: capitalize;
-    color: white;
-    cursor: default;
-    font-family: 'Kreon', serif;
-}
-
-.postContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 95%;
-    height: auto;
-    min-height: 200px;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.postContainer .post {
-    width: 45%;
-    height: auto;
-    min-height: 150px;
-    max-height: 200px;
-    margin: 5px;
-    border-radius: 5px;
-    position: relative;
-    overflow: hidden;
-    -webkit-font-smoothing: antialiased;
-    backface-visibility: hidden;
-    /*box-shadow: 1px 1px 8px 0px black;*/
-}
-
-.postContainer .post .postTitle {
-    margin: 25px auto;
-    text-transform: capitalize;
-    cursor: default;
-    font-family: system-ui;
-    text-align: left;
-    padding: 0 15px 0 10px;
-    z-index: 10;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transition: 0.2s;
-}
-
-:is(.postList,.postTrending ):hover{
-    backdrop-filter: blur(20px);
-}
-
-.post:hover {
-    box-shadow: 1px 1px 10px 0px black;
-    transform: translateZ(150px);
-    filter: brightness(1.2);
-}
+    #content {
+        top: 0%;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
 
-.postContainer .post .postThumbnail {
-    position: absolute;
-    height: 100%;
-    width: auto;
-    min-width: 100%;
-    margin: 0;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.65);
-}
+    #container {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        perspective: 600px;
+    }
 
-@media (max-width: 319px) {
-
-    /*Very small devices ,*/
-    #container{
-        width: 90%;
+    .postList,
+    .postTrending {
+        height: -webkit-fit-content;
+        width: 100%;
+        min-height: 10vh;
+        padding: 15px 20px;
+        background-color: #303536;
+        color: white;
+        border-radius: 10px;
+        margin: 5px 15px;
+        transition: 0.01s;
+        perspective: 10000px;
     }
 
     .postTrending {
-        width: 85%;
+        height: max-content;
     }
 
-
-    .heading {
-        font-size: 27px;
-    }
-
-    .postTitle {
-        font-size: 12px;
-    }
-
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 85%;
-    }
-}
-
-@media (min-width:320px) {
-
-    /* smartphones, iPhone, portrait 480x320 phones */
-    #container{
-        width: 90%;
-    }
-
-    .postTrending {
-        width: 85%;
-    }
-
-
-    .heading {
-        font-size: 27px;
-    }
-
-    .postTitle {
-        font-size: 15px;
-    }
-
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 85%;
-    }
-}
-
-@media (min-width:481px) {
-
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-    #container{
-        width: 90%;
-    }
-
-    .postTrending {
+    .postTrending .postContainer .post {
         width: 85%;
     }
 
     .heading {
-        font-size: 27px;
+        text-transform: capitalize;
+        color: white;
+        cursor: default;
+        font-family: 'Kreon', serif;
     }
 
-    .postTitle {
-        font-size: 17px;
+    .postContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        height: auto;
+        min-height: 200px;
+        justify-content: center;
+        margin: 20px 0;
     }
 
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 65%;
-    }
-}
-
-@media (min-width:641px) {
-
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    #container{
-        width: 80%;
-    }
-
-    .postTrending {
-        width: 75%;
-    }
-
-    .heading {
-        font-size: 28px;
-    }
-
-    .postTitle {
-        font-size: 20px;
-    }
-
-    :is(.postList,.postTrending) .postContainer .post{
+    .postContainer .post {
         width: 45%;
-    }
-}
-
-@media (min-width:961px) {
-
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-    #container{
-        width: 60%;
-    }
-
-    .postTrending {
-        width: 30%;
+        height: auto;
+        min-height: 150px;
+        max-height: 200px;
+        margin: 5px;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        backface-visibility: hidden;
+        /*box-shadow: 1px 1px 8px 0px black;*/
     }
 
-    .heading {
-        font-size: 32px;
+    .postContainer .post .postTitle {
+        margin: 25px auto;
+        text-transform: capitalize;
+        cursor: default;
+        font-family: system-ui;
+        text-align: left;
+        padding: 0 15px 0 10px;
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: 0.2s;
     }
 
-    .postTitle {
-        font-size: 22px;
+    :is(.postList, .postTrending):hover {
+        box-shadow: 1px 1px 12px 0px black;
+        background-color: #2C3335;
+        transform: scale(1.01);
     }
 
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 45%;
-    }
-}
-
-@media (min-width:1025px) {
-
-    /* big landscape tablets, laptops, and desktops */
-    #container{
-        width: 60%;
+    .post:hover {
+        box-shadow: 1px 1px 10px 0px black;
+        transform: translateZ(150px);
+        filter: brightness(1.2);
     }
 
-    .postTrending {
-        width: 30%;
+
+    .postContainer .post .postThumbnail {
+        position: absolute;
+        height: 100%;
+        width: auto;
+        min-width: 100%;
+        margin: 0;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.65);
     }
 
-    .heading {
-        font-size: 32px;
+    @media (max-width: 319px) {
+
+        /*Very small devices ,*/
+        #container {
+            width: 90%;
+        }
+
+        .postTrending {
+            width: 85%;
+        }
+
+
+        .heading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 12px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 85%;
+        }
     }
 
-    .postTitle {
-        font-size: 22px;
+    @media (min-width:320px) {
+
+        /* smartphones, iPhone, portrait 480x320 phones */
+        #container {
+            width: 90%;
+        }
+
+        .postTrending {
+            width: 85%;
+        }
+
+
+        .heading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 15px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 85%;
+        }
     }
 
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 45%;
-    }
-}
+    @media (min-width:481px) {
 
-@media (min-width:1281px) {
+        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        #container {
+            width: 90%;
+        }
 
-    /* hi-res laptops and desktops */
-    #container{
-        width: 60%;
+        .postTrending {
+            width: 85%;
+        }
+
+        .heading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 17px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 65%;
+        }
     }
 
-    .postTrending {
-        width: 30%;
+    @media (min-width:641px) {
+
+        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+        #container {
+            width: 80%;
+        }
+
+        .postTrending {
+            width: 75%;
+        }
+
+        .heading {
+            font-size: 28px;
+        }
+
+        .postTitle {
+            font-size: 20px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 45%;
+        }
     }
 
-    .heading {
-        font-size: 32px;
+    @media (min-width:961px) {
+
+        /* tablet, landscape iPad, lo-res laptops ands desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 45%;
+        }
     }
 
-    .postTitle {
-        font-size: 22px;
+    @media (min-width:1025px) {
+
+        /* big landscape tablets, laptops, and desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 45%;
+        }
     }
 
-    :is(.postList,.postTrending) .postContainer .post{
-        width: 45%;
+    @media (min-width:1281px) {
+
+        /* hi-res laptops and desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        :is(.postList, .postTrending) .postContainer .post {
+            width: 45%;
+        }
     }
-}
 </style>

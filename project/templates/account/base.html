@@ -39,7 +39,7 @@
         {% block content %}{% endblock content %}
     </div>
     {% block extras %}{% endblock extras %}
-    <div id="extraOverlay" style=' {% if response %} background-color: rgba(0, 0, 0, 0.25); {% else %} background-color: rgba(0, 0, 0, 0); {% endif %}'></div>
+    <div id="extraOverlay" style=' {% if response %} display:block; {% else %} display:none; {% endif %}'></div>
     <div id="alertBox" onclick="closeAlertBox()" style=' {% if response %} transform: scale(1); {% else %} transform: scale(0); {% endif %}'>
         <div class="alert alert-danger alert-dismissible fade show" style="text-transform: capitalize;z-index: 100;" role="alert">
             <strong>Error!</strong> <span id="alertBoxMessage">{{ response }} </span>
@@ -65,26 +65,26 @@
         var alertBox =  {% if response %} true {% else %} false {% endif %};
         function closeAlertBox() {
             document.getElementById("alertBox").style.transform = "scale(0)";
-            document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0)"
+            document.getElementById("extraOverlay").style.display = "none"
         }
 
         function openAlertBox(value) {
             $('span#alertBoxMessage').text(value);
             document.getElementById("alertBox").style.transform = "scale(1)";
-            document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0.25)"
+            document.getElementById("extraOverlay").style.display = "block"
         }
 
         function closeDeleteBox() {
             document.querySelector("#deleteBox #innerContainer").style.transform = "scale(0)";
             document.querySelector("#deleteBox").style.pointerEvents = "none";
-            document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0)"
+            document.getElementById("extraOverlay").style.display = "none";
             enableScroll();
             deleteBox = false;
         }
 
         function openDeleteBox(type,id) {
+            document.getElementById("extraOverlay").style.display = "block";
             document.querySelector("#deleteBox").style.pointerEvents = "all";
-            document.getElementById("extraOverlay").style.backgroundColor = "rgba(0,0,0,0.25)"
             document.querySelector("#deleteBox #innerContainer").style.transform = "scale(1)";
             if (type==1) {
                 $('#deleteBoxConfirm').attr("onclick","deleteImage("+id+")")
