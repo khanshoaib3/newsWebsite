@@ -1,166 +1,234 @@
 <script type="text/javascript">
-// to open and close the prompt/portal box
-const loadAnim = document.querySelector("#loadAnim");
-
-function editPortal() {
-    if ($("#extra").hasClass("extraEdit")) {
-        document.getElementById("extra").classList.remove("extraEdit")
-        document.getElementById("extra").style.transform = "scale(0)"
-        document.getElementById("extraOverlay").style.display = "none"
-        document.getElementById("extraOverlay").style.pointerEvents = "none"
-        enableScroll();
-    } else {
-        document.getElementById("extra").classList.add("extraEdit")
-        document.getElementById("extra").style.transform = "scale(1)"
-        document.getElementById("extraOverlay").style.display = "block"
-        document.getElementById("extraOverlay").style.pointerEvents = "all"
-        document.getElementById("promptInput").focus()
-        disableScroll();
-    }
-}
-
-var csrftoken = Cookies.get('csrftoken');
-
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protectio
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    // to open and close the prompt/portal box
+    const loadAnim = document.querySelector("#loadAnim");
+    var uploadedPhotos = false;
+    var uploadedPhotosHeight = document.getElementById("uploadedPhotos").offsetHeight;
+    document.getElementById("uploadedPhotos").style.maxHeight = "65px";
+    var uploadedPosts = false;
+    var uploadedPostsHeight = document.getElementById("uploadedPosts").offsetHeight;
+    document.getElementById("uploadedPosts").style.maxHeight = "65px";
+    function openDropDown(val) {
+        if (val == 1) {
+            if(uploadedPosts) toggleUploadPosts();
+            toggleUploadPhotos()
+        } else if (val == 2) {
+            if(uploadedPhotos) toggleUploadPhotos();
+            toggleUploadPosts()
         }
     }
-});
 
-function passSubmit(){
-    var pass = $("input#promptInput").val();
-    $.post('{% url "account:reAuthenticate" %}', {
-        pass: pass,
-    },
-    function(recievedData) {
-        if (recievedData['status'] == 'ok') {
-            editPortal()
-            $('div#profile').remove();
-            $('div#foot').remove();
-            $('div#head').text('Edit Profile');
-            alert($('div#container').css("width"));
-            $('div#container').append('<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>')
-
-            $('div#container').append('<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>')
-        } else if (recievedData['status'] == 'empty') {} else {
-            editPortal()
-            openAlertBox(recievedData['status']);
+    function toggleUploadPhotos() {
+        if (uploadedPhotos) {
+            const player = document.querySelector("#upPhotoLottie");
+            player.setDirection(-1);
+            player.play();
+            setTimeout(function () {
+                player.stop();
+                player.seek(0);
+            }, 900);
+            document.getElementById("uploadedPhotos").style.maxHeight = "65px";
+            uploadedPhotos = false;
+        } else {
+            const player = document.querySelector("#upPhotoLottie");
+            player.setDirection(1);
+            player.play();
+            setTimeout(function () {
+                player.stop();
+                player.seek(50);
+            }, 900);
+            document.getElementById("uploadedPhotos").style.maxHeight = "" + uploadedPhotosHeight + "px";
+            uploadedPhotos = true;
         }
-    });
-}
+    }
 
-$(document).ready(function() {
-    $('button#formSubmit').click(passSubmit);
+    function toggleUploadPosts() {
+        if (uploadedPosts) {
+            const player = document.querySelector("#upPostLottie");
+            player.setDirection(-1);
+            player.play();
+            setTimeout(function () {
+                player.stop();
+                player.seek(0);
+            }, 900);
+            document.getElementById("uploadedPosts").style.maxHeight = "65px";
+            uploadedPosts = false;
+        } else {
+            const player = document.querySelector("#upPostLottie");
+            player.setDirection(1);
+            player.play();
+            setTimeout(function () {
+                player.stop();
+                player.seek(50);
+            }, 900);
+            document.getElementById("uploadedPosts").style.maxHeight = "" + uploadedPostsHeight + "px";
+            uploadedPosts = true;
+        }
+    }
 
+    function editPortal() {
+        if ($("#extra").hasClass("extraEdit")) {
+            document.getElementById("extra").classList.remove("extraEdit")
+            document.getElementById("extra").style.transform = "scale(0)"
+            document.getElementById("extraOverlay").style.display = "none"
+            document.getElementById("extraOverlay").style.pointerEvents = "none"
+            enableScroll();
+        } else {
+            document.getElementById("extra").classList.add("extraEdit")
+            document.getElementById("extra").style.transform = "scale(1)"
+            document.getElementById("extraOverlay").style.display = "block"
+            document.getElementById("extraOverlay").style.pointerEvents = "all"
+            document.getElementById("promptInput").focus()
+            disableScroll();
+        }
+    }
 
-    $('input#imageInputID').change(function() {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
+    var csrftoken = Cookies.get('csrftoken');
 
-            reader.onload = function(e) {
-                $('#imagePreview').attr('src', e.target.result);
-                $('#imageSelectorID').css('display', 'none');
-                $('#afterSelect').css('width', '100%')
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protectio
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
             }
-
-            reader.readAsDataURL(this.files[0]); // convert to base64 string
-
         }
     });
 
-    $('#uploadImage').click(function() {
-        var photo = document.getElementById("imageInputID");
-        jQuery.noConflict();
-        formdata = new FormData();
-        var file = photo.files[0];
-        if (formdata) {
-            formdata.append("image", file);
-            $('#loadingAnim').css('opacity', '1')
-            $('#loadingAnim').css('pointer-events', 'all')
-            loadAnim.play()
-            jQuery.ajax({
-                headers: { "X-CSRFToken": csrftoken },
-                url: "{% url 'account:imageUpload' %}",
-                type: "POST",
-                data: formdata,
-                processData: false,
-                contentType: false,
-                success: function(recievedData) {
-                    if (recievedData["status"] == 'ok') {
-                        location.reload();
-                    } else {
-                        $('#loadingAnim').css('opacity', '0')
-                        $('#loadingAnim').css('pointer-events', 'none')
-                    }
+    function passSubmit() {
+        var pass = $("input#promptInput").val();
+        $.post('{% url "account:reAuthenticate" %}', {
+                pass: pass,
+            },
+            function (recievedData) {
+                if (recievedData['status'] == 'ok') {
+                    editPortal()
+                    $('div#profile').remove();
+                    $('div#foot').remove();
+                    $('div#head').text('Edit Profile');
+                    alert($('div#container').css("width"));
+                    $('div#container').append(
+                        '<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>'
+                    )
+
+                    $('div#container').append(
+                        '<div id="foot"><button class="buttonStyle1 cancelButton" onclick="location.reload()">Cancel</button><button class="buttonStyle1" onclick="confirmProfileEdit()">Confirm</button></div>'
+                    )
+                } else if (recievedData['status'] == 'empty') {} else {
+                    editPortal()
+                    openAlertBox(recievedData['status']);
                 }
             });
-        }
+    }
+
+    $(document).ready(function () {
+        $('button#formSubmit').click(passSubmit);
+
+
+        $('input#imageInputID').change(function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    $('#imageSelectorID').css('display', 'none');
+                    $('#afterSelect').css('width', '100%')
+                }
+
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
+
+            }
+        });
+
+        $('#uploadImage').click(function () {
+            var photo = document.getElementById("imageInputID");
+            jQuery.noConflict();
+            formdata = new FormData();
+            var file = photo.files[0];
+            if (formdata) {
+                formdata.append("image", file);
+                $('#loadingAnim').css('opacity', '1')
+                $('#loadingAnim').css('pointer-events', 'all')
+                loadAnim.play()
+                jQuery.ajax({
+                    headers: {
+                        "X-CSRFToken": csrftoken
+                    },
+                    url: "{% url 'account:imageUpload' %}",
+                    type: "POST",
+                    data: formdata,
+                    processData: false,
+                    contentType: false,
+                    success: function (recievedData) {
+                        if (recievedData["status"] == 'ok') {
+                            location.reload();
+                        } else {
+                            $('#loadingAnim').css('opacity', '0')
+                            $('#loadingAnim').css('pointer-events', 'none')
+                        }
+                    }
+                });
+            }
+        });
+
     });
 
-});
-
-function deleteImage(id) {
-    $.post('{% url "account:deleteImage" %}', {
-            id: id,
-        },
-        function(recievedData) {
-            if (recievedData["status"] == 'ok') {
-                location.reload();
-            } else {
-                openAlertBox("Some Error Occured")
-            }
-        });
-}
-
-function deletePost(id) {
-    $.post('{% url "newsBlog:deletePost" %}', {
-            id: id,
-        },
-        function(recievedData) {
-            if (recievedData["status"] == 'ok') {
-                location.reload();
-            } else {
-                openAlertBox("Some Error Occured")
-            }
-        });
-}
-
-function confirmProfileEdit() {
-    firstName = $('#editFirstName').val();
-    lastName = $('#editLastName').val();
-    newPassword = $('#newPassword').val();
-    confirmNewPassword = $('#confirmNewPassword').val();
-
-    $.post('{% url "account:editProfile" %}', {
-            firstName: firstName,
-            lastName: lastName,
-            newPassword: newPassword,
-            confirmNewPassword: confirmNewPassword
-        },
-        function(recievedData) {
-            if (recievedData['status'] == 'ok') {
-                document.location.href = "/";
-            } else {
-                openAlertBox(recievedData['status'])
-            }
-        });
-}
-
-
-function checkBoxState(cb) {
-    if (cb.checked) {
-        document.getElementById("passwordEdit").style.height = "150px"
-        // document.getElementById("passwordEdit").style.transform = "scaleY(1)"
-    } else {
-        document.getElementById("passwordEdit").style.height = "0"
-        //document.getElementById("passwordEdit").style.transform = "scaleY(0)"
+    function deleteImage(id) {
+        $.post('{% url "account:deleteImage" %}', {
+                id: id,
+            },
+            function (recievedData) {
+                if (recievedData["status"] == 'ok') {
+                    location.reload();
+                } else {
+                    openAlertBox("Some Error Occured")
+                }
+            });
     }
-}
 
+    function deletePost(id) {
+        $.post('{% url "newsBlog:deletePost" %}', {
+                id: id,
+            },
+            function (recievedData) {
+                if (recievedData["status"] == 'ok') {
+                    location.reload();
+                } else {
+                    openAlertBox("Some Error Occured")
+                }
+            });
+    }
+
+    function confirmProfileEdit() {
+        firstName = $('#editFirstName').val();
+        lastName = $('#editLastName').val();
+        newPassword = $('#newPassword').val();
+        confirmNewPassword = $('#confirmNewPassword').val();
+
+        $.post('{% url "account:editProfile" %}', {
+                firstName: firstName,
+                lastName: lastName,
+                newPassword: newPassword,
+                confirmNewPassword: confirmNewPassword
+            },
+            function (recievedData) {
+                if (recievedData['status'] == 'ok') {
+                    document.location.href = "/";
+                } else {
+                    openAlertBox(recievedData['status'])
+                }
+            });
+    }
+
+
+    function checkBoxState(cb) {
+        if (cb.checked) {
+            document.getElementById("passwordEdit").style.height = "150px"
+            // document.getElementById("passwordEdit").style.transform = "scaleY(1)"
+        } else {
+            document.getElementById("passwordEdit").style.height = "0"
+            //document.getElementById("passwordEdit").style.transform = "scaleY(0)"
+        }
+    }
 </script>
