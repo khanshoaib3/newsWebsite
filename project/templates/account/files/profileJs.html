@@ -9,8 +9,10 @@
     document.getElementById("uploadedPosts").style.maxHeight = "65px";
     function openDropDown(val) {
         if (val == 1) {
+            if(uploadedPosts) toggleUploadPosts();
             toggleUploadPhotos()
         } else if (val == 2) {
+            if(uploadedPhotos) toggleUploadPhotos();
             toggleUploadPosts()
         }
     }

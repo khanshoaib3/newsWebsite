@@ -52,6 +52,9 @@ class Post(models.Model):
 		 										self.publish.month,
 												self.publish.day, self.slug])
 
+	def get_admin_url(self):
+		return '/admin/newsBlog/post/'+self.pk+'/change/'
+
 
 class Comment(models.Model):
 	post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')

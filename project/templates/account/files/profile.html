@@ -45,7 +45,7 @@ Profile
         <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
         <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
         <div class="overlay">
-            <div style="background:url('/media/assets/edit.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="edit"></div>
+            <a href="/admin/newsBlog/post/{{ post.pk }}/change/" target="_blank"><div style="background:url('/media/assets/edit.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" id="edit" ></div></a>
             <div style="background:url('/media/assets/delete.svg');background-size: 40px;background-position: center;width:40px;height:40px;cursor:pointer;" onclick="openDeleteBox(2,'{{ post.id }}')" ></div>
         </div>
     </div>
