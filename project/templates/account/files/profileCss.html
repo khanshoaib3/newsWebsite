@@ -1,4 +1,12 @@
 <style>
+
+    .dropdown{
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        position: absolute;
+    }
+
     #content {
         margin-top: 10vh;
         height: fit-content;
@@ -9,6 +17,7 @@
     #uploadedPosts {
         margin: 20px 0;
     }
+
 
     #container {
         width: max-content;
@@ -123,13 +132,19 @@
 
     #uploadedPhotos,
     #uploadedPosts {
-        height: fit-content;
+        height: auto;
         position: relative;
         display: flex;
         flex-wrap: wrap;
         background-color: #303536;
         justify-content: space-evenly;
         border-radius: 10px;
+        overflow: hidden;
+	    transition-property: all;
+        -webkit-transition: max-height 0.2s linear;
+        -moz-transition: max-height 0.2s linear;
+        transition: max-height 0.2s linear;
+        padding-bottom: 10px;
     }
 
     #uploadedPhotos:hover,
@@ -194,9 +209,10 @@
     #uploadedPhotos #head,
     #uploadedPosts #head {
         width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
-        color: white
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: white;
     }
 
     .photo .preview,
@@ -363,11 +379,14 @@
     @media (min-width:961px) {
 
         /* tablet, landscape iPad, lo-res laptops ands desktops */
-        #uploadedPhotos,
-        #uploadedPosts,
         #uploadedPhotos .photo,
         #uploadedPosts .post {
             width: 45%;
+        }
+               
+        #uploadedPhotos,
+        #uploadedPosts {
+            width: 55%;
         }
 
         .label {
@@ -386,11 +405,15 @@
     @media (min-width:1025px) {
 
         /* hi-res laptops and desktops */
-        #uploadedPhotos,
-        #uploadedPosts,
         #uploadedPhotos .photo,
         #uploadedPosts .post {
             width: 45%;
+        }
+
+        
+        #uploadedPhotos,
+        #uploadedPosts {
+            width: 55%;
         }
 
         .label {
@@ -409,11 +432,15 @@
     @media (min-width:1281px) {
 
         /* hi-res laptops and desktops */
-        #uploadedPhotos,
-        #uploadedPosts,
         #uploadedPhotos .photo,
         #uploadedPosts .post {
             width: 45%;
+        }
+
+        
+        #uploadedPhotos,
+        #uploadedPosts {
+            width: 55%;
         }
 
         .label {
@@ -427,5 +454,8 @@
         .postTitle {
             font-size: 22px;
         }
+    }
+    #container{
+        margin: auto 90px;
     }
 </style>

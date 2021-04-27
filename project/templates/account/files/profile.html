@@ -1,4 +1,5 @@
 {% extends 'account/base.html' %}
+{% load auth_extras %}
 {% block title %}
 Profile
 {% endblock %}
@@ -6,8 +7,13 @@ Profile
 {% include css %}
 {% endblock css %}
 {% block content %}
+{% if request.user|has_group:"Moderator" %}
 <div id="uploadedPhotos">
-    <div id="head">Uploaded Photos</div>
+    <div id="head">Uploaded Photos 
+        <div class="dropdown" onclick="openDropDown(1)">
+            <lottie-player id="upPhotoLottie" src="/media/assets/lf30_editor_i5rhehno.json" style="width:50px; height: 50px;">"></lottie-player>
+        </div>
+    </div>
     <div class="photo">
         <img class="preview" id="imagePreview">
         <label class="imageSelector" id="imageSelectorID" for="imageInputID" style="z-index:10;background:url('/media/assets/add-image.svg');background-repeat: no-repeat;background-position: center;background-size: 30%;border: 2px solid white;border-style: dashed;"></label>
@@ -29,7 +35,11 @@ Profile
     {% endfor %}
 </div>
 <div id="uploadedPosts">
-    <div id="head">Uploaded Posts</div>
+    <div id="head">Uploaded Posts
+        <div class="dropdown" onclick="openDropDown(2)">
+            <lottie-player id="upPostLottie" src="/media/assets/lf30_editor_i5rhehno.json" style="width:50px; height: 50px;">"></lottie-player>
+        </div>
+    </div>
     {% for post in posts %}
     <div class="post">
         <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
@@ -41,6 +51,7 @@ Profile
     </div>
     {% endfor %}
 </div>
+{% endif %}
 <div id="container">
     <div id="head">profile</div>
     <div id="profile">
