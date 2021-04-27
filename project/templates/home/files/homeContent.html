@@ -7,8 +7,24 @@ Company Name-HOME
 {% endblock css %}
 {% block content %}
 <div id="container">
-    <!--===============DISCORD LIST==============-->
-    {% if discord %}
+    {% for tag in tags %}
+        {% if tag %}
+        <div class="postList">
+            <span class="heading">getTagName()</span>
+            <div class="postContainer">
+                {% for post in tag %}
+                <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                    <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                    <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    <!-- 
+    
+    {% if discordw %}
     <div class="postList">
         <span class="heading">Discord News</span>
         <div class="postContainer">
@@ -21,10 +37,10 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END DISCORD LIST==============-->
+    
 
-    <!--===============MINECRAFT LIST==============-->
-    {% if minecraft %}
+    
+    {% if minecraftw %}
     <div class="postList">
         <span class="heading">Minecraft News</span>
         <div class="postContainer">
@@ -37,9 +53,7 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END MINECRAFT LIST==============-->
 
-    <!--===============TECH LIST==============-->
     {% if techs %}
     <div class="postList">
         <span class="heading">Tech News</span>
@@ -53,9 +67,7 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END TECH LIST==============-->
 
-    <!--===============GAMING LIST==============-->
     {% if gamings %}
     <div class="postList">
         <span class="heading">Gaming News</span>
@@ -69,9 +81,7 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END GAMING LIST==============-->
-
-    <!--===============ENTERTAINMENT LIST==============-->
+    
     {% if entertainments %}
     <div class="postList">
         <span class="heading">Entertainment</span>
@@ -85,7 +95,7 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END ENTERTAINMENT LIST==============-->
+    -->
 
 </div>
 {% if latest %}
@@ -103,9 +113,14 @@ Company Name-HOME
 {% endif %}
 
 <script>
+    var tags = "{{tags}}"
     document.onreadystatechange = () => {
         if (document.readyState === 'complete') {}
-};
+    };
+    function getTagName(){
+        name = tags.substring(0,tags.indexOf(","))
+        return tags
+    }
 </script>
 
 {% endblock content %}
