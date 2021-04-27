@@ -7,12 +7,12 @@ Company Name-HOME
 {% endblock css %}
 {% block content %}
 <div id="container">
-    <!--===============GLOBAl LIST==============-->
-    {% if globals %}
+    <!--===============DISCORD LIST==============-->
+    {% if discord %}
     <div class="postList">
-        <span class="heading">Global</span>
+        <span class="heading">Discord News</span>
         <div class="postContainer">
-        	{% for post in globals %}
+        	{% for post in discord %}
             <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
                 <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
                 <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
@@ -21,7 +21,23 @@ Company Name-HOME
         </div>
     </div>
     {% endif %}
-    <!--=============END GLOBAl LIST==============-->
+    <!--=============END DISCORD LIST==============-->
+
+    <!--===============MINECRAFT LIST==============-->
+    {% if minecraft %}
+    <div class="postList">
+        <span class="heading">Minecraft News</span>
+        <div class="postContainer">
+        	{% for post in minecraft %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    <!--=============END MINECRAFT LIST==============-->
 
     <!--===============TECH LIST==============-->
     {% if techs %}
@@ -72,8 +88,9 @@ Company Name-HOME
     <!--=============END ENTERTAINMENT LIST==============-->
 
 </div>
+{% if latest %}
 <div class="postTrending">
-    <span class="heading">Trending</span>
+    <span class="heading">Latest</span>
     <div class="postContainer">
         {% for post in latest %}
         <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
@@ -83,6 +100,7 @@ Company Name-HOME
         {% endfor %}
     </div>
 </div>
+{% endif %}
 
 <script>
     document.onreadystatechange = () => {

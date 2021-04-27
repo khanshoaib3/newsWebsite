@@ -7,8 +7,6 @@ def homeView(request):
                 'home/files/homeContent.html',
                 {'css':'home/files/homeCss.html',
                 'nav':'common/nav.html',
-                'globals':Post.published.filter(tags__name__in=["global","globals"]).distinct(),
-                'techs':Post.published.filter(tags__name__in=["tech","technical","technology"]).distinct(),
-                'gamings':Post.published.filter(tags__name__in=["game","gaming","games"]).distinct(),
-                'entertainments':Post.published.filter(tags__name__in=["entertainment"]).distinct(),
+                'discord':Post.published.filter(tags__name__in=["discord"]).distinct(),
+                'minecraft':Post.published.filter(tags__name__in=["minecraft"]).distinct(),
                 'latest':Post.published.all()[:5]})
