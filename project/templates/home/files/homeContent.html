@@ -8,9 +8,8 @@ Company Name-HOME
 {% block content %}
 <div id="container">
     {% for tag in tags %}
-        {% if tag %}
         <div class="postList">
-            <span class="heading">getTagName()</span>
+            <span class="heading"></span>
             <div class="postContainer">
                 {% for post in tag %}
                 <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
@@ -20,7 +19,6 @@ Company Name-HOME
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
     {% endfor %}
     <!-- 
     
@@ -100,7 +98,7 @@ Company Name-HOME
 </div>
 {% if latest %}
 <div class="postTrending">
-    <span class="heading">Latest</span>
+    <span class="trendingHeading">Latest</span>
     <div class="postContainer">
         {% for post in latest %}
         <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
@@ -113,13 +111,30 @@ Company Name-HOME
 {% endif %}
 
 <script>
-    var tags = "{{tags}}"
+    var tags = "{{tagnames}}"
     document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {}
+        if (document.readyState === 'complete') {
+            getTagName();
+        }
     };
     function getTagName(){
-        name = tags.substring(0,tags.indexOf(","))
-        return tags
+        var postListHeadings = document.getElementsByClassName("heading")
+        var toremove = [postListHeadings.length]
+        var j=0
+        for(var i=0; i<postListHeadings.length; i++)
+        {
+            name = tags.substring(0,tags.indexOf(","))
+            tags = tags.substring(tags.indexOf(",")+1,tags.length)
+            if((""+postListHeadings[i].parentElement.querySelector('.postContainer').querySelector('.post'))=="null"){
+                toremove[j] = postListHeadings[i].parentElement
+                j++
+            } else {
+                postListHeadings[i].innerHTML = name;
+            }
+        }
+        for (let index = 0; index <= j; index++) {
+            toremove[index].remove();
+        }
     }
 </script>
 
