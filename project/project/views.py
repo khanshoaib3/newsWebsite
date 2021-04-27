@@ -10,4 +10,5 @@ def homeView(request):
                 'globals':Post.published.filter(tags__name__in=["global","globals"]).distinct(),
                 'techs':Post.published.filter(tags__name__in=["tech","technical","technology"]).distinct(),
                 'gamings':Post.published.filter(tags__name__in=["game","gaming","games"]).distinct(),
-                'entertainments':Post.published.filter(tags__name__in=["entertainment"]).distinct()})
+                'entertainments':Post.published.filter(tags__name__in=["entertainment"]).distinct(),
+                'latest':Post.published.all()[:5]})
