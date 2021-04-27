@@ -1,7 +1,15 @@
 from django.contrib import admin
 from .models import Post, Comment
 
-# Register your models here.
+
+@admin.action(description='Mark selected stories as published')
+def makePublished(Post, request, queryset):
+    queryset.update(status='published')
+
+@admin.action(description='Mark selected stories as draft')
+def makeDraft(Post, request, queryset):
+    queryset.update(status='draft')
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
 	list_display=('title','author','pk','thumbnail','created','publish','status','tags')
@@ -11,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
 	raw_id_fields = ('author',)
 	date_hierarchy = 'publish'
 	ordering = ('status', 'publish')
-
+	actions = [makePublished,makeDraft,]
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
