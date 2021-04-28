@@ -1,42 +1,294 @@
 <style>
-body {
-    background-color: #333945;
-    width: 100vw;
-    height: 50vh;
-}
+    body {
+        width: 100vw;
+        height: 50vh;
+    }
 
-#homeL {
-    display: none;
-}
+    #homeL {
+        display: none;
+    }
 
-#content {
-    top: 0%;
-    left: 0;
-    width: 100%;
-    position: absolute;
-}
+    #content {
+        top: 0%;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-@media (min-width:320px) {
-    /* smartphones, iPhone, portrait 480x320 phones */
-}
 
-@media (min-width:481px) {
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-}
+    #container {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        perspective: 600px;
+    }
 
-@media (min-width:641px) {
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-}
+    .postList,
+    .postTrending {
+        height: -webkit-fit-content;
+        width: 100%;
+        min-height: 10vh;
+        padding: 15px 20px;
+        background-color: #303536;
+        color: white;
+        border-radius: 10px;
+        margin: 5px 15px;
+        transition: 0.01s;
+        perspective: 10000px;
+    }
 
-@media (min-width:961px) {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
+    .postTrending {
+        height: max-content;
+    }
 
-@media (min-width:1025px) {
-    /* big landscape tablets, laptops, and desktops */
-}
+    .postTrending .postContainer .post {
+        width: 85%;
+    }
 
-@media (min-width:1281px) {
-    /* hi-res laptops and desktops */
-}
+    .heading,.trendingHeading {
+        text-transform: capitalize;
+        color: white;
+        cursor: default;
+        font-family: 'Kreon', serif;
+    }
+
+    .postContainer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        height: auto;
+        min-height: 200px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .postContainer .post {
+        width: 45%;
+        height: auto;
+        min-height: 150px;
+        max-height: 200px;
+        margin: 5px;
+        border-radius: 5px;
+        position: relative;
+        overflow: hidden;
+        -webkit-font-smoothing: antialiased;
+        backface-visibility: hidden;
+        /*box-shadow: 1px 1px 8px 0px black;*/
+    }
+
+    .postContainer .post .postTitle {
+        margin: 25px auto;
+        text-transform: capitalize;
+        cursor: default;
+        font-family: system-ui;
+        text-align: left;
+        padding: 0 15px 0 10px;
+        z-index: 10;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transition: 0.2s;
+    }
+
+     .postTrending:hover,.postList:hover {
+        box-shadow: 1px 1px 12px 0px black;
+        background-color: #2C3335;
+        transform: scale(1.01);
+    }
+
+    .post:hover {
+        box-shadow: 1px 1px 10px 0px black;
+        transform: translateZ(150px);
+        filter: brightness(1.2);
+    }
+
+
+    .postContainer .post .postThumbnail {
+        position: absolute;
+        height: 100%;
+        width: auto;
+        min-width: 100%;
+        margin: 0;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.65);
+    }
+
+    @media (max-width: 319px) {
+
+        /*Very small devices ,*/
+        #container {
+            width: 90%;
+        }
+
+        .postTrending {
+            width: 85%;
+        }
+
+
+        .heading,.trendingHeading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 12px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 85%;
+        }
+    }
+
+    @media (min-width:320px) {
+
+        /* smartphones, iPhone, portrait 480x320 phones */
+        #container {
+            width: 90%;
+        }
+
+        .postTrending {
+            width: 85%;
+        }
+
+
+        .heading,.trendingHeading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 15px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 85%;
+        }
+    }
+
+    @media (min-width:481px) {
+
+        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        #container {
+            width: 90%;
+        }
+
+        .postTrending {
+            width: 85%;
+        }
+
+        .heading,.trendingHeading {
+            font-size: 27px;
+        }
+
+        .postTitle {
+            font-size: 17px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 65%;
+        }
+    }
+
+    @media (min-width:641px) {
+
+        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+        #container {
+            width: 80%;
+        }
+
+        .postTrending {
+            width: 75%;
+        }
+
+        .heading,.trendingHeading {
+            font-size: 28px;
+        }
+
+        .postTitle {
+            font-size: 20px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 45%;
+        }
+    }
+
+    @media (min-width:961px) {
+
+        /* tablet, landscape iPad, lo-res laptops ands desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading,.trendingHeading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 45%;
+        }
+    }
+
+    @media (min-width:1025px) {
+
+        /* big landscape tablets, laptops, and desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading,.trendingHeading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 45%;
+        }
+    }
+
+    @media (min-width:1281px) {
+
+        /* hi-res laptops and desktops */
+        #container {
+            width: 60%;
+        }
+
+        .postTrending {
+            width: 30%;
+        }
+
+        .heading,.trendingHeading {
+            font-size: 32px;
+        }
+
+        .postTitle {
+            font-size: 22px;
+        }
+
+        .postList .postContainer .post, .postTrending .postContainer .post {
+            width: 45%;
+        }
+    }
 </style>

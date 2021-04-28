@@ -157,9 +157,9 @@ def editProfile(request):
     newPassword = request.POST.get('newPassword').strip()
     confirmNewPassword = request.POST.get('confirmNewPassword').strip()
     user = User.objects.get(username = request.user.username)
-    if firstName != request.user.first_name and firstName != '' :
+    if firstName != '' :
         user.first_name = firstName
-    if lastName != request.user.last_name and lastName != '' :
+    if lastName != '' :
         user.last_name = lastName
     if newPassword!='' or confirmNewPassword!='':
         if newPassword==confirmNewPassword:

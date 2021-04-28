@@ -6,4 +6,136 @@ Company Name-HOME
 {% include css %}
 {% endblock css %}
 {% block content %}
+<div id="container">
+    {% for tag in tags %}
+        <div class="postList">
+            <span class="heading"></span>
+            <div class="postContainer">
+                {% for post in tag %}
+                <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                    <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                    <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    <!-- 
+    
+    {% if discordw %}
+    <div class="postList">
+        <span class="heading">Discord News</span>
+        <div class="postContainer">
+        	{% for post in discord %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+
+    
+    {% if minecraftw %}
+    <div class="postList">
+        <span class="heading">Minecraft News</span>
+        <div class="postContainer">
+        	{% for post in minecraft %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if techs %}
+    <div class="postList">
+        <span class="heading">Tech News</span>
+        <div class="postContainer">
+        	{% for post in techs %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% if gamings %}
+    <div class="postList">
+        <span class="heading">Gaming News</span>
+        <div class="postContainer">
+        	{% for post in gamings %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if entertainments %}
+    <div class="postList">
+        <span class="heading">Entertainment</span>
+        <div class="postContainer">
+        	{% for post in entertainments %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    -->
+
+</div>
+{% if latest %}
+<div class="postTrending">
+    <span class="trendingHeading">Latest</span>
+    <div class="postContainer">
+        {% for post in latest %}
+        <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+            <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+            <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<script>
+    var tags = "{{tagnames}}"
+    document.onreadystatechange = () => {
+        if (document.readyState === 'complete') {
+            getTagName();
+        }
+    };
+    function getTagName(){
+        var postListHeadings = document.getElementsByClassName("heading")
+        var toremove = [postListHeadings.length]
+        var j=0
+        for(var i=0; i<postListHeadings.length; i++)
+        {
+            name = tags.substring(0,tags.indexOf(","))
+            tags = tags.substring(tags.indexOf(",")+1,tags.length)
+            if((""+postListHeadings[i].parentElement.querySelector('.postContainer').querySelector('.post'))=="null"){
+                toremove[j] = postListHeadings[i].parentElement
+                j++
+            } else {
+                postListHeadings[i].innerHTML = name;
+            }
+        }
+        for (let index = 0; index <= j; index++) {
+            toremove[index].remove();
+        }
+    }
+</script>
+
 {% endblock content %}

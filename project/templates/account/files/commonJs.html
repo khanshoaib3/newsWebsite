@@ -52,4 +52,16 @@ function copyToClipboard(text, div) {
     }
 
 }
+
+
+document.addEventListener('keydown', function(event) {
+    if(event.keyCode == 13 ) {
+        if (deleteBox) document.getElementById("deleteBoxConfirm").click();
+        else if($("#extra").hasClass("extraEdit")) passSubmit();
+    } else if(event.keyCode == 27) {
+        if (deleteBox) closeDeleteBox();
+        else if($("#extra").hasClass("extraEdit")) editPortal();
+    }
+});
+
 </script>
