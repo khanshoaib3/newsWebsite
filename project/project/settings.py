@@ -27,7 +27,7 @@ SECRET_KEY = 'y7=b&3=-%^dhm2v$8tkp7fcyzi1f526iru=_g4%c=^&i@4_+o0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','shoaib12120.pythonanywhere.com','localhost',]
+ALLOWED_HOSTS = ['127.0.0.1','blindcraft.pythonanywhere.com','localhost',]
 
 
 # Application definition]
