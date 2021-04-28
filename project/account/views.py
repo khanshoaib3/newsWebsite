@@ -64,6 +64,11 @@ def signup(request):
                      {'form':form,
                      'response':'Email Already in Use','nav':'common/nav.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html'})
                 else:
+                    if " " in (cd['username']+"").strip():
+                        return render(request,
+                    'account/files/signup.html',
+                     {'form':form,
+                     'response':'Invalid Username','nav':'common/nav.html','commonCss':'account/files/commonCss.html','commonJs':'account/files/commonJs.html'})
                     if cd['password']==cd['confirm_password']:
                         if len(cd['password']) >= 8:
                             specialCharachter = 0

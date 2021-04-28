@@ -62,8 +62,10 @@
 #postTitle,#comments #head {
     font-family: 'Spartan', sans-serif;
     font-weight: bold;
+    font-variant: small-caps;
     text-transform: capitalize;
     margin-top:10px;
+    color:#E71C23;
 }
 
 #postBody {
@@ -103,6 +105,52 @@
   width:100%;
   text-align:center;
   margin-bottom:10px;
+}
+#postComment > div{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+#newCommentSubmit {
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    background-color: #ff000f;
+    color: transparent;
+    font-size: 0px;
+}
+
+#newCommentInput {
+    background-color: transparent;
+    border: 1px solid #E71C23;
+    border-radius: 5px;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    padding: 5px 40px 5px 10px;
+    line-break: auto;
+    height: 25px;
+    resize: none;
+    transition: 0.2s;
+}
+
+#postComment div div {
+    width: 65%;
+    position: relative;
+}
+
+#postComment div div div {
+    position: absolute;
+    right: -40px;
+    bottom: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+#newCommentInput::-webkit-scrollbar {
+    display: none;
 }
 /*=====================END COMMENT====================*/
 

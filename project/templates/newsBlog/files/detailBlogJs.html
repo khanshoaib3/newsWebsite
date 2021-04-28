@@ -1,38 +1,48 @@
 <script>
-var csrftoken = Cookies.get('csrftoken');
+    var csrftoken = Cookies.get('csrftoken');
 
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protectio
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    $("#newCommentInput").focusin(function () {
+        $(this).css("height", "100px");
+    });
+
+    $("#newCommentInput").focusout(function () {
+        if($(this).val().trim()==""){
+            $(this).css("height", "25px");
+        }
+    });
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protectio
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    function newCommentSend() {
+        var newComment = $("#newCommentInput").val().trim();
+        if (newComment != "") {
+            var year = '{{post.publish.year}}'
+            var month = '{{post.publish.month}}'
+            var day = '{{post.publish.day}}'
+            var slug = '{{post.slug}}'
+            $.post('{% url "newsBlog:comment" %}', {
+                    newComment: newComment,
+                    year: year,
+                    month: month,
+                    day: day,
+                    slug: slug,
+                },
+                function (recievedData) {
+                    if (recievedData['status'] == 'ok') {
+                        $("#allComments").load(window.location.href + " #allComments");
+                        var newComment = $("#newCommentInput").val("");
+                    }
+                });
         }
     }
-});
-
-function newCommentSend() {
-    var newComment = $("input#newCommentInput").val().trim();
-    if (newComment != "") {
-        var year = '{{post.publish.year}}'
-        var month = '{{post.publish.month}}'
-        var day = '{{post.publish.day}}'
-        var slug = '{{post.slug}}'
-        $.post('{% url "newsBlog:comment" %}', {
-                newComment: newComment,
-                year: year,
-                month: month,
-                day: day,
-                slug: slug,
-            },
-            function(recievedData) {
-                if (recievedData['status'] == 'ok') {
-                    $("#allComments").load(window.location.href + " #allComments");
-                    var newComment = $("input#newCommentInput").val("");
-                }
-            });
-    }
-}
 </script>

@@ -33,12 +33,12 @@
         </div>
         <div id="postComment">
             {% if request.user.is_authenticated %}
-            <ul>
-                <li><input type="text" id="newCommentInput" placeholder="Enter your comment"></li>
-                <li>
-                    <div id="newCommentSubmit" onclick="newCommentSend()">Submit</div>
-                </li>
-            </ul>
+            <div>
+                <div id="commentContainer">
+                    <textarea onfocus="" id="newCommentInput" placeholder="Enter your comment"></textarea>
+                    <div onclick="newCommentSend()" style="background-image: url(/media/assets/send.svg);background-size: 100%;background-repeat: no-repeat;"></div>
+                </div>
+            </div>
             {% else %}
             <div id="signinPrompt">
                 Please <a href="/account/signin/" target="_blank">sign in</a> to post comments!
