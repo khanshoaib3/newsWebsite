@@ -20,10 +20,10 @@ Company Name-HOME
             <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="4"
                 aria-label="Slide 5"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" style="height:100% !important;">
             {% for post in latest %}
-            <div class="carousel-item">
-                <img src="/media/{{ post.thumbnail }}" class="d-block" alt="{{ post.title }}">
+            <div class="carousel-item item">
+                <a href="{{ post.get_absolute_url }}"><img src="/media/{{ post.thumbnail }}" class="d-block" alt="{{ post.title }}"></a>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>{{ post.title }}</h5>
                 </div>
@@ -134,7 +134,7 @@ Company Name-HOME
 </div>
 {% if latest %}
 <div class="postTrending">
-    <span class="trendingHeading">Latest</span>
+    <span class="trendingHeading">Trending</span>
     <div class="postContainer">
         {% for post in latest %}
         <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">

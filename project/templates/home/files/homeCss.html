@@ -125,24 +125,31 @@
         filter: brightness(0.65);
     }
 
-    #carouselContainer{
+    #carouselContainer {
         position: relative;
         display: block;
-        width: 90%;
-        height: 250px;
     }
 
-    #carouselContainer #postCarousel{
+    #carouselContainer #postCarousel {
         width: 70%;
         height: 90%;
         overflow: hidden;
+        border-radius: 5px;
     }
 
-    .carousel-item img {
-        object-fit: cover;
-        object-position: center;
-        filter: brightness(0.65);
-        min-width: 100%;
+    .item {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .item>img,
+    .item>a>img {
+        object-fit: cover !important;
+        object-position: center !important;
+        filter: brightness(0.5) !important;
+        height: 100% !important;
+        width: auto !important;
+        min-width: 100% !important;
     }
 
     @media (max-width: 319px) {
@@ -173,6 +180,11 @@
 
         #content {
             flex-wrap: wrap;
+        }
+
+        #carouselContainer {
+            width: 90%;
+            height: 250px;
         }
     }
 
@@ -205,6 +217,11 @@
         #content {
             flex-wrap: wrap;
         }
+
+        #carouselContainer {
+            width: 90%;
+            height: 250px;
+        }
     }
 
     @media (min-width:481px) {
@@ -235,6 +252,11 @@
         #content {
             flex-wrap: wrap;
         }
+
+        #carouselContainer {
+            width: 90%;
+            height: 250px;
+        }
     }
 
     @media (min-width:641px) {
@@ -257,16 +279,21 @@
             font-size: 20px;
         }
 
-        .postList .postContainer .post{
+        .postList .postContainer .post {
             width: 45%;
         }
-        
+
         .postTrending .postContainer .post {
             width: 70%;
         }
 
         #content {
             flex-wrap: wrap;
+        }
+
+        #carouselContainer {
+            width: 70%;
+            height: 350px;
         }
     }
 
@@ -290,16 +317,21 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post{
+        .postList .postContainer .post {
             width: 45%;
         }
-        
+
         .postTrending .postContainer .post {
             width: 70%;
         }
 
         #content {
             flex-wrap: wrap;
+        }
+
+        #carouselContainer {
+            width: 70%;
+            height: 350px;
         }
     }
 
@@ -323,16 +355,21 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post{
+        .postList .postContainer .post {
             width: 45%;
         }
-        
+
         .postTrending .postContainer .post {
             width: 70%;
         }
 
         #content {
             flex-wrap: wrap;
+        }
+
+        #carouselContainer {
+            width: 70%;
+            height: 450px;
         }
     }
 
@@ -356,16 +393,21 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post{
+        .postList .postContainer .post {
             width: 45%;
         }
-        
+
         .postTrending .postContainer .post {
             width: 70%;
         }
 
         #content {
             flex-wrap: wrap;
+        }
+
+        #carouselContainer {
+            width: 70%;
+            height: 450px;
         }
     }
 </style>
