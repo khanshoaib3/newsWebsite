@@ -1,4 +1,5 @@
 {% extends "newsBlog/base.html" %}
+{% load model_extras %}
 <!--=====================TITLE==================-->
 {% block title %}
 {{ post.title }}
@@ -25,6 +26,7 @@
     </div>
     <div id="innerContainer">
         <div id="postTitle">{{post.title}}</div>
+        <div id="postAuthor">~by <span style="text-transform: capitalize;">{{ post.author }}</span>&nbsp;&middot;&nbsp;{{ post|time_difference }}</div>
         <div id="postBody">{{post.body|linebreaks}}</div>
     </div>
     <div id="comments">
@@ -41,13 +43,16 @@
             </div>
             {% else %}
             <div id="signinPrompt">
-                Please <a href="/account/signin/" target="_blank">sign in</a> to post comments!
+                Please  <a href="/account/signin/" target="_blank">sign in</a> to post comments!
             </div>
             {% endif %}
         </div>
+        <hr style="height:1px;border-width:0;color:lightgray;background-color:lightgray">
         <div id="allComments">
             {% for comment in comments %}
-            <br>{{ comment.body }}<br>
+            <div style="display:inline-block;margin-bottom: 5px;">{{ comment.name }}</div>
+            <br><span style="color: lightgrey;">&emsp;&emsp;{{ comment.body }}</span><br>
+            <hr style="height:1px;border-width:0;color:rgb(114, 114, 114);background-color:rgb(114, 114, 114)">
             {% empty %}
             No Comments
             {% endfor %}

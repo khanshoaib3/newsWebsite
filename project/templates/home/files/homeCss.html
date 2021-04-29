@@ -49,11 +49,13 @@
         width: 85%;
     }
 
-    .heading,.trendingHeading {
+    .heading,
+    .trendingHeading {
         text-transform: capitalize;
         color: white;
         cursor: default;
         font-family: 'Kreon', serif;
+        font-variant: small-caps;
     }
 
     .postContainer {
@@ -95,7 +97,8 @@
         transition: 0.2s;
     }
 
-     .postTrending:hover,.postList:hover {
+    .postTrending:hover,
+    .postList:hover {
         box-shadow: 1px 1px 12px 0px black;
         background-color: #2C3335;
         transform: scale(1.01);
@@ -122,6 +125,26 @@
         filter: brightness(0.65);
     }
 
+    #carouselContainer{
+        position: relative;
+        display: block;
+        width: 90%;
+        height: 250px;
+    }
+
+    #carouselContainer #postCarousel{
+        width: 70%;
+        height: 90%;
+        overflow: hidden;
+    }
+
+    .carousel-item img {
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.65);
+        min-width: 100%;
+    }
+
     @media (max-width: 319px) {
 
         /*Very small devices ,*/
@@ -134,7 +157,8 @@
         }
 
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 27px;
         }
 
@@ -142,8 +166,13 @@
             font-size: 12px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post,
+        .postTrending .postContainer .post {
             width: 85%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -159,7 +188,8 @@
         }
 
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 27px;
         }
 
@@ -167,8 +197,13 @@
             font-size: 15px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post,
+        .postTrending .postContainer .post {
             width: 85%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -183,7 +218,8 @@
             width: 85%;
         }
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 27px;
         }
 
@@ -191,8 +227,13 @@
             font-size: 17px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post,
+        .postTrending .postContainer .post {
             width: 65%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -207,7 +248,8 @@
             width: 75%;
         }
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 28px;
         }
 
@@ -215,8 +257,16 @@
             font-size: 20px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post{
             width: 45%;
+        }
+        
+        .postTrending .postContainer .post {
+            width: 70%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -231,7 +281,8 @@
             width: 30%;
         }
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 32px;
         }
 
@@ -239,8 +290,16 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post{
             width: 45%;
+        }
+        
+        .postTrending .postContainer .post {
+            width: 70%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -255,7 +314,8 @@
             width: 30%;
         }
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 32px;
         }
 
@@ -263,8 +323,16 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post{
             width: 45%;
+        }
+        
+        .postTrending .postContainer .post {
+            width: 70%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 
@@ -279,7 +347,8 @@
             width: 30%;
         }
 
-        .heading,.trendingHeading {
+        .heading,
+        .trendingHeading {
             font-size: 32px;
         }
 
@@ -287,8 +356,16 @@
             font-size: 22px;
         }
 
-        .postList .postContainer .post, .postTrending .postContainer .post {
+        .postList .postContainer .post{
             width: 45%;
+        }
+        
+        .postTrending .postContainer .post {
+            width: 70%;
+        }
+
+        #content {
+            flex-wrap: wrap;
         }
     }
 </style>

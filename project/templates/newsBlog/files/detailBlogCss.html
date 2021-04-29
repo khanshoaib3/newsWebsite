@@ -1,269 +1,409 @@
 <style>
-#content {
-    margin: 0;
-}
+    #content {
+        margin: 0;
+    }
 
-#homeL {
-    display: none;
-}
+    #homeL {
+        display: none;
+    }
 
-#container {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    margin-bottom: 10vh;
-}
-
-
-
-/*=======================THUMBNAIL======================*/
-#postThumbnail {
-    position: relative;
-    width: 120%;
-    overflow: hidden;
-    margin: -10px auto 0 -20px;
-    z-index: -10;
-}
-
-#postThumbnail #after {
-    background: linear-gradient(0deg, rgba(51, 57, 69, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    width: 100%;
-    height: 70%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-#postThumbnail img {
-    width: inherit;
-    height: inherit;
-    object-fit: cover;
-    object-position: center;
-    filter: brightness(0.5);
-}
-
-/*=====================END THUMBNAIL=====================*/
+    #container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        margin-bottom: 10vh;
+    }
 
 
 
-
-/*=======================POST CONTENT======================*/
-#innerContainer {
-    width: 75%;
-    height: auto;
-    background-color: #31393B;
-    color: white;
-    margin: -150px 0 20px 0;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-#postTitle,#comments #head {
-    font-family: 'Spartan', sans-serif;
-    font-weight: bold;
-    font-variant: small-caps;
-    text-transform: capitalize;
-    margin-top:10px;
-    color:#E71C23;
-}
-
-#postBody {
-    font-size: 17px;
-    text-align: justify;
-    padding: 5px;
-    font-family: 'Spartan', sans-serif;
-}
-
-/*=====================END POST CONTENT====================*/
-
-
-
-
-/*=======================COMMENT======================*/
-#comments {
-    width: 75%;
-    height: auto;
-    min-height: 10vh;
-    background-color: #31393B;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: left;
-    color: white;
-    cursor: default;
-    font-family: 'Spartan', sans-serif;
-}
-#comments #postComment{
-    padding:10px 0;
-}
-#comments #postComment #signinPrompt,#comments #postComment #signinPrompt a{
-    text-transform: capitalize;
-    color:#E71C23;
-}
-#comments #head{
-  width:100%;
-  text-align:center;
-  margin-bottom:10px;
-}
-#postComment > div{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-}
-#newCommentSubmit {
-    width: 0;
-    height: 0;
-    pointer-events: none;
-    background-color: #ff000f;
-    color: transparent;
-    font-size: 0px;
-}
-
-#newCommentInput {
-    background-color: transparent;
-    border: 1px solid #E71C23;
-    border-radius: 5px;
-    width: 100%;
-    color: white;
-    font-size: 18px;
-    outline: none;
-    padding: 5px 40px 5px 10px;
-    line-break: auto;
-    height: 25px;
-    resize: none;
-    transition: 0.2s;
-}
-
-#postComment div div {
-    width: 65%;
-    position: relative;
-}
-
-#postComment div div div {
-    position: absolute;
-    right: -40px;
-    bottom: 10px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-#newCommentInput::-webkit-scrollbar {
-    display: none;
-}
-/*=====================END COMMENT====================*/
-
-
-@media (max-width: 319px) {
-
-    /*Very small devices ,*/
+    /*=======================THUMBNAIL======================*/
     #postThumbnail {
-        height: 55vh;
+        position: relative;
+        width: 120%;
+        overflow: hidden;
+        margin: -10px auto 0 -20px;
+        z-index: -10;
     }
 
-    #postTitle,#comments #head {
-        font-size: 15px;
+    #postThumbnail #after {
+        background: linear-gradient(0deg, rgba(51, 57, 69, 1) 0%, rgba(255, 255, 255, 0) 100%);
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
-    #postBody {
-        font-size: 13px;
-    }
-}
-
-@media (min-width:320px) {
-
-    /* smartphones, iPhone, portrait 480x320 phones */
-    #postThumbnail {
-        height: 55vh;
+    #postThumbnail img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.5);
     }
 
-    #postTitle,#comments #head {
-        font-size: 20px;
+    /*=====================END THUMBNAIL=====================*/
+
+
+
+
+    /*=======================POST CONTENT======================*/
+    #innerContainer {
+        width: 75%;
+        height: auto;
+        background-color: #31393B;
+        color: white;
+        margin: -150px 0 20px 0;
+        border-radius: 10px;
+        padding: 15px;
     }
 
-    #postBody {
-        font-size: 13px;
-    }
-}
-
-@media (min-width:481px) {
-
-    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
-    #postThumbnail {
-        height: 55vh;
-    }
-
-    #postTitle,#comments #head {
-        font-size: 25px;
-    }
-
-    #postBody {
-        font-size: 15px;
-    }
-}
-
-@media (min-width:641px) {
-
-    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
-    #postThumbnail {
-        height: 55vh;
-    }
-
-    #postTitle,#comments #head {
-        font-size: 30px;
-    }
-
-    #postBody {
-        font-size: 15px;
-    }
-}
-
-@media (min-width:961px) {
-
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-    #postThumbnail {
-        height: 65vh;
-    }
-
-    #postTitle,#comments #head {
-        font-size: 35px;
+    #postTitle,
+    #comments #head {
+        font-family: 'Spartan', sans-serif;
+        font-weight: bold;
+        font-variant: small-caps;
+        text-transform: capitalize;
+        margin-top: 10px;
+        color: #E71C23;
     }
 
     #postBody {
         font-size: 17px;
-    }
-}
-
-@media (min-width:1025px) {
-
-    /* big landscape tablets, laptops, and desktops */
-    #postThumbnail {
-        height: 65vh;
+        text-align: justify;
+        padding: 5px;
+        font-family: 'Spartan', sans-serif;
     }
 
-    #postTitle,#comments #head {
-        font-size: 35px;
+    #postAuthor {
+        width: 100%;
+        text-align: left;
+        color: rgb(161, 161, 161);
+        padding-left: 15px;
     }
 
-    #postBody {
-        font-size: 17px;
-    }
-}
+    /*=====================END POST CONTENT====================*/
 
-@media (min-width:1281px) {
 
-    /* hi-res laptops and desktops */
-    #postThumbnail {
-        height: 65vh;
+
+
+    /*=======================COMMENT======================*/
+    #comments {
+        width: 75%;
+        height: auto;
+        min-height: 10vh;
+        background-color: #31393B;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: left;
+        color: white;
+        cursor: default;
+        font-family: 'Spartan', sans-serif;
     }
 
-    #postTitle,#comments #head {
-        font-size: 35px;
+    #comments #postComment {
+        padding: 10px 0;
     }
 
-    #postBody {
-        font-size: 17px;
+    #comments #postComment #signinPrompt,
+    #comments #postComment #signinPrompt a {
+        text-transform: capitalize;
+        color: #E71C23;
     }
-}
+
+    #comments #head {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    #postComment>div {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #newCommentSubmit {
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        background-color: #ff000f;
+        color: transparent;
+        font-size: 0px;
+    }
+
+    #newCommentInput {
+        background-color: transparent;
+        border: 1px solid #E71C23;
+        border-radius: 5px;
+        width: 100%;
+        color: white;
+        outline: none;
+        padding: 5px 40px 5px 10px;
+        line-break: auto;
+        resize: none;
+        transition: 0.2s;
+    }
+
+    .newCommentInputFocus {
+        height: 100px !important;
+    }
+
+    #postComment div div {
+        position: relative;
+    }
+
+    #postComment div div div {
+        position: absolute;
+        right: -40px;
+        bottom: 10px;
+        cursor: pointer;
+    }
+
+    #newCommentInput::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*=====================END COMMENT====================*/
+
+
+    @media (max-width: 319px) {
+
+        /*Very small devices ,*/
+        #postThumbnail {
+            height: 55vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 15px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 13px;
+        }
+
+        #commentContainer {
+            width: 75%;
+        }
+
+        #postComment div div div {
+            width: 15px;
+            height: 15px;
+        }
+
+        #newCommentInput {
+            height: 15px;
+        }
+    }
+
+    @media (min-width:320px) {
+
+        /* smartphones, iPhone, portrait 480x320 phones */
+        #postThumbnail {
+            height: 55vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 20px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 13px;
+        }
+
+        #commentContainer {
+            width: 75%;
+        }
+
+        #postComment div div div {
+            width: 15px;
+            height: 15px;
+        }
+
+        #newCommentInput {
+            height: 15px;
+        }
+    }
+
+    @media (min-width:481px) {
+
+        /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+        #postThumbnail {
+            height: 55vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 25px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 15px;
+        }
+
+        #commentContainer {
+            width: 75%;
+        }
+
+        #postComment div div div {
+            width: 20px;
+            height: 20px;
+        }
+
+        #newCommentInput {
+            height: 20px;
+        }
+    }
+
+    @media (min-width:641px) {
+
+        /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+        #postThumbnail {
+            height: 55vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 30px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 15px;
+        }
+
+        #commentContainer {
+            width: 75%;
+        }
+
+        #postComment div div div {
+            width: 20px;
+            height: 20px;
+        }
+
+        #newCommentInput {
+            height: 20px;
+        }
+    }
+
+    @media (min-width:961px) {
+
+        /* tablet, landscape iPad, lo-res laptops ands desktops */
+        #postThumbnail {
+            height: 65vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 35px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 17px;
+        }
+
+        #commentContainer {
+            width: 65%;
+        }
+
+        #postComment div div div {
+            width: 30px;
+            height: 30px;
+        }
+
+        #newCommentInput {
+            height: 25px;
+        }
+    }
+
+    @media (min-width:1025px) {
+
+        /* big landscape tablets, laptops, and desktops */
+        #postThumbnail {
+            height: 65vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 35px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 17px;
+        }
+
+        #commentContainer {
+            width: 65%;
+        }
+
+        #postComment div div div {
+            width: 30px;
+            height: 30px;
+        }
+
+        #newCommentInput {
+            height: 25px;
+        }
+    }
+
+    @media (min-width:1281px) {
+
+        /* hi-res laptops and desktops */
+        #postThumbnail {
+            height: 65vh;
+        }
+
+        #postTitle,
+        #comments #head {
+            font-size: 35px;
+        }
+
+        #postBody,
+        #postComment,
+        #allComments,
+        #newCommentInput,
+        #postAuthor {
+            font-size: 17px;
+        }
+
+        #commentContainer {
+            width: 65%;
+        }
+
+        #postComment div div div {
+            width: 30px;
+            height: 30px;
+        }
+
+        #newCommentInput {
+            height: 25px;
+        }
+    }
 </style>

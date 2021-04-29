@@ -2,12 +2,12 @@
     var csrftoken = Cookies.get('csrftoken');
 
     $("#newCommentInput").focusin(function () {
-        $(this).css("height", "100px");
+        $(this).addClass("newCommentInputFocus");
     });
 
     $("#newCommentInput").focusout(function () {
         if($(this).val().trim()==""){
-            $(this).css("height", "25px");
+            $(this).removeClass("newCommentInputFocus");
         }
     });
 

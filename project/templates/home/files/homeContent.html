@@ -6,19 +6,55 @@ Company Name-HOME
 {% include css %}
 {% endblock css %}
 {% block content %}
+<div id="carouselContainer">
+    <div id="postCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="4"
+                aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            {% for post in latest %}
+            <div class="carousel-item">
+                <img src="/media/{{ post.thumbnail }}" class="d-block" alt="{{ post.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ post.title }}</h5>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#postCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#postCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
 <div id="container">
     {% for tag in tags %}
-        <div class="postList">
-            <span class="heading"></span>
-            <div class="postContainer">
-                {% for post in tag %}
-                <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
-                    <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
-                    <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
-                </div>
-                {% endfor %}
+    <div class="postList">
+        <span class="heading"></span>
+        <div class="postContainer">
+            {% for post in tag %}
+            <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">
+                <div class="postTitle">{{ post.title|truncatewords:15 }}</div>
+                <img class="postThumbnail" src="/media/{{ post.thumbnail }}">
             </div>
+            {% endfor %}
         </div>
+    </div>
     {% endfor %}
     <!-- 
     
@@ -114,18 +150,21 @@ Company Name-HOME
     var tags = "{{tagnames}}"
     document.onreadystatechange = () => {
         if (document.readyState === 'complete') {
+            var carousel = document.querySelector(".carousel-item")
+            carousel.classList.add('active')
             getTagName();
         }
     };
-    function getTagName(){
+
+    function getTagName() {
         var postListHeadings = document.getElementsByClassName("heading")
         var toremove = [postListHeadings.length]
-        var j=0
-        for(var i=0; i<postListHeadings.length; i++)
-        {
-            name = tags.substring(0,tags.indexOf(","))
-            tags = tags.substring(tags.indexOf(",")+1,tags.length)
-            if((""+postListHeadings[i].parentElement.querySelector('.postContainer').querySelector('.post'))=="null"){
+        var j = 0
+        for (var i = 0; i < postListHeadings.length; i++) {
+            name = tags.substring(0, tags.indexOf(","))
+            tags = tags.substring(tags.indexOf(",") + 1, tags.length)
+            if (("" + postListHeadings[i].parentElement.querySelector('.postContainer').querySelector('.post')) ==
+                "null") {
                 toremove[j] = postListHeadings[i].parentElement
                 j++
             } else {
