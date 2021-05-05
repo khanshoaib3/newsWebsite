@@ -74,6 +74,71 @@
         text-align: justify;
         padding: 5px;
         font-family: 'Spartan', sans-serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    #postBody h1,
+    #postBody h2,
+    #postBody h3,
+    #postBody h4,
+    #postBody h5,
+    #postBody h6 {
+        text-align: left;
+        width: 100%;
+    }
+
+    #postBody pre,
+    #postBody pre code {
+        width: 90%;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+    }
+
+    #postBody pre{
+        border:1px solid #454c4e;
+        background-color: #454c4e;
+        padding: 3px 5px;
+        border-radius: 3px;
+    }
+
+    #postBody hr {
+        width: 100%;
+    }
+
+    #postBody > ul,#postBody > ol {
+        width: 100%;
+    }
+
+    #postBody table{
+        border-collapse: collapse !important;
+    }
+
+    #postBody table  * {
+        border: 2px solid gray !important;
+        padding: 5px;
+    }
+
+    #postBody a{
+        color: white;
+        font-weight: bold;
+    }
+
+    #postBody img {
+        max-width: 75%;
+    }
+
+    #postBody img:parent{
+        text-align: center;
+    }
+
+    #postBody p {
+        width: 100%;
     }
 
     #postAuthor {

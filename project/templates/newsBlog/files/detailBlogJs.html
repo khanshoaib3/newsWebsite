@@ -1,12 +1,26 @@
 <script>
     var csrftoken = Cookies.get('csrftoken');
 
+    $(document).ready(function () {
+        text = $("#postBody").html()
+        // $("#postBody").html((new showdown.Converter()).makeHtml(text))
+        var md = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true
+        });
+        md.use(window.markdownitEmoji);
+        // md.use(window.markdownitSub);
+        var result = md.render('' + text);
+        $("#postBody").html(result)
+    });
+
     $("#newCommentInput").focusin(function () {
         $(this).addClass("newCommentInputFocus");
     });
 
     $("#newCommentInput").focusout(function () {
-        if($(this).val().trim()==""){
+        if ($(this).val().trim() == "") {
             $(this).removeClass("newCommentInputFocus");
         }
     });

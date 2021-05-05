@@ -27,7 +27,7 @@
     <div id="innerContainer">
         <div id="postTitle">{{post.title}}</div>
         <div id="postAuthor">~by <span style="text-transform: capitalize;">{{ post.author }}</span>&nbsp;&middot;&nbsp;{{ post|time_difference }}</div>
-        <div id="postBody">{{post.body|linebreaks}}</div>
+        <div id="postBody">{{post.body}}</div>
     </div>
     <div id="comments">
         <div id="head">
