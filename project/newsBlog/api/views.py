@@ -5,11 +5,11 @@ from newsBlog.api.serializers import GetPostSerializer, CreatePostSerializer, Ed
 from rest_framework.decorators import authentication_classes, permission_classes
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @authentication_classes([])
 @permission_classes([])
 def getPostView(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         data = JSONParser().parse(request)
         serializer = GetPostSerializer(data=data)
         if serializer.is_valid():

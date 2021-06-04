@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListAPIView
-from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer, EditUserProfileSerializer, DeleteUserSerializer, PhotoUploadSerializer
+from account.api.serializers import CreateUserSerializer, LoginUserSerializer, EditUserPassSerializer, EditUserProfileSerializer, DeleteUserSerializer, PhotoSerializer
 from rest_framework.parsers import JSONParser
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
@@ -8,6 +8,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from account.models import Photos
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 
@@ -103,17 +104,20 @@ def deleteUserView(request):
 
 
 #================================deleteUserView========================================
-class photoUploadView(ListAPIView):
+
+class photoView(ListAPIView):
+    parser_classes = [MultiPartParser, FormParser]
     def get(self, request):
         queryset = Photos.objects.filter(user=request.user)
-        serializer_class = PhotoUploadSerializer(queryset, many=True)
+        serializer_class = PhotoSerializer(queryset, many=True)
         return JsonResponse(serializer_class.data, safe=False)
 
-    def post(self, request):
-        file1 = request.data['file']
-        image = Photos.objects.create(photo=file1,user=request.user)
-        serializer_class = PhotoUploadSerializer(image)
-        return JsonResponse(serializer_class.data, safe=False)
+    # def post(self, request):
+    #     return {'status':'ok'}
+    #     # file1 = request.data['file']
+    #     # image = Photos.objects.create(photo=file1,user=request.user)
+    #     # serializer_class = PhotoSerializer(image)
+    #     # return JsonResponse(serializer_class.data, safe=False)
     
     def delete(self, request):
         photo = Photos.objects.filter(pk=request.data['pk'])
