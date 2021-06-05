@@ -29,6 +29,7 @@
         // these HTTP methods do not require CSRF protectio
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+    
     $.ajaxSetup({
         beforeSend: function (xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {

@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from newsBlog.models import Post
+from newsBlog.models import Post,Comment
 from rest_framework.authtoken.models import Token
-
+from django.shortcuts import get_object_or_404
 
 
 class GetPostSerializer(serializers.Serializer):
@@ -50,7 +50,6 @@ class CreatePostSerializer(serializers.Serializer):
         except:
             return {'Error':'Wrong Token!!'}
 
-
 class EditPostSerializer(serializers.Serializer):
     pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     title = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
@@ -86,4 +85,52 @@ class DeletePostSerializer(serializers.Serializer):
     def create(self,validated_data):
         post = Post.objects.filter(pk=validated_data['pk'])
         post.delete()
+        return {'status':'ok'}
+
+
+#=========================Comments===============================
+class GetCommentSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+
+    def create(self, validated_data):
+        post = get_object_or_404(Post,pk=validated_data['pk'])
+        comments = post.comments.filter(active=True).values()
+        return comments
+        return {'Error':'Wrong pk!!'}
+
+class CreateCommentSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    body = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    active = serializers.BooleanField()
+    def create(self,validated_data,user):
+        post = get_object_or_404(Post,pk=validated_data['pk'])
+        comment = Comment()
+        comment.name = user.first_name
+        comment.username = user.username
+        comment.body = validated_data['body']
+        comment.active = validated_data['active']
+        comment.post = post
+        comment.save()
+        return {'Status':'ok','pk':comment.pk}
+
+class EditCommentSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    body = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    active = serializers.BooleanField()
+    
+    def create(self,validated_data):
+        try:
+            comment = Comment.objects.filter(pk=validated_data['pk'])
+            body = validated_data['body']
+            active = validated_data['active']
+            comment.update(body=body, active=active)
+            return {'Status':'ok'}
+        except:
+            return {'Error':'Wrong pk!!'}
+
+class DeleteCommentSerializer(serializers.Serializer):
+    pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
+    def create(self,validated_data):
+        comment = Comment.objects.filter(pk=validated_data['pk'])
+        comment.delete()
         return {'status':'ok'}
