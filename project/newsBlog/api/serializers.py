@@ -8,14 +8,14 @@ class GetPostSerializer(serializers.Serializer):
     typeOf = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     def create(self,validated_data):
         if validated_data['typeOf']=='all':
-            posts = Post.objects.all().values()
+            posts = Post.objects.all().values_list('id','title','body','status')
             return posts
         elif validated_data['typeOf'].find('Token')!=-1:
             spaceInWord = validated_data['typeOf'].find(' ')
             token = validated_data['typeOf'][spaceInWord+1:]
             try:
                 user = Token.objects.get(key=token).user
-                posts = Post.objects.filter(author=user).values()
+                posts = Post.objects.filter(author=user).values_list('id','title','body','status')
                 return posts
             except:
                 return {'Error':'wrong token'}
