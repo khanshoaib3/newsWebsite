@@ -21,7 +21,7 @@ class GetPostSerializer(serializers.Serializer):
                 return {'Error':'wrong token'}
 
         else: # Return Specific Post
-            post = Post.objects.filter(pk=validated_data['typeOf']).values()
+            post = Post.objects.filter(pk=validated_data['typeOf']).values_list('id','title','slug','body','thumbnail','author_id','publish','created','updated','status')
             return post
 
 
