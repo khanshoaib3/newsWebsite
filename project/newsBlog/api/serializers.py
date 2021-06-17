@@ -120,7 +120,7 @@ class EditCommentSerializer(serializers.Serializer):
     pk = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     body = serializers.CharField(max_length=None, min_length=None, allow_blank=False, trim_whitespace=True)
     active = serializers.BooleanField()
-    
+
     def create(self,validated_data):
         try:
             comment = Comment.objects.filter(pk=validated_data['pk'])

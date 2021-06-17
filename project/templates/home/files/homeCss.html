@@ -1,8 +1,8 @@
 <style>
-    body {
-        width: 100vw;
-        height: 50vh;
-    }
+body {
+    width: 100vw;
+    height: 50vh;
+}
 
     #homeL {
         display: none;
@@ -97,19 +97,6 @@
         transition: 0.2s;
     }
 
-    .postTrending:hover,
-    .postList:hover {
-        box-shadow: 1px 1px 12px 0px black;
-        background-color: #2C3335;
-        transform: scale(1.01);
-    }
-
-    .post:hover {
-        box-shadow: 1px 1px 10px 0px black;
-        transform: translateZ(150px);
-        filter: brightness(1.2);
-    }
-
 
     .postContainer .post .postThumbnail {
         position: absolute;
@@ -152,6 +139,41 @@
         min-width: 100% !important;
     }
 
+    @media (hover: hover) {
+
+        .postTrending:hover,
+        .postList:hover {
+            box-shadow: 1px 1px 12px 0px black;
+            background-color: #2C3335;
+            transform: scale(1.01);
+        }
+
+        .post:hover {
+            box-shadow: 1px 1px 10px 0px black;
+            transform: translateZ(150px);
+            filter: brightness(1.2);
+        }
+
+    }
+
+    @media (hover: none) {
+
+        .postTrending,
+        .postList{
+            box-shadow: 1px 1px 6px 0px black;
+            background-color: #2C3335;
+            transform: scale(1);
+        }
+
+        .post{
+            box-shadow: 1px 1px 5px 0px black;
+            transform: translateZ(150px);
+            filter: brightness(1.2);
+        }
+
+
+    }
+
     @media (max-width: 319px) {
 
         /*Very small devices ,*/
@@ -160,7 +182,7 @@
         }
 
         .postTrending {
-            width: 85%;
+            width: 82%;
         }
 
 
@@ -196,7 +218,7 @@
         }
 
         .postTrending {
-            width: 85%;
+            width: 82%;
         }
 
 
@@ -219,8 +241,8 @@
         }
 
         #carouselContainer {
-            width: 90%;
-            height: 250px;
+            width: 100%;
+            height: 200px;
         }
     }
 
@@ -255,7 +277,7 @@
 
         #carouselContainer {
             width: 90%;
-            height: 250px;
+            height: 200px;
         }
     }
 
@@ -267,7 +289,7 @@
         }
 
         .postTrending {
-            width: 75%;
+            width: 76%;
         }
 
         .heading,
@@ -292,7 +314,7 @@
         }
 
         #carouselContainer {
-            width: 70%;
+            width: 90%;
             height: 350px;
         }
     }

@@ -1,4 +1,5 @@
 <style>
+
     #newsL {
         display: none;
     }
@@ -22,13 +23,6 @@
         color: white;
         border-radius: 10px;
         margin: 5px 15px;
-    }
-
-    #postList:hover,
-    #postTrending:hover {
-        box-shadow: 1px 1px 12px 0px black;
-        background-color: #2C3335;
-        transform: scale(1.01);
     }
 
     .heading {
@@ -75,16 +69,6 @@
         left: 0;
         height: 100%;
         transition: 0.2s;
-    }
-
-    #postList:hover .post {
-        box-shadow: 1px 1px 5px 0px black;
-    }
-
-    .post:hover {
-        box-shadow: 1px 1px 10px 0px black;
-        transform: translateZ(50px);
-        filter: brightness(1.1);
     }
 
 
@@ -147,10 +131,6 @@
         height: fit-content;
         width: fit-content;
         cursor: default;
-    }
-
-    #filterTrigger #filterTriggerButton:hover {
-        opacity: 0.8;
     }
 
     #navHeading {
@@ -309,5 +289,56 @@
         #postContainer .post {
             width: 45%;
         }
+    }
+
+    @media(hover:hover){
+
+        #postList:hover,
+        #postTrending:hover {
+            box-shadow: 1px 1px 12px 0px black;
+            background-color: #2C3335;
+            transform: scale(1.01);
+        }
+
+        #postList:hover .post {
+            box-shadow: 1px 1px 5px 0px black;
+        }
+
+        .post:hover {
+            box-shadow: 1px 1px 10px 0px black;
+            transform: translateZ(50px);
+            filter: brightness(1.1);
+        }
+
+        #filterTrigger #filterTriggerButton:hover {
+            opacity: 0.8;
+        }
+
+
+    }
+
+    @media(hover:none){
+
+        #postList,
+        #postTrending {
+            box-shadow: 1px 1px 6px 0px black;
+            background-color: #2C3335;
+            transform: scale(1);
+        }
+
+        #postList .post {
+            box-shadow: 1px 1px 2px 0px black;
+        }
+
+        .post {
+            box-shadow: 1px 1px 5px 0px black;
+            filter: brightness(1);
+        }
+
+        #filterTrigger #filterTriggerButton {
+            opacity: 0.8;
+        }
+
+
     }
 </style>
