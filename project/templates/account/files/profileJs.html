@@ -7,6 +7,7 @@
     var uploadedPosts = false;
     var uploadedPostsHeight = document.getElementById("uploadedPosts").offsetHeight;
     document.getElementById("uploadedPosts").style.maxHeight = "65px";
+
     function openDropDown(val) {
         if (val == 1) {
             if(uploadedPosts) toggleUploadPosts();
@@ -19,23 +20,23 @@
 
     function toggleUploadPhotos() {
         if (uploadedPhotos) {
-            const player = document.querySelector("#upPhotoLottie");
-            player.setDirection(-1);
-            player.play();
-            setTimeout(function () {
-                player.stop();
-                player.seek(0);
-            }, 900);
+            //const player = document.querySelector("#upPhotoLottie");
+            //player.setDirection(-1);
+            //player.play();
+            //setTimeout(function () {
+                //player.stop();
+                //player.seek(0);
+            //}, 900);
             document.getElementById("uploadedPhotos").style.maxHeight = "65px";
             uploadedPhotos = false;
         } else {
-            const player = document.querySelector("#upPhotoLottie");
-            player.setDirection(1);
-            player.play();
-            setTimeout(function () {
-                player.stop();
-                player.seek(50);
-            }, 900);
+            //const player = document.querySelector("#upPhotoLottie");
+            //player.setDirection(1);
+            //player.play();
+            //setTimeout(function () {
+                //player.stop();
+                //player.seek(50);
+            //}, 900);
             document.getElementById("uploadedPhotos").style.maxHeight = "" + uploadedPhotosHeight + "px";
             uploadedPhotos = true;
         }
@@ -43,23 +44,23 @@
 
     function toggleUploadPosts() {
         if (uploadedPosts) {
-            const player = document.querySelector("#upPostLottie");
-            player.setDirection(-1);
-            player.play();
-            setTimeout(function () {
-                player.stop();
-                player.seek(0);
-            }, 900);
+            //const player = document.querySelector("#upPostLottie");
+            //player.setDirection(-1);
+            //player.play();
+            //setTimeout(function () {
+                //player.stop();
+                //player.seek(0);
+            //}, 900);
             document.getElementById("uploadedPosts").style.maxHeight = "65px";
             uploadedPosts = false;
         } else {
-            const player = document.querySelector("#upPostLottie");
-            player.setDirection(1);
-            player.play();
-            setTimeout(function () {
-                player.stop();
-                player.seek(50);
-            }, 900);
+            //const player = document.querySelector("#upPostLottie");
+            //player.setDirection(1);
+            //player.play();
+            //setTimeout(function () {
+                //player.stop();
+                //player.seek(50);
+            //}, 900);
             document.getElementById("uploadedPosts").style.maxHeight = "" + uploadedPostsHeight + "px";
             uploadedPosts = true;
         }
@@ -88,6 +89,7 @@
         // these HTTP methods do not require CSRF protectio
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
+
     $.ajaxSetup({
         beforeSend: function (xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -106,8 +108,8 @@
                     editPortal()
                     $('div#profile').remove();
                     $('div#foot').remove();
-                    $('div#head').text('Edit Profile');
-                    alert($('div#container').css("width"));
+                    $('div#container#head').text('Edit Profile');
+
                     $('div#container').append(
                         '<div id="profile"><div class="innerForm"><label>First Name:</label><br><input type="text" id="editFirstName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.first_name }}"></div><div class="innerForm"><label>Last Name:</label><br><input type="text" id="editLastName" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)" value="{{ request.user.last_name }}"></div><div class="innerForm"><label>Change Password<input onclick="checkBoxState(this)" style="margin-left:20px" type="checkbox"></label></div><div id="passwordEdit"><div class="innerForm"><label>New Password:</label><br><input type="password" id="newPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div><div class="innerForm"><label>Confirm Password:</label><br><input type="password" id="confirmNewPassword" class="innerInput" onmouseover="inputHover(this)" onmouseout="inputHover(this)" onchange="inputChange(this)"></div></div></div>'
                     )
