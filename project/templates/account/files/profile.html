@@ -10,9 +10,9 @@ Profile
 {% if request.user|has_group:"Moderator" %}
 <div id="uploadedPhotos">
     <div id="head" onclick="openDropDown(1)">Uploaded Photos 
-        <!-- <div class="dropdown" onclick="openDropDown(1)"> -->
-        <!--     <lottie-player id="upPhotoLottie" src="/media/assets/lf30_editor_i5rhehno.json" style="width:50px; height: 50px;">"></lottie-player> -->
-        <!-- </div> -->
+        <div class="dropdown" onclick="openDropDown(1)">
+			<img id="photoDropdown" src="/media/assets/drop-down.png" onclick="openDropDown(1)"/>
+        </div>
     </div>
     <div class="photo">
         <img class="preview" id="imagePreview">
@@ -36,9 +36,9 @@ Profile
 </div>
 <div id="uploadedPosts">
     <div id="head" onclick="openDropDown(2)">Uploaded Posts
-        <!-- <div class="dropdown" onclick="openDropDown(2)"> -->
-        <!--     <lottie-player id="upPostLottie" src="/media/assets/lf30_editor_i5rhehno.json" style="width:50px; height: 50px;">"></lottie-player> -->
-        <!-- </div> -->
+        <div class="dropdown" onclick="openDropDown(2)">
+			<img id="postDropdown" src="/media/assets/drop-down.png" onclick="openDropDown(2)"/>
+        </div>
     </div>
     {% for post in posts %}
     <div class="post">

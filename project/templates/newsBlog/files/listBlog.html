@@ -16,6 +16,22 @@
             </div>
             {% endfor %}
         </div>
+<div class="pagination">
+    <div class="step-links">
+       {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}"><button class="buttonStyle1">Previous</button></a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}"><button class="buttonStyle1">Next</button></a>
+        {% endif %}
+    </div>
+</div>
+
     </div>
     <!--=============END POST LIST==============-->
 </div>
@@ -25,7 +41,7 @@
 <div id="postFilter">
     <div id="innerContainer">
         <div id="navHeading">
-            <span id="first">Comp</span><span id="second">any</span>
+            <span id="first">Blind</span><span id="second">craft</span>
         </div>
     </div>
 </div>

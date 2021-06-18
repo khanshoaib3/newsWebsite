@@ -3,10 +3,17 @@ from .models import Post, Comment
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 #======================LIST VIEW========================
 def list(request):
-	return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':Post.published.all(),'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html'})
+    allPosts = Post.published.all()
+    paginator = Paginator(allPosts, 5)
+
+    page_number = request.GET.get("page")
+    posts = paginator.get_page(page_number)
+
+    return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':posts,'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html'})
 #====================END LIST VIEW=======================
 
 

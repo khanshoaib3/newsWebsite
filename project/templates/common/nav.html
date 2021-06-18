@@ -1,6 +1,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Spartan&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@700&display=swap" rel="stylesheet">
 <style>
+.buttonStyle1 {
+    background-color: #e64146;
+    padding: 5px 10px;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 5px;
+    line-height: initial;
+    font-family: sans-serif;
+}
     #nav {
     position: fixed;
     background-color: #2C3335;
@@ -58,6 +69,22 @@
   #navButton span:hover,
   #navButton span:active {
     color: #E71C23;
+  }
+
+  @media (hover: hover) {
+	.buttonStyle1:active,.buttonStyle1:focus {
+        background-color: #E71C23;
+        padding: 6px 11px;
+        margin: 9px 4px;
+    }
+  }
+
+  @media (hover: none){
+	.buttonStyle1 {
+        background-color: #E71C23;
+        padding: 6px 11px;
+        margin: 9px 4px;
+    }
   }
 
   @media (max-width: 319px) {

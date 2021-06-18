@@ -20,23 +20,13 @@
 
     function toggleUploadPhotos() {
         if (uploadedPhotos) {
-            //const player = document.querySelector("#upPhotoLottie");
-            //player.setDirection(-1);
-            //player.play();
-            //setTimeout(function () {
-                //player.stop();
-                //player.seek(0);
-            //}, 900);
+            const img = document.getElementById("photoDropdown");
+			img.style.transform = "rotate(0deg)"
             document.getElementById("uploadedPhotos").style.maxHeight = "65px";
             uploadedPhotos = false;
         } else {
-            //const player = document.querySelector("#upPhotoLottie");
-            //player.setDirection(1);
-            //player.play();
-            //setTimeout(function () {
-                //player.stop();
-                //player.seek(50);
-            //}, 900);
+            const img = document.getElementById("photoDropdown");
+			img.style.transform = "rotate(180deg)"
             document.getElementById("uploadedPhotos").style.maxHeight = "" + uploadedPhotosHeight + "px";
             uploadedPhotos = true;
         }
@@ -44,23 +34,13 @@
 
     function toggleUploadPosts() {
         if (uploadedPosts) {
-            //const player = document.querySelector("#upPostLottie");
-            //player.setDirection(-1);
-            //player.play();
-            //setTimeout(function () {
-                //player.stop();
-                //player.seek(0);
-            //}, 900);
+            const img = document.getElementById("postDropdown");
+			img.style.transform = "rotate(0deg)"
             document.getElementById("uploadedPosts").style.maxHeight = "65px";
             uploadedPosts = false;
         } else {
-            //const player = document.querySelector("#upPostLottie");
-            //player.setDirection(1);
-            //player.play();
-            //setTimeout(function () {
-                //player.stop();
-                //player.seek(50);
-            //}, 900);
+            const img = document.getElementById("postDropdown");
+			img.style.transform = "rotate(180deg)"
             document.getElementById("uploadedPosts").style.maxHeight = "" + uploadedPostsHeight + "px";
             uploadedPosts = true;
         }
