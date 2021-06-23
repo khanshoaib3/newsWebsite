@@ -7,7 +7,7 @@
 <div id="container">
     <!--===============POST LIST==============-->
     <div id="postList">
-        <span class="heading">All Posts</span>
+		<span class="heading">{% if searchorfiltered %}Search Results{% else %}All Posts{% endif %}</span>
         <div id="postContainer">
             {% for post in posts %}
             <div class="post" onclick="document.location.href = '{{ post.get_absolute_url }}'">

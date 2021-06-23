@@ -52,11 +52,12 @@
     #innerContainer {
         width: 75%;
         height: auto;
-        background-color: #31393B;
         color: white;
         margin: -150px 0 20px 0;
         border-radius: 10px;
         padding: 15px;
+        box-shadow: 1px 1px 6px 0px black;
+        background-color: #2C3335;
     }
 
     #postTitle,
@@ -158,7 +159,8 @@
         width: 75%;
         height: auto;
         min-height: 10vh;
-        background-color: #31393B;
+        box-shadow: 1px 1px 6px 0px black;
+        background-color: #2C3335;
         color: white;
         padding: 15px;
         border-radius: 10px;
@@ -166,6 +168,7 @@
         color: white;
         cursor: default;
         font-family: 'Spartan', sans-serif;
+		margin-bottom: 10px;
     }
 
     #comments #postComment {
@@ -266,6 +269,14 @@
         #newCommentInput {
             height: 15px;
         }
+
+		#innerContainer {
+			margin: -200px 0 20px 0;
+		}
+
+		#innerContainer,#comments{
+			width: 85%;
+		}
     }
 
     @media (min-width:320px) {
@@ -300,6 +311,14 @@
         #newCommentInput {
             height: 15px;
         }
+
+		#innerContainer {
+			margin: -200px 0 20px 0;
+		}
+
+		#innerContainer,#comments{
+			width: 85%;
+		}
     }
 
     @media (min-width:481px) {
@@ -334,6 +353,14 @@
         #newCommentInput {
             height: 20px;
         }
+
+		#innerContainer {
+			margin: -200px 0 20px 0;
+		}
+
+		#innerContainer,#comments{
+			width: 85%;
+		}
     }
 
     @media (min-width:641px) {
@@ -368,6 +395,14 @@
         #newCommentInput {
             height: 20px;
         }
+
+		#innerContainer {
+			margin: -80px 0 20px 0;
+		}
+
+		#innerContainer,#comments{
+			width: 90%;
+		}
     }
 
     @media (min-width:961px) {

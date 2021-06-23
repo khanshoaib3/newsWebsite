@@ -7,13 +7,25 @@ from django.core.paginator import Paginator
 
 #======================LIST VIEW========================
 def list(request):
-    allPosts = Post.published.all()
-    paginator = Paginator(allPosts, 5)
+    searchorfiltered = False
+    filters = request.GET.get("filters")
+    if filters is not None:
+        allPosts = Post.published.filter(tags__name__in=[filters])
+        searchorfiltered = True
+    else:
+        allPosts = Post.published.all()
 
+    search = request.GET.get("search")
+    if search is not None:
+        search = search.replace("+"," ")
+        allPosts = allPosts.filter(title__icontains=""+search)
+        searchorfiltered = True
+
+    paginator = Paginator(allPosts, 5)
     page_number = request.GET.get("page")
     posts = paginator.get_page(page_number)
 
-    return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':posts,'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html'})
+    return render(request,'newsBlog/files/listBlog.html',{'nav':'common/nav.html','posts':posts,'css':'newsBlog/files/listBlogCss.html','js':'newsBlog/files/listBlogJs.html','searchorfiltered':searchorfiltered})
 #====================END LIST VIEW=======================
 
 
